@@ -17,11 +17,13 @@ import { makeRef } from '@/utils/entities';
 import { CountryHero } from './CountryHero';
 import { ExchangeRateCard } from './ExchangeRateCard';
 import { GuideStepper } from './GuideStepper';
+import { PartnersPanel } from '@/features/trade/PartnersPanel';
 import { WorkingDays } from './WorkingDays';
 
 const SECTIONS: NavSection[] = [
   { id: 'overview', label: 'Overview' },
   { id: 'indicators', label: 'Trade indicators' },
+  { id: 'partners', label: 'Partners and sectors' },
   { id: 'guide', label: 'Process guide' },
   { id: 'authorities', label: 'Authorities' },
   { id: 'calendar', label: 'Working days' },
@@ -184,6 +186,11 @@ export default function CountryPage() {
           <section id="indicators" aria-labelledby="indicators-heading" className="scroll-mt-36">
             <Heading id="indicators" title="Trade and economic indicators" />
             <IndicatorPanel areaCode={country.cca3} areaName={country.name} />
+          </section>
+
+          <section id="partners" aria-labelledby="partners-heading" className="scroll-mt-36">
+            <Heading id="partners" title="Trade partners and sectors" lead={`Who ${country.name} trades goods with, and in what — worldwide data, not limited to any one country.`} />
+            <PartnersPanel country={country} allCountries={countries.data} />
           </section>
 
           <section id="guide" aria-labelledby="guide-heading" className="scroll-mt-36">

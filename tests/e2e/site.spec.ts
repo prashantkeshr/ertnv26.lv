@@ -56,6 +56,10 @@ const PAGES = [
   '/countries/IN',
   '/countries/DE',
   '/countries/GI', // no outline in the map data: exercises the marker fallback
+  '/regions/asia',
+  '/regions/africa',
+  '/trade',
+  '/trade/IN/DE',
   '/academy/videos',
   '/directory/organizations',
   '/directory/organizations/wto',
@@ -236,6 +240,45 @@ test.describe('accessibility (axe, WCAG 2.2 AA rules)', () => {
   }
 });
 
+test.describe('global trade', () => {
+  test('the Trade Explorer shows both directions and explains the gap between reports', async ({ page }) => {
+    await page.goto('/trade/IN/DE');
+    const main = page.getByRole('main');
+    await expect(main.getByText('Exports of goods, as reported by India')).toBeVisible();
+    await expect(main.getByText('Exports of goods, as reported by Germany')).toBeVisible();
+    await expect(main.getByText(/The two reports differ by/).first()).toBeVisible();
+    await expect(main.getByText(/does not measure overall economic benefit|not a measure of overall economic benefit/i)).toBeVisible();
+  });
+
+  test('a country with no report is explained rather than shown as zero', async ({ page }) => {
+    await page.goto('/trade/DZ/DE');
+    await expect(page.getByRole('main').getByText(/Algeria has no 2023 report in WITS/).first()).toBeVisible();
+  });
+
+  test('swapping the two countries updates the address', async ({ page }) => {
+    await page.goto('/trade/IN/DE');
+    await page.getByRole('button', { name: /swap/i }).click();
+    await expect(page).toHaveURL(/\/trade\/DE\/IN$/);
+  });
+
+  test('a country page lists its partners and links into the Explorer', async ({ page }) => {
+    await page.goto('/countries/IN');
+    const panel = page.locator('#partners');
+    await expect(panel.getByRole('heading').first()).toBeVisible();
+    await panel.getByRole('link').first().click();
+    await expect(page).toHaveURL(/\/trade\/IN\/[A-Z]{2}$/);
+  });
+
+  test('region pages cover every region and unknown ones say so', async ({ page }) => {
+    for (const r of ['africa', 'americas', 'asia', 'europe', 'oceania']) {
+      await page.goto(`/regions/${r}`);
+      await expect(page.getByRole('heading', { level: 1 })).toContainText(`Trade in ${r[0]!.toUpperCase()}${r.slice(1)}`);
+    }
+    await page.goto('/regions/atlantis');
+    await expect(page.getByText(/There is no region called/)).toBeVisible();
+  });
+});
+
 test.describe('contact and ownership', () => {
   test('footer and about page state ownership and the support address', async ({ page }) => {
     await page.goto('/about');
@@ -367,13 +410,25 @@ test.describe('home page sections', () => {
     await expect(page.getByText('Is eport a government or official body?')).toBeAttached();
   });
 
-  test('the reference strip shows national flags and neutral monograms, not organization logos', async ({ page }) => {
+  test('the reference strip shows organization logos with a trademark notice, and national flags', async ({ page }) => {
     await page.goto('/');
     const section = page.locator('section[aria-labelledby="refs-heading"]');
     await expect(section.getByText(/References only — not partners or endorsements/)).toBeVisible();
-    await expect(section.getByText('Badges are neutral monograms')).toBeVisible();
-    await expect.poll(() => section.locator('img[src*=".svg"]').count()).toBeGreaterThan(5);
-    await expect(section.locator('img').first()).toHaveAttribute('alt', '');
+    await expect(section.getByText(/Logos are trademarks of their respective owners/)).toBeVisible();
+    await expect.poll(() => section.locator('img[src*="/images/logos/"]').count()).toBeGreaterThan(5);
+    await expect(section.locator('img[src*="/images/logos/"]').first()).toHaveAttribute('alt', /logo$/);
+    await expect.poll(() => section.locator('img[alt=""][src*=".svg"]').count()).toBeGreaterThan(0);
+  });
+
+  test('choosing a region zooms the home map and links to its overview', async ({ page }) => {
+    await page.goto('/');
+    const section = page.locator('section[aria-labelledby="map-heading"]');
+    await section.scrollIntoViewIfNeeded();
+    await section.getByRole('button', { name: /^Asia/ }).click();
+    await expect(section.getByRole('button', { name: /^Asia/ })).toHaveAttribute('aria-pressed', 'true');
+    await expect(section.getByRole('img', { name: /zoomed to Asia/ })).toBeAttached();
+    await section.getByRole('link', { name: /Asia trade overview/ }).click();
+    await expect(page.getByRole('heading', { level: 1, name: 'Trade in Asia' })).toBeVisible();
   });
 
   test('solutions blocks are built from real data', async ({ page }) => {

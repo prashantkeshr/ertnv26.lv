@@ -21,7 +21,7 @@ export function Flag({ code, className }: { code: string; className?: string }) 
   return src ? <img src={src} alt="" width={20} height={15} loading="lazy" decoding="async" className={cn(box, 'object-cover', className)} /> : <span aria-hidden="true" className={cn(box, 'bg-line', className)} />;
 }
 
-/** A neutral typographic badge for an organization. Deliberately not a logo: eport does not reproduce organizations' marks. */
+/** A neutral typographic badge, used only as the fallback when an organization's logo is unavailable (see OrgLogo). */
 export function Monogram({ text, className }: { text: string; className?: string }) {
   const label = text.replace(/[^A-Za-z0-9]/g, '').slice(0, 3).toUpperCase();
   return (

@@ -158,6 +158,13 @@ export const Organization = z.object({
   /** eport editorial summary — not text from the organization. */
   summary: z.string(),
   tradeRelevance: z.array(z.string()),
+  /**
+   * The organization's own logo, downloaded from its official website, or null when none could be
+   * obtained. Always shown with a trademark notice and never as a sign of partnership.
+   */
+  logo: z
+    .object({ path: z.string().regex(/^images\/logos\/[\w.-]+$/), sourceUrl: HttpsUrl, retrievedOn: IsoDate, note: z.string() })
+    .nullable(),
   relations: z.array(Relation),
   sourceIds: z.array(z.string()).min(1),
   verification: Verification,
@@ -338,6 +345,67 @@ export const IndicatorIndex = z.object({
   areas: z.array(z.string()),
 });
 export type IndicatorIndex = z.infer<typeof IndicatorIndex>;
+
+/* ---------- bilateral merchandise trade (World Bank WITS snapshot) ---------- */
+
+const Pairs = z.array(z.tuple([z.string(), z.number()]));
+
+export const TradePartnersFile = z.object({
+  reporter: z.string().regex(/^[A-Z]{3}$/),
+  year: z.number().int(),
+  unit: z.literal('US$ thousand'),
+  sourceId: z.string(),
+  retrievedOn: IsoDate,
+  /** The reporter's own world totals for the year. Null when the source gave none. */
+  totals: z.object({ exports: z.number().nullable(), imports: z.number().nullable() }),
+  /** [partner ISO3, value] for every partner that is a country in eport's dataset, largest first. */
+  exports: Pairs,
+  imports: Pairs,
+  /** [WITS sector id, value] for the 16 HS-section groups. */
+  sectors: z.object({ exports: Pairs, imports: Pairs }),
+});
+export type TradePartnersFile = z.infer<typeof TradePartnersFile>;
+
+export const TradePartnersIndex = z.object({
+  year: z.number().int(),
+  unit: z.literal('US$ thousand'),
+  sourceId: z.string(),
+  retrievedOn: IsoDate,
+  /** ISO3 codes of reporters with a published file. */
+  reporters: z.array(z.string()),
+  note: z.string(),
+});
+export type TradePartnersIndex = z.infer<typeof TradePartnersIndex>;
+
+/* ---------- regional trade aggregates (derived from the WITS snapshot at build time) ---------- */
+
+const Lane = z.tuple([Iso2, Iso2, z.number()]);
+
+export const RegionTradeFile = z.object({
+  year: z.number().int(),
+  unit: z.literal('US$ thousand'),
+  sourceId: z.string(),
+  retrievedOn: IsoDate,
+  /** The largest one-way flows in the world: [exporter ISO2, partner ISO2, value] as reported by the exporter. */
+  lanes: z.array(Lane),
+  regions: z.record(
+    z.string(),
+    z.object({
+      countries: z.number().int(),
+      /** How many of the region's countries have a report for the year. */
+      reporters: z.number().int(),
+      /** Sums of the reporting countries' own world totals. Non-reporting countries are not estimated. */
+      exports: z.number(),
+      imports: z.number(),
+      /** Region name → exports from this region's reporters to partners in that region. */
+      destinations: z.record(z.string(), z.number()),
+      /** HS-section group id → exports summed over the region's reporters. */
+      sectors: z.array(z.tuple([z.string(), z.number()])),
+      lanes: z.array(Lane),
+    }),
+  ),
+});
+export type RegionTradeFile = z.infer<typeof RegionTradeFile>;
 
 /* ---------- featured countries (computed from indicator data; drives the Countries menu) ---------- */
 

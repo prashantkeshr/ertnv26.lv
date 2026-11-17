@@ -18,10 +18,11 @@ Phase 0 (foundation) and Phase 1 (platform shell) are complete and tested. Later
 | Unified search (fuzzy, typo-tolerant, recent searches) with results template and live web results (Wikipedia, GDELT) | Done |
 | Trade news from five official publishers (daily snapshot) + live headline search | Done |
 | Light / dark theme (follows device, with manual override) | Done |
-| Home page: animated hero, reference-body strip with flags, solutions blocks, quick finder, news, FAQ, contact | Done |
+| Home page: animated hero, reference-body strip with organization logos (trademark notice) and flags, interactive market map with region zoom, solutions blocks, quick finder, news, FAQ, contact | Done |
 | Country pages: highlighted map, key-fact strip, section tabs, India process guide, authorities, public holidays, official videos | Done (guide is a seed — India only, marked needs review) |
 | Mega menus: Countries by region (flags, largest economies), Resources (news, videos, guides) | Done |
 | Official explainer videos (13, from the WTO, WCO, ITC, IMO and ICC channels, click-to-play) | Done |
+| Global trade: partners and sectors for 152 reporting countries (WITS snapshot, 2023), Trade Explorer for any country pair, five region overview pages | Done — goods only, as reported by each country |
 | Trade Knowledge Graph ("Connected records") | Foundation — countries, authorities, organizations |
 | Data Reliability Centre | Done |
 | Static route shells, sitemap, robots, CNAME, deploy workflows | Done |

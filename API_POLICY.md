@@ -62,3 +62,11 @@ Headlines from the WTO, ITC, European Commission, ICC and UN News are fetched by
 ## Featured countries
 
 `countries/featured.json` is computed at build time from the World Bank snapshot (largest economies per region by exports of goods and services) and drives the Countries menu. It is derived data, never hand-edited.
+
+## Bilateral trade (WITS, build-time)
+
+`scripts/fetch-wits.ts` (`npm run data:wits`, resumable with `--resume`) reads the World Bank WITS SDMX API once per reporting country and writes `public/data/trade/partners/<ISO3>.json` (top partners and 16 HS-section sector totals, exports and imports) plus an index. WITS sends no CORS headers, so it is never called from the browser. Values are US$ thousand **as reported by the reporting country** (originally UN Comtrade). The script uses 4-way concurrency, retries failures, and distinguishes "the reporter published nothing" (HTTP 404 / NoRecordsFound — stored as an absence, never as zero) from a failed request (never written). Run `npm run data:build` afterwards to regenerate regional aggregates and manifest counts.
+
+## Third-party logos
+
+Logos in `public/images/logos/` are fetched once, by hand, from each organization's own website and recorded in `organizations/index.json` with their source URL and retrieval date. They are static files: no request to the organization is made when a visitor loads eport.

@@ -14,6 +14,8 @@ const DirectoryListPage = lazy(() => import('@/features/directory/DirectoryListP
 const EntityPage = lazy(() => import('@/features/directory/EntityPage'));
 const SearchPage = lazy(() => import('@/features/search/SearchPage'));
 const DataReliabilityPage = lazy(() => import('@/features/reliability/DataReliabilityPage'));
+const RegionPage = lazy(() => import('@/features/regions/RegionPage'));
+const TradeExplorerPage = lazy(() => import('@/features/trade/TradeExplorerPage'));
 const VideosPage = lazy(() => import('@/features/videos/VideosPage'));
 const NewsPage = lazy(() => import('@/features/news/NewsPage'));
 const ContactPage = lazy(() => import('@/features/contact/ContactPage'));
@@ -34,6 +36,9 @@ export const routes: RouteObject[] = [
       { path: '/directory/authorities/:id', element: <EntityPage kind="authority" /> },
       { path: '/search', element: <SearchPage /> },
       { path: '/data-reliability', element: <DataReliabilityPage /> },
+      { path: '/regions/:slug', element: <RegionPage /> },
+      { path: '/trade', element: <TradeExplorerPage /> },
+      { path: '/trade/:a/:b', element: <TradeExplorerPage /> },
       { path: '/academy/videos', element: <VideosPage /> },
       { path: '/intelligence/news', element: <NewsPage /> },
       { path: '/contact', element: <ContactPage /> },

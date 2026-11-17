@@ -186,5 +186,28 @@
       "Country profile: upcoming public holidays"
     ],
     "notes": "Informational only — confirm working days with the relevant customs authority and carrier. Regional and religious observances may be missing."
+  },
+  {
+    "id": "wits",
+    "name": "World Bank WITS — trade statistics API (SDMX)",
+    "operator": "World Bank",
+    "docsUrl": "https://wits.worldbank.org/witsapiintro.aspx",
+    "dataKind": "Merchandise trade by partner and by product sector, as reported by each reporting country",
+    "auth": "none",
+    "browserAccess": "failed",
+    "browserAccessCheckedOn": "2026-11-18",
+    "browserAccessNote": "The API response carried no Access-Control-Allow-Origin header (checked 2026-11-18), so a browser cannot call it from eport.live. eport reads it at build time and publishes dated static files, as the CC BY 4.0 licence permits.",
+    "coverage": "152 reporting countries for 2023. WITS answers \"NoRecordsFound\" for countries that did not report (for example Russia, Algeria and the Democratic Republic of the Congo for 2023); eport does not estimate them or mix in other years.",
+    "freshness": "Annual. The newest year with broad coverage is used for every country so figures are comparable.",
+    "license": "CC BY 4.0",
+    "attribution": "Source: World Bank, World Integrated Trade Solution (WITS), based on UN Comtrade data as reported by each country.",
+    "rateLimit": "Not applicable at runtime. The build script uses four parallel requests with retries.",
+    "integrationStatus": "build-time-snapshot",
+    "usedBy": [
+      "Country pages: trade partners and sectors",
+      "Trade Explorer",
+      "Region pages"
+    ],
+    "notes": "Goods only (no services). Exporter and importer reports of the same flow rarely match (freight and insurance valuation, timing, re-exports); eport shows both and states the gap."
   }
 ]

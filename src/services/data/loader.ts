@@ -21,8 +21,11 @@ import {
   Manifest,
   NewsFile,
   Organization,
+  RegionTradeFile,
   SearchIndexFile,
   Source,
+  TradePartnersFile,
+  TradePartnersIndex,
   VideosFile,
 } from '@/types/schemas';
 
@@ -41,6 +44,8 @@ export const DATASETS = {
   featured: { path: 'countries/featured.json', schema: FeaturedCountries },
   guides: { path: 'countries/guides.json', schema: z.array(CountryGuide) },
   videos: { path: 'videos/index.json', schema: VideosFile },
+  'trade-regions': { path: 'trade/regions.json', schema: RegionTradeFile },
+  'trade-index': { path: 'trade/partners/index.json', schema: TradePartnersIndex },
   'indicator-index': { path: 'trade/indicators/index.json', schema: IndicatorIndex },
 } as const;
 
@@ -99,6 +104,11 @@ export function loadDataset<K extends DatasetKey>(key: K): Promise<DatasetOf<K>>
 /** Per-economy indicator file; the caller checks the index first so missing areas are never requested. */
 export function loadIndicators(areaCode: string) {
   return loadFile(`trade/indicators/${areaCode}.json`, IndicatorFile);
+}
+
+/** One reporter's partners and sectors. Check the index first so missing reporters are never requested. */
+export function loadPartners(iso3: string) {
+  return loadFile(`trade/partners/${iso3}.json`, TradePartnersFile);
 }
 
 export function clearDataCache(): void {

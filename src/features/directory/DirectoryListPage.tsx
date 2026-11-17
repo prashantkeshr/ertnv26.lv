@@ -3,6 +3,7 @@ import { useMemo, useState } from 'react';
 import { Link } from 'react-router';
 import { routeMeta } from '@/app/route-meta';
 import { Flag } from '@/components/common/Flag';
+import { OrgLogo } from '@/components/common/OrgLogo';
 import { PageHeader, seoCrumbs } from '@/components/common/PageHeader';
 import { hostOf, inputClass } from '@/components/common/primitives';
 import { Badge, VerificationBadge } from '@/components/common/StatusBadge';
@@ -22,6 +23,7 @@ interface Row {
   official: boolean;
   place: string;
   flag: string;
+  org?: Organization;
   summary: string;
   website: string;
   status: VerificationStatus;
@@ -59,6 +61,7 @@ function fromOrganization(o: Organization): Row {
     official: ORG_IS_OFFICIAL[o.orgType],
     place: o.headquarters.city,
     flag: o.headquarters.countryCode,
+    org: o,
     summary: o.summary,
     website: o.website,
     status: o.verification.status,
@@ -143,6 +146,7 @@ export default function DirectoryListPage({ kind }: { kind: 'organization' | 'au
                   {filtered.map((r) => (
                     <li key={r.id}>
                       <Link to={r.path} className="group flex h-full flex-col rounded-lg border border-line bg-surface p-5 transition-colors hover:border-ocean">
+                        {r.org && <OrgLogo org={r.org} size="md" className="mb-4 self-start" />}
                         <div className="flex items-start justify-between gap-3">
                           <h2 className="text-base font-bold group-hover:text-link">
                             {r.name}

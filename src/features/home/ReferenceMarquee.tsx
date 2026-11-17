@@ -1,5 +1,6 @@
 import type { ReactNode } from 'react';
-import { Flag, Monogram } from '@/components/common/Flag';
+import { Flag } from '@/components/common/Flag';
+import { OrgLogo } from '@/components/common/OrgLogo';
 import { cn } from '@/components/common/primitives';
 import { useDataset } from '@/hooks/useAsync';
 
@@ -8,6 +9,8 @@ interface Chip {
   badge: ReactNode;
   abbr: string;
   name: string;
+  /** The badge is a full logo that already identifies the organization, so no text label is drawn beside it. */
+  logoOnly?: boolean;
 }
 
 function Row({ label, chips, reverse }: { label: string; chips: Chip[]; reverse?: boolean }) {
@@ -19,10 +22,14 @@ function Row({ label, chips, reverse }: { label: string; chips: Chip[]; reverse?
             {chips.map((c) => (
               <li key={c.key} className="flex items-center gap-3 whitespace-nowrap">
                 {c.badge}
-                <span>
-                  <span className="block font-display text-base leading-tight font-bold text-heading">{c.abbr}</span>
-                  <span className="block max-w-[15rem] truncate text-xs text-muted">{c.name}</span>
-                </span>
+                {c.logoOnly ? (
+                  <span className="sr-only">{c.name}</span>
+                ) : (
+                  <span>
+                    <span className="block font-display text-base leading-tight font-bold text-heading">{c.abbr}</span>
+                    <span className="block max-w-[15rem] truncate text-xs text-muted">{c.name}</span>
+                  </span>
+                )}
               </li>
             ))}
           </ul>
@@ -33,14 +40,15 @@ function Row({ label, chips, reverse }: { label: string; chips: Chip[]; reverse?
 }
 
 /**
- * Official bodies eport references. Nations are shown with their flag; international
- * organizations with a neutral monogram badge — not their official logos, which eport does
- * not reproduce because that could suggest a partnership or endorsement.
+ * Official bodies eport references. International organizations appear with their own logo
+ * (downloaded from their official websites; a neutral monogram where none was available) and
+ * national authorities with their country's flag — government emblems are legally protected in
+ * many countries and are never reproduced. Nothing here implies a partnership or endorsement.
  */
 export function ReferenceMarquee() {
   const orgs = useDataset('organizations');
   const authorities = useDataset('authorities-in');
-  const intl: Chip[] = (orgs.data ?? []).map((o) => ({ key: o.id, badge: <Monogram text={o.abbreviation} />, abbr: o.abbreviation, name: o.name }));
+  const intl: Chip[] = (orgs.data ?? []).map((o) => ({ key: o.id, badge: <OrgLogo org={o} />, abbr: o.abbreviation, name: o.name, logoOnly: Boolean(o.logo) }));
   const national: Chip[] = (authorities.data ?? []).map((a) => ({
     key: a.id,
     badge: (
@@ -58,7 +66,10 @@ export function ReferenceMarquee() {
         <h2 id="refs-heading" className="font-sans text-xs font-semibold tracking-[0.14em] text-muted uppercase">
           Official bodies whose information eport references
         </h2>
-        <p className="mt-1.5 text-xs text-muted">References only — not partners or endorsements. Badges are neutral monograms, not the organizations’ official logos.</p>
+        <p className="mx-auto mt-1.5 max-w-3xl text-xs leading-relaxed text-muted">
+          References only — not partners or endorsements. Logos are trademarks of their respective owners, taken from each organization’s own website and shown only to identify the source. National authorities
+          appear with their country’s flag.
+        </p>
       </div>
       <div className="space-y-6">
         {intl.length > 0 && <Row label="International organizations" chips={intl} />}

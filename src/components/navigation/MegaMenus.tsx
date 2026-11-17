@@ -92,10 +92,16 @@ export function CountriesPanel({ onNavigate }: { onNavigate: () => void }) {
                 </li>
               ))}
             </ul>
-            <Link to={`/countries?region=${encodeURIComponent(region)}`} onClick={onNavigate} className={cn(buttonClass('secondary', 'md'), 'mt-5')}>
-              View all {totalInRegion ?? ''} in {region}
-              <ArrowUpRight aria-hidden="true" className="size-4" />
-            </Link>
+            <div className="mt-5 flex flex-wrap gap-3">
+              <Link to={`/regions/${region.toLowerCase()}`} onClick={onNavigate} className={buttonClass('primary', 'md')}>
+                {region} trade overview
+                <ArrowUpRight aria-hidden="true" className="size-4" />
+              </Link>
+              <Link to={`/countries?region=${encodeURIComponent(region)}`} onClick={onNavigate} className={buttonClass('secondary', 'md')}>
+                View all {totalInRegion ?? ''} in {region}
+                <ArrowUpRight aria-hidden="true" className="size-4" />
+              </Link>
+            </div>
             <p className="mt-4 text-xs leading-relaxed text-muted">The largest economies in each region by exports of goods and services, from World Bank data. Every country has a profile.</p>
           </>
         ) : (

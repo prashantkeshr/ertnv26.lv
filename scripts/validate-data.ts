@@ -9,7 +9,7 @@
  *   - catalog paths exist, unpublished datasets have no file claim
  */
 import { z } from 'zod';
-import { CountryGuide, FeaturedCountries, GraphFile, IndicatorFile, IndicatorIndex, LinkStatus, Manifest, NewsFile, SearchIndexFile, VideosFile } from '../src/types/schemas';
+import { CountryGuide, FeaturedCountries, GraphFile, IndicatorFile, IndicatorIndex, LinkStatus, Manifest, NewsFile, SearchIndexFile, TradePartnersFile, TradePartnersIndex, VideosFile } from '../src/types/schemas';
 import { makeRef } from '../src/utils/entities';
 import { dataExists, loadSourceData, parseDataset, today } from './lib';
 
@@ -148,6 +148,26 @@ try {
   }
   const ageDays = (Date.parse(now) - Date.parse(news.retrievedOn)) / 86_400_000;
   if (ageDays > 14) console.warn(`⚠ News snapshot is ${Math.round(ageDays)} days old — the refresh job may have stopped.`);
+} catch (e) {
+  fail(String(e instanceof Error ? e.message : e));
+}
+
+// Worldwide trade snapshot: every file valid, matches its country, and the index lists exactly the files that exist.
+try {
+  const tindex = parseDataset('trade/partners/index.json', TradePartnersIndex);
+  if (!sourceIds.has(tindex.sourceId)) fail(`trade partners: unknown sourceId "${tindex.sourceId}"`);
+  const cca3 = new Map(data.countries.map((c) => [c.cca3, c.cca2]));
+  checkUnique('trade reporters', tindex.reporters);
+  for (const code of tindex.reporters) {
+    if (!cca3.has(code)) fail(`trade partners: reporter ${code} is not a country in the dataset`);
+    const f = parseDataset(`trade/partners/${code}.json`, TradePartnersFile);
+    if (f.reporter !== code) fail(`trade partners ${code}: file names reporter ${f.reporter}`);
+    if (f.year !== tindex.year) fail(`trade partners ${code}: year ${f.year} differs from the index year ${tindex.year}`);
+    for (const [p] of [...f.exports, ...f.imports]) if (!cca3.has(p)) fail(`trade partners ${code}: unknown partner ${p}`);
+    if (f.exports.some(([p]) => p === code) || f.imports.some(([p]) => p === code)) fail(`trade partners ${code}: lists itself as a partner`);
+    if (f.exports.length === 0 && f.imports.length === 0) fail(`trade partners ${code}: published with no partner data`);
+    for (let i = 1; i < f.exports.length; i++) if (f.exports[i - 1]![1] < f.exports[i]![1]) fail(`trade partners ${code}: exports are not sorted`);
+  }
 } catch (e) {
   fail(String(e instanceof Error ? e.message : e));
 }

@@ -1,6 +1,7 @@
 import { ArrowUpRight, Building2, Landmark } from 'lucide-react';
 import { Link, useParams } from 'react-router';
 import { PageHeader, seoCrumbs } from '@/components/common/PageHeader';
+import { OrgLogo } from '@/components/common/OrgLogo';
 import { Provenance } from '@/components/common/Provenance';
 import { buttonClass, ButtonLink, FactList, hostOf } from '@/components/common/primitives';
 import { RelatedPanel } from '@/components/common/RelatedPanel';
@@ -84,7 +85,7 @@ export default function EntityPage({ kind }: { kind: Kind }) {
 
   return (
     <>
-      <PageHeader crumbs={crumbs} kicker={record.abbreviation ?? undefined} title={record.name}>
+      <PageHeader crumbs={crumbs} kicker={record.abbreviation ?? undefined} title={record.name} leading={org ? <OrgLogo org={org} size="lg" /> : undefined}>
         <Badge tone={official ? 'info' : 'neutral'} icon={official ? Landmark : Building2}>
           {typeLabel}
         </Badge>
@@ -139,7 +140,7 @@ export default function EntityPage({ kind }: { kind: Kind }) {
           <Provenance
             sourceIds={record.sourceIds}
             verification={record.verification}
-            note={`The summary is written by eport and is not text from ${record.abbreviation ?? record.name}. eport is independent and is not affiliated with or endorsed by this body.`}
+            note={`The summary is written by eport and is not text from ${record.abbreviation ?? record.name}. eport is independent and is not affiliated with or endorsed by this body.${org?.logo ? ` ${org.logo.note}` : ''}`}
           />
         </div>
       </div>

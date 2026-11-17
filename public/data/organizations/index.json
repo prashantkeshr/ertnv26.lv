@@ -25,7 +25,13 @@
       "lastChecked": "2026-11-17",
       "method": "automated-link-check"
     },
-    "publicationStatus": "published"
+    "publicationStatus": "published",
+    "logo": {
+      "path": "images/logos/wto.gif",
+      "sourceUrl": "https://www.wto.org/images/wtomenus/logo_en.gif",
+      "retrievedOn": "2026-11-18",
+      "note": "Logo as published on the organization's own website. A trademark of its owner, shown only to identify the organization; no partnership or endorsement is implied."
+    }
   },
   {
     "id": "wco",
@@ -53,7 +59,13 @@
       "lastChecked": "2026-11-17",
       "method": "automated-link-check"
     },
-    "publicationStatus": "published"
+    "publicationStatus": "published",
+    "logo": {
+      "path": "images/logos/wco.png",
+      "sourceUrl": "https://www.wcoomd.org/-/media/wco/global/layout/logo/wco_new_logo.png",
+      "retrievedOn": "2026-11-18",
+      "note": "Logo as published on the organization's own website. A trademark of its owner, shown only to identify the organization; no partnership or endorsement is implied."
+    }
   },
   {
     "id": "imo",
@@ -81,7 +93,13 @@
       "lastChecked": "2026-11-17",
       "method": "automated-link-check"
     },
-    "publicationStatus": "published"
+    "publicationStatus": "published",
+    "logo": {
+      "path": "images/logos/imo.png",
+      "sourceUrl": "https://www.imo.org/Content/images/img/English_Colour_RGB_Horizontal.png",
+      "retrievedOn": "2026-11-18",
+      "note": "Logo as published on the organization's own website. A trademark of its owner, shown only to identify the organization; no partnership or endorsement is implied."
+    }
   },
   {
     "id": "icc",
@@ -109,7 +127,13 @@
       "lastChecked": "2026-11-17",
       "method": "automated-link-check"
     },
-    "publicationStatus": "published"
+    "publicationStatus": "published",
+    "logo": {
+      "path": "images/logos/icc.png",
+      "sourceUrl": "https://iccwbo.org/wp-content/uploads/sites/3/2023/03/ICC_FormalLogo_BlackBlue_Digital.png",
+      "retrievedOn": "2026-11-18",
+      "note": "Logo as published on the organization's own website. A trademark of its owner, shown only to identify the organization; no partnership or endorsement is implied."
+    }
   },
   {
     "id": "itc",
@@ -146,7 +170,8 @@
       "lastChecked": "2026-11-17",
       "method": "automated-link-check"
     },
-    "publicationStatus": "published"
+    "publicationStatus": "published",
+    "logo": null
   },
   {
     "id": "unctad",
@@ -173,7 +198,13 @@
       "lastChecked": "2026-11-17",
       "method": "automated-link-check"
     },
-    "publicationStatus": "published"
+    "publicationStatus": "published",
+    "logo": {
+      "path": "images/logos/unctad.png",
+      "sourceUrl": "https://unctad.org/themes/custom/newyork_b5/images/logo_en.png",
+      "retrievedOn": "2026-11-18",
+      "note": "Logo as published on the organization's own website. A trademark of its owner, shown only to identify the organization; no partnership or endorsement is implied."
+    }
   },
   {
     "id": "world-bank",
@@ -201,7 +232,13 @@
       "lastChecked": "2026-11-17",
       "method": "automated-link-check"
     },
-    "publicationStatus": "published"
+    "publicationStatus": "published",
+    "logo": {
+      "path": "images/logos/worldbank.svg",
+      "sourceUrl": "https://www.worldbank.org/content/dam/sites/edge/wbglogo-topnav-eng.svg",
+      "retrievedOn": "2026-11-18",
+      "note": "Logo as published on the organization's own website. A trademark of its owner, shown only to identify the organization; no partnership or endorsement is implied."
+    }
   },
   {
     "id": "iso",
@@ -229,7 +266,13 @@
       "lastChecked": "2026-11-17",
       "method": "automated-link-check"
     },
-    "publicationStatus": "published"
+    "publicationStatus": "published",
+    "logo": {
+      "path": "images/logos/iso.png",
+      "sourceUrl": "https://www.iso.org/modules/iso-jahia-service-module/img/iso-logo.png",
+      "retrievedOn": "2026-11-18",
+      "note": "Logo as published on the organization's own website. A trademark of its owner, shown only to identify the organization; no partnership or endorsement is implied."
+    }
   },
   {
     "id": "ippc",
@@ -262,7 +305,13 @@
       "lastChecked": "2026-11-17",
       "method": "automated-link-check"
     },
-    "publicationStatus": "published"
+    "publicationStatus": "published",
+    "logo": {
+      "path": "images/logos/ippc.jpg",
+      "sourceUrl": "https://www.ippc.int/static/img/IPPC_logo_Green_3lines_en.jpg",
+      "retrievedOn": "2026-11-18",
+      "note": "Logo as published on the organization's own website. A trademark of its owner, shown only to identify the organization; no partnership or endorsement is implied."
+    }
   },
   {
     "id": "fao",
@@ -289,6 +338,12 @@
       "lastChecked": "2026-11-17",
       "method": "automated-link-check"
     },
-    "publicationStatus": "published"
+    "publicationStatus": "published",
+    "logo": {
+      "path": "images/logos/fao.svg",
+      "sourceUrl": "https://www.fao.org/media/images/corporatelibraries/logos/fao-logo-en.svg",
+      "retrievedOn": "2026-11-18",
+      "note": "Logo as published on the organization's own website. A trademark of its owner, shown only to identify the organization; no partnership or endorsement is implied."
+    }
   }
 ]

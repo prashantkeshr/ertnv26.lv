@@ -135,6 +135,8 @@ function countRecords(path: string): number | null {
     if (Array.isArray(o.areas)) return o.areas.length;
     if (Array.isArray(o.items)) return o.items.length;
     if (Array.isArray(o.videos)) return o.videos.length;
+    if (Array.isArray(o.reporters)) return o.reporters.length;
+    if (Array.isArray(o.lanes) && o.regions && typeof o.regions === 'object') return Object.keys(o.regions).length;
     if (o.regions && typeof o.regions === 'object') return Object.keys(o.regions).length;
     const geometries = (o.objects as { countries?: { geometries?: unknown[] } } | undefined)?.countries?.geometries;
     if (Array.isArray(geometries)) return geometries.length;

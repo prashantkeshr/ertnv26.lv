@@ -359,5 +359,33 @@
     "generated": false,
     "notes": "General explainers, not specific to a country. Only videos uploaded by the organization or its own national committee/academy are listed; each loads from YouTube only when played.",
     "lastUpdated": "2026-11-17"
+  },
+  {
+    "id": "trade-partners",
+    "title": "Bilateral goods trade and sectors (worldwide)",
+    "path": "trade/partners/index.json",
+    "coverage": "partial",
+    "scope": "Goods exports and imports by partner and by sector for 152 reporting countries, 2023",
+    "phase": 1,
+    "sourceIds": [
+      "wits"
+    ],
+    "generated": false,
+    "notes": "World Bank WITS snapshot, as reported by each country. 98 countries and territories have no 2023 report and are not published; eport does not estimate them.",
+    "lastUpdated": "2026-11-18"
+  },
+  {
+    "id": "trade-regions",
+    "title": "Regional trade aggregates",
+    "path": "trade/regions.json",
+    "coverage": "partial",
+    "scope": "Region totals, destination mix, sector mix and the largest lanes, derived from the WITS snapshot",
+    "phase": 1,
+    "sourceIds": [
+      "wits"
+    ],
+    "generated": true,
+    "notes": "Sums only the countries that reported for the year; non-reporting countries are not estimated.",
+    "lastUpdated": "2026-11-18"
   }
 ]

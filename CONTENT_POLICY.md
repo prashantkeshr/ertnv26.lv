@@ -37,7 +37,8 @@ If a feature cannot work without a backend it is marked Coming Soon, specificall
 ## Logos, flags and marks
 
 - **Country flags** (flag-icons, MIT) are used to identify nations and national authorities.
-- **Organization logos are not reproduced.** WTO, IMO, ISO, ICC and similar marks are protected, and showing them beside "references only" could still suggest a partnership or endorsement. International bodies appear as neutral typographic monograms. A licensed or permissioned logo can be added later with the organization's written approval.
+- **International organizations appear with their own logo, solely to identify the source being referenced.** Each logo is downloaded from that organization's own website; `organizations/index.json` records the `sourceUrl`, retrieval date and a note, and the schema rejects a logo without them. Logos are trademarks of their owners, are never altered, recoloured or combined with eport branding, and every place they appear carries the notice "References only — not partners or endorsements. Logos are trademarks of their respective owners." An organization whose logo could not be obtained from its own site (currently the International Trade Centre, which blocks automated downloads) shows a neutral typographic monogram instead. Any owner may ask for removal at support@dhurta.org.
+- **Government emblems, seals and coats of arms are not used.** National authorities are identified by the country's flag and written name only, because emblems can imply that eport is, or speaks for, a government.
 - The independence statement ("not a government, customs, port or regulatory service") appears in the footer, About page, contact section and FAQ rather than in a persistent top banner.
 
 ## News

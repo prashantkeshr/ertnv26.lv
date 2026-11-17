@@ -339,5 +339,15 @@
     "sourceType": "research-organization",
     "jurisdiction": "INT",
     "license": "Unicode License"
+  },
+  {
+    "id": "wits",
+    "publisher": "World Bank (WITS), from UN Comtrade",
+    "title": "World Integrated Trade Solution — trade statistics by partner and sector",
+    "url": "https://wits.worldbank.org/",
+    "sourceType": "international-organization",
+    "jurisdiction": "INT",
+    "license": "CC BY 4.0",
+    "attribution": "Source: World Bank, World Integrated Trade Solution (WITS), based on UN Comtrade data as reported by each country. CC BY 4.0."
   }
 ]

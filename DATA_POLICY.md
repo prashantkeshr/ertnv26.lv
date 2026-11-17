@@ -56,3 +56,7 @@ ISO 3166-1 (alpha-2 is the primary key for countries), ISO 4217 currencies, UN/L
 ## Country guides and videos
 
 `countries/guides.json` and `videos/index.json` are validated on every build: a guide's step ids are unique, every authority it names exists in the directory, its sources exist, and it can never be marked `officially-verified` without a review record. Videos need unique 11-character ids, a known source organization and a recorded verification date; `npm run data:videos` re-verifies them against YouTube.
+
+## Trade partner snapshot
+
+Partner and sector files under `public/data/trade/` all use **one reference year (currently 2023)**. A later year is never mixed in for a country that lacks 2023: a country with no report shows an explicit "no report" state and, where its partners reported, a clearly labelled mirror figure. Each side's own export report is used as the primary figure for a flow; the partner's import report is shown beside it, with the gap and the usual reasons (freight and insurance valuation, timing, re-exports, classification). Bilateral balances use only the two export reports. Totals for a region include only countries that reported — others are not estimated. Partners that are not single countries (unspecified, regional groupings) are excluded from shares. `trade/regions.json` is derived by `scripts/build-regions.ts` and is never hand-edited; `npm run data:validate` checks every file against the shared schema and that every partner code exists in the country dataset.

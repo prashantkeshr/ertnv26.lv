@@ -6,7 +6,7 @@ import { routeMeta, SITE } from '@/app/route-meta';
 import { IndicatorPanel } from '@/components/charts/IndicatorPanel';
 import { CountUp, Reveal, spotlightHandlers } from '@/components/common/motion';
 import { ButtonLink, cn, Section, SectionHeading } from '@/components/common/primitives';
-import { CountryLevelBadge, ModuleStatusBadge } from '@/components/common/StatusBadge';
+import { ModuleStatusBadge } from '@/components/common/StatusBadge';
 import { ErrorState, Skeleton } from '@/components/feedback/states';
 import { DIVISION_ICON } from '@/components/navigation/Header';
 import { SearchCombobox } from '@/components/search/SearchCombobox';
@@ -18,12 +18,12 @@ import { formatDate, formatNumber } from '@/utils/format';
 import { HeroCards } from './HeroCards';
 import { VideoShelf } from '@/features/videos/VideoShelf';
 import { LatestNews } from './LatestNews';
+import { MarketMap } from './MarketMap';
 import { Faq, HowItWorks } from './ProcessAndFaq';
 import { QuickFinder } from './QuickFinder';
 import { ReferenceMarquee } from './ReferenceMarquee';
 import { Solutions } from './Solutions';
 
-const WorldMap = lazy(() => import('@/components/maps/WorldMap'));
 const HeroGlobe = lazy(() => import('./HeroGlobe'));
 
 const stagger = (ms: number) => ({ '--d': `${ms}ms` }) as React.CSSProperties;
@@ -231,75 +231,6 @@ function Divisions() {
   );
 }
 
-/* --------------------------------------------------------------- country */
-
-function CountryExploration() {
-  const countries = useDataset('countries');
-  const coverage = useDataset('coverage');
-  const error = countries.error ?? coverage.error;
-  const regions = countries.data
-    ? [...countries.data.reduce((m, c) => m.set(c.region, (m.get(c.region) ?? 0) + 1), new Map<string, number>())].sort((a, b) => b[1] - a[1])
-    : [];
-
-  return (
-    <Section aria-labelledby="map-heading">
-      <Reveal>
-        <SectionHeading
-          id="map-heading"
-          kicker="Country exploration"
-          title="Explore trade by country"
-          description="Open any country for its identifiers, sourced trade indicators, reference exchange rate and linked authorities."
-          action={
-            <ButtonLink to="/countries" variant="secondary">
-              Browse all countries
-              <ArrowRight aria-hidden="true" className="size-4 rtl:rotate-180" />
-            </ButtonLink>
-          }
-        />
-      </Reveal>
-      {error ? (
-        <ErrorState error={error} onRetry={() => (countries.reload(), coverage.reload())} />
-      ) : (
-        <div className="grid gap-8 lg:grid-cols-[1fr_16rem]">
-          <Reveal from="scale">
-            {countries.data && coverage.data ? (
-              <Suspense fallback={<Skeleton className="aspect-[96/50] w-full rounded-lg" />}>
-                <WorldMap countries={countries.data} coverage={coverage.data} />
-              </Suspense>
-            ) : (
-              <Skeleton className="aspect-[96/50] w-full rounded-lg" />
-            )}
-          </Reveal>
-          <Reveal delay={120}>
-            <h3 className="text-sm font-bold">By region</h3>
-            <ul className="mt-3 divide-y divide-line border-y border-line">
-              {regions.map(([region, count]) => (
-                <li key={region}>
-                  <Link to={`/countries?region=${encodeURIComponent(region)}`} className="group flex items-center justify-between py-2.5 text-sm">
-                    <span className="font-medium text-heading transition-colors group-hover:text-link">{region}</span>
-                    <span className="tabular text-muted">{count}</span>
-                  </Link>
-                </li>
-              ))}
-            </ul>
-            <div className="spot mt-6 rounded-xl border border-line bg-surface p-4" {...spotlightHandlers()}>
-              <p className="text-xs font-semibold tracking-[0.14em] text-link uppercase">Reference market</p>
-              <p className="mt-1 font-display font-bold text-heading">India</p>
-              <div className="mt-2">
-                <CountryLevelBadge level="operational-seed" />
-              </div>
-              <p className="mt-2 text-sm leading-relaxed text-muted">The first market being documented in operational depth, starting with its national trade authorities.</p>
-              <Link to="/countries/IN" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-link hover:text-link-hover">
-                Open India profile <ArrowRight aria-hidden="true" className="size-4 rtl:rotate-180" />
-              </Link>
-            </div>
-          </Reveal>
-        </div>
-      )}
-    </Section>
-  );
-}
-
 /* --------------------------------------------------------------- roadmap */
 
 const TASKS: Array<{ icon: LucideIcon; title: string; text: string; to: string; cta: string; status: ModuleStatus }> = [
@@ -399,7 +330,7 @@ export default function HomePage() {
       <Solutions />
       <QuickFinder />
       <Divisions />
-      <CountryExploration />
+      <MarketMap />
       <Section tone="soft" aria-labelledby="stats-heading">
         <Reveal>
           <SectionHeading
