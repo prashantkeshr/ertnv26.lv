@@ -1,4 +1,5 @@
 @import 'tailwindcss';
+@import './motion.css';
 
 /*
  * eport design tokens.
@@ -16,6 +17,8 @@
   --color-ocean-dark: #115478;
   --color-accent: #2689c7;
   --color-sky: #9fd0ee;
+  --color-aurora: #3fb8e8;
+  --color-deep: #07162a;
   --color-soft: #f4f7fa;
   --color-line: #dce4eb;
   --color-ink: #263746;

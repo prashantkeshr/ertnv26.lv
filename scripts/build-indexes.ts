@@ -127,7 +127,7 @@ writeJson('search/index.json', SearchIndexFile.parse({ generatedAt, docs }));
 function countRecords(path: string): number | null {
   if (!dataExists(path)) throw new Error(`Catalog lists ${path} but the file does not exist`);
   const json = readJson(path) as unknown;
-  if (Array.isArray(json)) return json.length;
+  if (Array.isArray(json)) return json.length; // also covers the land-dots coordinate list
   if (json && typeof json === 'object') {
     const o = json as Record<string, unknown>;
     if (Array.isArray(o.docs)) return o.docs.length;

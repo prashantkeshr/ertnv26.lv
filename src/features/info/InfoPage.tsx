@@ -2,6 +2,8 @@ import type { ReactNode } from 'react';
 import { Link } from 'react-router';
 import { routeMeta } from '@/app/route-meta';
 import { PageHeader, seoCrumbs } from '@/components/common/PageHeader';
+import { COMPANY } from '@/app/company';
+import { OwnershipNote } from '@/components/common/OwnershipNote';
 import { RequirementBadge, VerificationBadge } from '@/components/common/StatusBadge';
 import { useSeo } from '@/hooks/useSeo';
 import type { RequirementStatus, VerificationStatus } from '@/types/schemas';
@@ -42,6 +44,16 @@ function About() {
       <P>
         eport is an independent information platform for international trade and maritime commerce. It brings together country profiles, official authorities, international
         organizations, sourced statistics and — as they are built — learning pathways, document guidance and planning tools for exporters and importers.
+      </P>
+      <H2>Who runs eport</H2>
+      <OwnershipNote />
+      <P>
+        Dhurta Group manages the platform day to day. eport remains independent of any government or regulator: ownership by Dhurta.org does not change how sources are chosen, how records
+        are labelled, or what the site will and will not claim. Questions, corrections and partnership enquiries go to{' '}
+        <a href={`mailto:${COMPANY.supportEmail}`} className="link">
+          {COMPANY.supportEmail}
+        </a>{' '}
+        or the <Link to="/contact" className="link">contact page</Link>.
       </P>
       <H2>What eport is not</H2>
       <Ul
@@ -186,6 +198,12 @@ function Privacy() {
         ]}
       />
       <P>Fonts, map geometry and all eport data are served from eport.live itself. World Bank statistics are published as static files and are not requested from the World Bank by your browser.</P>
+
+      <H2>Contacting us</H2>
+      <P>
+        The contact form on this site does not send anything itself. It prepares an email and opens <em>your</em> email application, addressed to {COMPANY.supportEmail}. Nothing is transmitted
+        until you press send in that application, and eport keeps no copy of what you wrote.
+      </P>
 
       <H2>Hosting</H2>
       <P>The site is hosted on GitHub Pages. Like any web host, GitHub may log technical request data such as IP addresses under its own privacy statement.</P>

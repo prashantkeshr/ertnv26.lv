@@ -8,16 +8,17 @@ export function cn(...parts: Array<string | false | null | undefined>): string {
 
 /* ---------- buttons ---------- */
 
-type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'inverse';
+type ButtonVariant = 'primary' | 'secondary' | 'ghost' | 'inverse' | 'light';
 type ButtonSize = 'sm' | 'md' | 'lg';
 
 const BUTTON_BASE =
-  'inline-flex items-center justify-center gap-2 rounded-md font-medium transition-colors duration-150 disabled:cursor-not-allowed disabled:opacity-50';
+  'btn-arrow inline-flex items-center justify-center gap-2 rounded-md font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50 active:translate-y-px';
 const BUTTON_VARIANT: Record<ButtonVariant, string> = {
-  primary: 'bg-ocean text-white hover:bg-ocean-dark',
+  primary: 'bg-ocean text-white shadow-[0_10px_24px_-10px_rgb(23_107_154/0.75)] hover:-translate-y-px hover:bg-ocean-dark hover:shadow-[0_14px_28px_-10px_rgb(23_107_154/0.85)]',
   secondary: 'border border-line bg-white text-navy hover:border-ocean hover:text-ocean',
   ghost: 'text-ocean hover:bg-info-soft',
-  inverse: 'border border-white/25 bg-white/5 text-white hover:bg-white/15',
+  inverse: 'border border-white/25 bg-white/5 text-white hover:border-white/50 hover:bg-white/15',
+  light: 'bg-white text-navy shadow-[0_12px_30px_-12px_rgb(0_0_0/0.65)] hover:-translate-y-px hover:bg-sky',
 };
 const BUTTON_SIZE: Record<ButtonSize, string> = {
   sm: 'min-h-9 px-3 text-sm',

@@ -24,6 +24,7 @@ const PAGES = [
   '/intelligence',
   '/academy',
   '/data-reliability',
+  '/contact',
   '/methodology',
   '/about',
   '/privacy',
@@ -137,7 +138,7 @@ test.describe('trust and honesty', () => {
     await expect(page.getByText('Trade documents library')).toBeVisible();
     await expect(page.getByText('Browser access blocked').first()).toBeVisible();
     await page.getByRole('button', { name: /Not available yet/ }).click();
-    await expect(page.getByText(/Showing 10 of 20 datasets/)).toBeVisible();
+    await expect(page.getByText(/Showing 10 of \d+ datasets/)).toBeVisible();
   });
 
   test('external links open safely in a new tab', async ({ page }) => {
@@ -182,12 +183,96 @@ test.describe('interactive features', () => {
 test.describe('accessibility (axe, WCAG 2.2 AA rules)', () => {
   for (const path of PAGES) {
     test(`${path} has no detectable violations`, async ({ page }) => {
+      // Reveal/entrance animations are off under reduced motion, so axe measures final colours, not mid-fade ones.
+      await page.emulateMedia({ reducedMotion: 'reduce' });
       await page.goto(path);
       await page.waitForLoadState('networkidle');
       const results = await new AxeBuilder({ page }).withTags(['wcag2a', 'wcag2aa', 'wcag21a', 'wcag21aa', 'wcag22aa']).analyze();
       expect(results.violations.map((v) => `${v.id}: ${v.nodes.map((n) => n.target.join(' ')).slice(0, 3).join(' | ')}`)).toEqual([]);
     });
   }
+});
+
+test.describe('contact and ownership', () => {
+  test('footer and about page state ownership and the support address', async ({ page }) => {
+    await page.goto('/about');
+    await expect(page.getByRole('heading', { name: 'Who runs eport' })).toBeVisible();
+    // The sentence contains a link with a screen-reader notice, so match its two halves.
+    const about = page.getByRole('main');
+    await expect(about.getByText(/eport is a subsidiary of/)).toBeVisible();
+    await expect(about.getByText(/and is managed by Dhurta Group\./)).toBeVisible();
+    const footer = page.getByRole('contentinfo');
+    await expect(footer.getByText(/A subsidiary of/)).toBeVisible();
+    await expect(footer.getByText(/Managed by Dhurta Group/)).toBeVisible();
+    await expect(footer.getByRole('link', { name: 'support@dhurta.org' })).toHaveAttribute('href', 'mailto:support@dhurta.org');
+    await expect(footer.getByRole('link', { name: /Dhurta\.org/ })).toHaveAttribute('href', 'https://dhurta.org');
+  });
+
+  test('home page has a contact section', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('#contact').getByRole('heading', { name: 'Talk to the eport team' })).toBeAttached();
+    await expect(page.locator('#contact').getByRole('link', { name: 'support@dhurta.org' })).toHaveAttribute('href', 'mailto:support@dhurta.org');
+  });
+
+  test('the form validates, then composes an email without claiming it was sent', async ({ page }) => {
+    await page.addInitScript(() => {
+      window.__eportMailtoSink = [];
+    });
+    await page.goto('/contact');
+    await page.getByRole('button', { name: /Compose email/ }).click();
+    await expect(page.getByText('Enter your name.')).toBeVisible();
+    await expect(page.getByText('Enter your email address.')).toBeVisible();
+    await expect(page.getByText(/at least 10 characters/)).toBeVisible();
+
+    await page.getByLabel('Your name').fill('Asha Verma');
+    await page.getByLabel('Email address').fill('not-an-email');
+    await page.getByLabel('Email address').blur();
+    await expect(page.getByText(/valid email address/)).toBeVisible();
+    await page.getByLabel('Email address').fill('asha@example.com');
+    await page.getByLabel('Topic').selectOption('correction');
+    await page.getByLabel('Message').fill('The DGFT summary should link to the current IEC procedure page.');
+    await page.getByRole('button', { name: /Compose email/ }).click();
+
+    await expect(page.getByText('Your email app should now be open')).toBeVisible();
+    const href = await page.evaluate(() => window.__eportMailtoSink?.[0] ?? '');
+    expect(href.startsWith('mailto:support@dhurta.org?subject=')).toBe(true);
+    const params = new URL(href).searchParams;
+    expect(params.get('subject')).toContain('Report an error');
+    expect(params.get('body')).toContain('The DGFT summary should link');
+    expect(params.get('body')).toContain('asha@example.com');
+    await expect(page.getByText(/nothing is sent until you press send/i)).toBeVisible();
+  });
+});
+
+test.describe('motion', () => {
+  test('animation is on by default and the hero globe is decorative', async ({ page }) => {
+    await page.goto('/');
+    await expect(page.locator('html')).toHaveClass(/motion/);
+    await expect(page.locator('canvas[aria-hidden="true"]')).toBeAttached();
+  });
+
+  test('reduced motion turns animation off and shows all content', async ({ page }) => {
+    await page.emulateMedia({ reducedMotion: 'reduce' });
+    await page.goto('/');
+    await expect(page.locator('html')).not.toHaveClass(/motion/);
+    const faded = await page.evaluate(() => [...document.querySelectorAll('.reveal')].filter((e) => getComputedStyle(e).opacity !== '1').length);
+    expect(faded).toBe(0);
+  });
+
+  test('sections reveal as they scroll into view', async ({ page, isMobile }) => {
+    test.skip(isMobile, 'scroll-position assertions are covered on desktop');
+    await page.goto('/');
+    const contact = page.locator('#contact .reveal').first();
+    await expect(contact).toHaveAttribute('data-reveal', 'out');
+    await page.locator('#contact').scrollIntoViewIfNeeded();
+    await expect(contact).toHaveAttribute('data-reveal', 'in');
+  });
+
+  test('static shell carries organization structured data naming the parent', async ({ request }) => {
+    const html = await (await request.get('/')).text();
+    expect(html).toContain('"parentOrganization"');
+    expect(html).toContain('support@dhurta.org');
+  });
 });
 
 test.describe('mobile navigation', () => {

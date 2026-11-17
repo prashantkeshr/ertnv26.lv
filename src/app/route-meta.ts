@@ -30,6 +30,7 @@ export const ROUTES: RouteMeta[] = [
   { path: '/search', title: 'Search eport', description: 'Search countries, authorities, organizations and tools across eport.', indexable: false },
   { path: '/data-reliability', title: 'Data Reliability Centre', description: 'Which eport datasets, countries, APIs and authorities are verified, partially covered, seeded or unavailable — and when each was last checked.', indexable: true },
   { path: '/methodology', title: 'Sources and methodology', description: 'How eport selects sources, labels verification and requirement status, and reviews regulatory content.', indexable: true },
+  { path: '/contact', title: 'Contact eport', description: 'Contact the eport team at support@dhurta.org to report an error, suggest an official source or discuss a partnership. eport is a subsidiary of Dhurta.org, managed by Dhurta Group.', indexable: true },
   { path: '/about', title: 'About eport', description: 'eport is an independent trade and maritime information platform. It is not a government, customs, port or regulatory service.', indexable: true },
   { path: '/privacy', title: 'Privacy and local data', description: 'eport has no accounts and no server. What is stored in your browser, and which external services receive requests.', indexable: true },
   ...DIVISIONS.map((d) => ({

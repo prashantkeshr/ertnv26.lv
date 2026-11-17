@@ -40,6 +40,20 @@
     "lastUpdated": "2026-11-17"
   },
   {
+    "id": "geo-land-dots",
+    "title": "Hero globe land dots",
+    "path": "geo/land-dots.json",
+    "coverage": "verified",
+    "scope": "Decorative dot grid derived from Natural Earth land outlines",
+    "phase": 1,
+    "sourceIds": [
+      "natural-earth"
+    ],
+    "generated": true,
+    "notes": "Used only for the decorative home-page globe. Not vessel, port or trade data.",
+    "lastUpdated": "2026-11-17"
+  },
+  {
     "id": "organizations",
     "title": "International organizations",
     "path": "organizations/index.json",

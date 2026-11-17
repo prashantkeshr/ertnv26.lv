@@ -14,6 +14,7 @@ const DirectoryListPage = lazy(() => import('@/features/directory/DirectoryListP
 const EntityPage = lazy(() => import('@/features/directory/EntityPage'));
 const SearchPage = lazy(() => import('@/features/search/SearchPage'));
 const DataReliabilityPage = lazy(() => import('@/features/reliability/DataReliabilityPage'));
+const ContactPage = lazy(() => import('@/features/contact/ContactPage'));
 const InfoPage = lazy(() => import('@/features/info/InfoPage'));
 const NotFoundPage = lazy(() => import('@/features/info/NotFoundPage'));
 
@@ -31,6 +32,7 @@ export const routes: RouteObject[] = [
       { path: '/directory/authorities/:id', element: <EntityPage kind="authority" /> },
       { path: '/search', element: <SearchPage /> },
       { path: '/data-reliability', element: <DataReliabilityPage /> },
+      { path: '/contact', element: <ContactPage /> },
       { path: '/methodology', element: <InfoPage page="methodology" /> },
       { path: '/about', element: <InfoPage page="about" /> },
       { path: '/privacy', element: <InfoPage page="privacy" /> },

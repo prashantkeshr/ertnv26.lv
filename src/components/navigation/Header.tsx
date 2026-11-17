@@ -90,7 +90,32 @@ export function Header() {
   const [openId, setOpenId] = useState<string | null>(null);
   const [mobileOpen, setMobileOpen] = useState(false);
   const headerRef = useRef<HTMLElement>(null);
+  const barRef = useRef<HTMLDivElement>(null);
+  const [scrolled, setScrolled] = useState(false);
   const openDivision = DIVISIONS.find((d) => d.id === openId);
+
+  // Glass header + reading-progress bar. The bar is updated directly (no re-render per scroll event).
+  useEffect(() => {
+    let raf = 0;
+    const update = () => {
+      raf = 0;
+      const y = window.scrollY;
+      setScrolled(y > 8);
+      const max = document.documentElement.scrollHeight - window.innerHeight;
+      if (barRef.current) barRef.current.style.transform = `scaleX(${max > 0 ? Math.min(1, y / max) : 0})`;
+    };
+    const onScroll = () => {
+      if (!raf) raf = requestAnimationFrame(update);
+    };
+    update();
+    window.addEventListener('scroll', onScroll, { passive: true });
+    window.addEventListener('resize', onScroll);
+    return () => {
+      window.removeEventListener('scroll', onScroll);
+      window.removeEventListener('resize', onScroll);
+      if (raf) cancelAnimationFrame(raf);
+    };
+  }, [location.pathname]);
 
   // Close menus on navigation.
   useEffect(() => {
@@ -144,7 +169,10 @@ export function Header() {
         </div>
       </div>
 
-      <div className="relative bg-navy text-white">
+      <div className={cn('relative text-white transition-[background-color,box-shadow] duration-300', scrolled ? 'bg-deep/90 shadow-[0_10px_30px_-18px_rgb(0_0_0/0.8)] backdrop-blur-md' : 'bg-navy')}>
+        <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-0.5 bg-white/5">
+          <div ref={barRef} className="scroll-progress h-full bg-aurora" style={{ transform: 'scaleX(0)' }} />
+        </div>
         <div className="container-page flex h-16 items-center gap-2 lg:gap-6">
           <Link to="/" aria-label="eport home" className="shrink-0 rounded">
             <Logo />
@@ -195,6 +223,9 @@ export function Header() {
             <div className="hidden w-64 md:block lg:hidden xl:block">
               <SearchCombobox variant="header" inputId="header-search" />
             </div>
+            <Link to="/contact" className="ms-1 hidden min-h-9 items-center rounded-md border border-white/25 px-3.5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white hover:text-navy xl:inline-flex">
+              Contact
+            </Link>
             <Link to="/search" aria-label={t('search.label')} className="rounded-md p-2.5 text-white/85 hover:bg-white/10 hover:text-white md:hidden lg:block xl:hidden">
               <Search aria-hidden="true" className="size-5" />
             </Link>
@@ -239,6 +270,7 @@ export function Header() {
               { to: '/directory/organizations', label: 'International organizations' },
               { to: '/directory/authorities', label: 'Official authorities' },
               { to: '/data-reliability', label: 'Data Reliability Centre' },
+              { to: '/contact', label: 'Contact us' },
               { to: '/methodology', label: 'Sources and methodology' },
               { to: '/about', label: 'About eport' },
             ].map((item) => (

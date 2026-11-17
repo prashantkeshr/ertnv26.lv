@@ -7,7 +7,7 @@
   "scripts": {
     "dev": "vite",
     "predev": "npm run data:build",
-    "data:countries": "tsx scripts/build-countries.ts",
+    "data:countries": "tsx scripts/build-countries.ts && tsx scripts/build-globe.ts",
     "data:worldbank": "tsx scripts/fetch-worldbank.ts",
     "data:build": "tsx scripts/build-indexes.ts",
     "data:validate": "tsx scripts/validate-data.ts",
@@ -23,11 +23,13 @@
   "dependencies": {
     "@fontsource-variable/inter": "^5.3.0",
     "@fontsource-variable/manrope": "^5.3.0",
+    "@hookform/resolvers": "^7.0.6",
     "d3-geo": "^3.1.2",
     "lucide-react": "^1.73.0",
     "minisearch": "^7.2.0",
     "react": "^19.3.1",
     "react-dom": "^19.3.1",
+    "react-hook-form": "^7.92.0",
     "react-router": "^8.5.1",
     "topojson-client": "^3.1.0",
     "zod": "^4.6.7"
