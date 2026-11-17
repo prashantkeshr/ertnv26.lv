@@ -1,6 +1,7 @@
 import { Check, CircleDashed, Info } from 'lucide-react';
 import { Link, useParams } from 'react-router';
 import { IndicatorPanel } from '@/components/charts/IndicatorPanel';
+import { Flag } from '@/components/common/Flag';
 import { PageHeader, seoCrumbs } from '@/components/common/PageHeader';
 import { Provenance } from '@/components/common/Provenance';
 import { ButtonLink, FactList } from '@/components/common/primitives';
@@ -25,7 +26,7 @@ function CoverageSection({ country, coverage }: { country: Country; coverage: Co
           <p className="mt-3 text-sm leading-relaxed text-ink">{entry.summary}</p>
           <div className="mt-5 grid gap-6 sm:grid-cols-2">
             <div>
-              <h3 className="text-sm font-semibold text-navy">Published now</h3>
+              <h3 className="text-sm font-semibold text-heading">Published now</h3>
               <ul className="mt-2 space-y-2">
                 {entry.available.map((item) => (
                   <li key={item} className="flex gap-2 text-sm text-ink">
@@ -36,7 +37,7 @@ function CoverageSection({ country, coverage }: { country: Country; coverage: Co
               </ul>
             </div>
             <div>
-              <h3 className="text-sm font-semibold text-navy">Being researched — not yet published</h3>
+              <h3 className="text-sm font-semibold text-heading">Being researched — not yet published</h3>
               <ul className="mt-2 space-y-2">
                 {entry.pending.map((item) => (
                   <li key={item} className="flex gap-2 text-sm text-muted">
@@ -50,13 +51,13 @@ function CoverageSection({ country, coverage }: { country: Country; coverage: Co
         </>
       ) : (
         <div className="mt-4 flex gap-3 rounded-lg border border-line bg-soft p-5">
-          <Info aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-ocean" />
+          <Info aria-hidden="true" className="mt-0.5 size-5 shrink-0 text-link" />
           <div className="text-sm leading-relaxed text-ink">
             <p>
               eport has not yet published export or import procedures, required documents or product rules for {country.name}. This page is a reference record: identifiers, indicators and
               any linked organizations.
             </p>
-            <p className="mt-2 font-medium text-navy">The absence of a requirement here does not mean no requirement exists. Confirm with the country's customs and trade authorities.</p>
+            <p className="mt-2 font-medium text-heading">The absence of a requirement here does not mean no requirement exists. Confirm with the country's customs and trade authorities.</p>
           </div>
         </div>
       )}
@@ -115,7 +116,7 @@ export default function CountryPage() {
 
   return (
     <>
-      <PageHeader crumbs={crumbs} kicker={country.subregion ?? country.region} title={country.name} description={country.officialName !== country.name ? country.officialName : undefined}>
+      <PageHeader crumbs={crumbs} kicker={country.subregion ?? country.region} title={country.name} leading={<Flag code={country.cca2} className="!h-9 !w-12 !rounded-md" />} description={country.officialName !== country.name ? country.officialName : undefined}>
         <Badge tone="neutral" className="tabular">
           ISO {country.cca2} · {country.cca3}
           {country.ccn3 && ` · ${country.ccn3}`}
@@ -163,7 +164,7 @@ export default function CountryPage() {
                 <ul className="mt-2 flex flex-wrap gap-2">
                   {neighbours.map((n) => (
                     <li key={n.cca2}>
-                      <Link to={`/countries/${n.cca2}`} className="inline-flex min-h-8 items-center rounded-full border border-line px-3 text-sm text-navy hover:border-ocean hover:text-ocean">
+                      <Link to={`/countries/${n.cca2}`} className="inline-flex min-h-8 items-center rounded-full border border-line px-3 text-sm text-heading hover:border-ocean hover:text-link">
                         {n.name}
                       </Link>
                     </li>

@@ -34,3 +34,18 @@ No secret keys, tokens or credentials in JavaScript, HTML, public JSON or build-
 1. Test a real browser request; record the result and date in the registry.
 2. Write an adapter in `services/api/providers/` with a Zod response schema and unit tests (success, malformed, rate-limited, offline).
 3. Set `integrationStatus`; `validate-data.ts` rejects `integrated` without verified browser access or with `auth` other than `none`.
+
+## Live web results (search page and News page)
+
+Two providers are called directly by the visitor's browser when live web results are on (the default; a switch on the search page turns them off and the choice is remembered locally):
+
+| Provider | Used for | Browser access | Notes |
+| --- | --- | --- | --- |
+| Wikipedia (MediaWiki Action API) | Encyclopedia articles beside search results | Verified 2026-11-17 (`origin=*`) | CC BY-SA 4.0; every result links to its article |
+| GDELT DOC 2.0 | Live news headlines | Verified 2026-11-17 (CORS `*`) | ~1 request per 5 s; eport spaces calls, caches 30 minutes and explains HTTP 429 |
+
+Rules: results are labelled "Unverified web content", shown in a separate panel from eport's own records, never used as the basis of a trade requirement, and carry their attribution. Only headlines/titles, short extracts, publisher domains and dates are displayed — no images, no article text. The visitor's search words are sent to these services (disclosed on `/privacy` and beside the switch).
+
+## Official news feeds (build-time)
+
+Headlines from the WTO, ITC, European Commission, ICC and UN News are fetched by `scripts/fetch-news.ts` (daily via `.github/workflows/refresh-news.yml`), because RSS feeds are not offered for cross-origin browser requests. Only the publisher's headline, a short abstract, date and link are stored — never article bodies. Items are English-only, de-duplicated and, for general-interest feeds, filtered for trade relevance. A failing feed keeps its previous items and is flagged on the News page and in the Data Reliability Centre.

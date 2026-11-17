@@ -33,3 +33,13 @@ New regulatory content is drafted against the official source with the fields in
 ## Scope honesty
 
 If a feature cannot work without a backend it is marked Coming Soon, specifically. If data is partial, the page says so and links to the official source. A landing page does not make a phase "complete".
+
+## Logos, flags and marks
+
+- **Country flags** (flag-icons, MIT) are used to identify nations and national authorities.
+- **Organization logos are not reproduced.** WTO, IMO, ISO, ICC and similar marks are protected, and showing them beside "references only" could still suggest a partnership or endorsement. International bodies appear as neutral typographic monograms. A licensed or permissioned logo can be added later with the organization's written approval.
+- The independence statement ("not a government, customs, port or regulatory service") appears in the footer, About page, contact section and FAQ rather than in a persistent top banner.
+
+## News
+
+Headline, publisher abstract, date and link only. Topic tags are automatic and labelled as such. Live web headlines are unverified and shown apart from official-publisher news.

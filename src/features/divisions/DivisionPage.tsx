@@ -23,7 +23,7 @@ function ModuleCard({ module }: { module: PlatformModule }) {
   const inner = (
     <>
       <div className="flex flex-wrap items-start justify-between gap-2">
-        <h3 className={`text-base font-bold ${linked ? 'group-hover:text-ocean' : ''}`}>{module.title}</h3>
+        <h3 className={`text-base font-bold ${linked ? 'group-hover:text-link' : ''}`}>{module.title}</h3>
         <ModuleStatusBadge status={module.status} />
       </div>
       <p className="mt-2 text-sm leading-relaxed text-muted">{module.summary}</p>
@@ -31,7 +31,7 @@ function ModuleCard({ module }: { module: PlatformModule }) {
       <p className="mt-4 flex items-center justify-between text-xs text-muted">
         <span>Phase {module.phase}</span>
         {linked && (
-          <span className="inline-flex items-center gap-1 font-semibold text-ocean">
+          <span className="inline-flex items-center gap-1 font-semibold text-link">
             Open <ArrowRight aria-hidden="true" className="size-3.5 rtl:rotate-180" />
           </span>
         )}
@@ -39,7 +39,7 @@ function ModuleCard({ module }: { module: PlatformModule }) {
     </>
   );
   return linked ? (
-    <Link to={module.path!} className="group block h-full rounded-lg border border-line bg-white p-5 transition-colors hover:border-ocean">
+    <Link to={module.path!} className="group block h-full rounded-lg border border-line bg-surface p-5 transition-colors hover:border-ocean">
       {inner}
     </Link>
   ) : (

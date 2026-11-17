@@ -33,7 +33,7 @@ function Stat({ series, locale }: { series: IndicatorSeries; locale: string }) {
       <dd className="mt-1.5">
         {point ? (
           <>
-            <span className="tabular font-display text-2xl font-bold text-navy">{value}</span>
+            <span className="tabular font-display text-2xl font-bold text-heading">{value}</span>
             <span className="tabular mt-1 block text-xs text-muted">
               {point.year}
               {point.change !== null && series.unit === 'current-usd' && (
@@ -96,7 +96,7 @@ export function IndicatorPanel({ areaCode, areaName, showChart = true }: Indicat
       </dl>
 
       {showChart && chartSeries.length > 0 && (
-        <div className="mt-8 rounded-lg border border-line bg-white p-4 sm:p-6">
+        <div className="mt-8 rounded-lg border border-line bg-surface p-4 sm:p-6">
           <h3 className="mb-4 text-base font-bold">
             {areaName}: exports and imports of goods and services, {period.from}–{period.to} <span className="font-sans text-sm font-normal text-muted">(current US$)</span>
           </h3>

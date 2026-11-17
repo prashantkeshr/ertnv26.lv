@@ -17,6 +17,7 @@ import {
   IndicatorIndex,
   LinkStatus,
   Manifest,
+  NewsFile,
   Organization,
   SearchIndexFile,
   Source,
@@ -33,6 +34,7 @@ export const DATASETS = {
   'link-status': { path: 'sources/link-status.json', schema: LinkStatus },
   graph: { path: 'graph/index.json', schema: GraphFile },
   search: { path: 'search/index.json', schema: SearchIndexFile },
+  news: { path: 'news/latest.json', schema: NewsFile },
   'indicator-index': { path: 'trade/indicators/index.json', schema: IndicatorIndex },
 } as const;
 

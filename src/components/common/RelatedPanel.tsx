@@ -16,7 +16,7 @@ export function RelatedPanel({ entityRef, emptyHint }: { entityRef: string; empt
 
   return (
     <section aria-labelledby="related-heading">
-      <p className="mb-1 flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-ocean uppercase">
+      <p className="mb-1 flex items-center gap-2 text-xs font-semibold tracking-[0.14em] text-link uppercase">
         <Waypoints aria-hidden="true" className="size-4" />
         Trade Knowledge Graph
       </p>
@@ -42,8 +42,8 @@ export function RelatedPanel({ entityRef, emptyHint }: { entityRef: string; empt
             <ul className="grid gap-2 sm:grid-cols-2">
               {group.items.map((item) => (
                 <li key={item.ref}>
-                  <Link to={item.node.path} className="group block h-full rounded-md border border-line bg-white px-4 py-3 transition-colors hover:border-ocean">
-                    <span className="block text-sm font-semibold text-navy group-hover:text-ocean">{item.node.label}</span>
+                  <Link to={item.node.path} className="group block h-full rounded-md border border-line bg-surface px-4 py-3 transition-colors hover:border-ocean">
+                    <span className="block text-sm font-semibold text-heading group-hover:text-link">{item.node.label}</span>
                     <span className="mt-0.5 block text-xs text-muted">
                       {ENTITY_LABELS[item.node.type].singular}
                       {item.node.meta && <> · {item.node.meta}</>}

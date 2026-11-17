@@ -43,7 +43,7 @@ export function Provenance({ sourceIds, verification, note }: ProvenanceProps) {
   return (
     <aside aria-labelledby="provenance-heading" className="rounded-lg border border-line bg-soft p-5">
       <h2 id="provenance-heading" className="flex items-center gap-2 text-sm font-bold">
-        <ShieldCheck aria-hidden="true" className="size-4 text-ocean" />
+        <ShieldCheck aria-hidden="true" className="size-4 text-link" />
         Source and verification
       </h2>
 

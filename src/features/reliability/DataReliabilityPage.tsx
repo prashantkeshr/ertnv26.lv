@@ -115,10 +115,10 @@ export default function DataReliabilityPage() {
                     const n = datasets.filter((d) => d.coverage === c).length;
                     const active = filter === c;
                     return (
-                      <button key={c} type="button" aria-pressed={active} onClick={() => setFilter(active ? '' : c)} className={cn('rounded-lg border p-4 text-left transition-colors', active ? 'border-navy bg-soft' : 'border-line bg-white hover:border-ocean')}>
+                      <button key={c} type="button" aria-pressed={active} onClick={() => setFilter(active ? '' : c)} className={cn('rounded-lg border p-4 text-left transition-colors', active ? 'border-navy bg-soft' : 'border-line bg-surface hover:border-ocean')}>
                         <span className="flex items-center justify-between">
                           <CoverageBadge coverage={c} />
-                          <span className="tabular font-display text-2xl font-bold text-navy">{n}</span>
+                          <span className="tabular font-display text-2xl font-bold text-heading">{n}</span>
                         </span>
                         <span className="mt-2 block text-xs leading-relaxed text-muted">{COVERAGE_MEANING[c]}</span>
                       </button>
@@ -144,7 +144,7 @@ export default function DataReliabilityPage() {
                       {shown.map((d) => (
                         <tr key={d.id} className="border-t border-line align-top">
                           <th scope="row" className="max-w-sm px-4 py-3 text-left font-normal">
-                            <span className="font-semibold text-navy">{d.title}</span>
+                            <span className="font-semibold text-heading">{d.title}</span>
                             <span className="mt-0.5 block text-xs text-muted">{d.scope}</span>
                             <span className="mt-1.5 block text-xs leading-relaxed text-ink">{d.notes}</span>
                           </th>
@@ -182,7 +182,7 @@ export default function DataReliabilityPage() {
             {() => (
               <ul className="grid gap-4 lg:grid-cols-2">
                 {providers.data!.map((p) => (
-                  <li key={p.id} className="rounded-lg border border-line bg-white p-5">
+                  <li key={p.id} className="rounded-lg border border-line bg-surface p-5">
                     <div className="flex flex-wrap items-start justify-between gap-2">
                       <h3 className="text-base font-bold">{p.name}</h3>
                       <Badge tone={INTEGRATION_TONE[p.integrationStatus]}>{INTEGRATION_LABEL[p.integrationStatus]}</Badge>
@@ -233,13 +233,13 @@ export default function DataReliabilityPage() {
                   {(['officially-verified', 'source-referenced', 'needs-review', 'outdated'] as VerificationStatus[]).map((s) => (
                     <li key={s} className="flex items-center justify-between rounded-lg border border-line p-4">
                       <VerificationBadge status={s} />
-                      <span className="tabular font-display text-2xl font-bold text-navy">{byStatus(s).length}</span>
+                      <span className="tabular font-display text-2xl font-bold text-heading">{byStatus(s).length}</span>
                     </li>
                   ))}
                 </ul>
                 {byStatus('needs-review').length > 0 && (
                   <div className="mt-5">
-                    <h3 className="text-sm font-semibold text-navy">Records needing review</h3>
+                    <h3 className="text-sm font-semibold text-heading">Records needing review</h3>
                     <ul className="mt-2 space-y-1.5 text-sm">
                       {byStatus('needs-review').map((r) => (
                         <li key={r.id}>
@@ -263,7 +263,7 @@ export default function DataReliabilityPage() {
           {links.data && (
             <>
               <p className="text-sm text-ink">
-                <span className="tabular font-display text-2xl font-bold text-navy">
+                <span className="tabular font-display text-2xl font-bold text-heading">
                   {linkEntries.length - failedLinks.length} of {linkEntries.length}
                 </span>{' '}
                 official links were reachable{links.data.checkedAt && <> on {formatDate(links.data.checkedAt, locale)}</>}.
@@ -294,7 +294,7 @@ export default function DataReliabilityPage() {
             {() => (
               <div className="grid gap-4 sm:grid-cols-2">
                 <div className="rounded-lg border border-line p-5">
-                  <p className="tabular font-display text-3xl font-bold text-navy">{guided.length}</p>
+                  <p className="tabular font-display text-3xl font-bold text-heading">{guided.length}</p>
                   <p className="mt-1 text-sm text-muted">market with operational guidance in progress</p>
                   <ul className="mt-3 space-y-2 text-sm">
                     {guided.map(([code, entry]) => (
@@ -311,7 +311,7 @@ export default function DataReliabilityPage() {
                   </ul>
                 </div>
                 <div className="rounded-lg border border-line p-5">
-                  <p className="tabular font-display text-3xl font-bold text-navy">{countries.data!.length - guided.length}</p>
+                  <p className="tabular font-display text-3xl font-bold text-heading">{countries.data!.length - guided.length}</p>
                   <p className="mt-1 text-sm text-muted">countries and territories with a reference record only</p>
                   <p className="mt-3 text-sm leading-relaxed text-ink">Identifiers, indicators where the World Bank reports them, and a reference exchange rate where the currency is covered. No trade rules.</p>
                 </div>
@@ -325,7 +325,7 @@ export default function DataReliabilityPage() {
             {(['live', 'foundation', 'planned', 'requires-backend'] as ModuleStatus[]).map((s) => (
               <li key={s} className="flex items-center gap-2">
                 <ModuleStatusBadge status={s} />
-                <span className="tabular font-semibold text-navy">{moduleCount(s)}</span>
+                <span className="tabular font-semibold text-heading">{moduleCount(s)}</span>
               </li>
             ))}
           </ul>
@@ -350,7 +350,7 @@ export default function DataReliabilityPage() {
                           {m.title}
                         </Link>
                       ) : (
-                        <span className="font-medium text-navy">{m.title}</span>
+                        <span className="font-medium text-heading">{m.title}</span>
                       )}
                       {m.note && <span className="mt-0.5 block max-w-md text-xs leading-relaxed text-muted">{m.note}</span>}
                     </th>

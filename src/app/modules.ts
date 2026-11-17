@@ -59,7 +59,7 @@ export const DIVISIONS: Division[] = [
       { id: 'shipping-lines', title: 'Shipping Lines & Logistics', summary: 'Profiles of carriers and logistics organizations with official tracking links.', status: 'planned', phase: 4 },
       { id: 'tracking', title: 'Cargo & Shipment Tracking', summary: 'One place to find the right official carrier tracking page for a container, B/L or air waybill.', status: 'planned', phase: 4, note: 'Routing to official carrier tracking pages is achievable in the browser.' },
       { id: 'tracking-live', title: 'Unified live tracking results', summary: 'Tracking events shown inside eport across carriers.', status: 'requires-backend', phase: 4, note: 'Coming Soon — requires a secure integration layer. Carrier and aggregator APIs need protected credentials.' },
-      { id: 'news', title: 'Trade News & Industry Intelligence', summary: 'Headlines, summaries and links to original articles by category and country.', status: 'planned', phase: 5 },
+      { id: 'news', title: 'Trade News & Industry Intelligence', summary: 'Headlines from official publishers by topic, refreshed daily, plus a live headline search. Every item links to the original article.', status: 'foundation', phase: 1, path: '/intelligence/news', note: 'Five official publishers. Country tagging and more publishers come later.' },
     ],
   },
   {

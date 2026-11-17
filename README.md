@@ -15,7 +15,10 @@ Phase 0 (foundation) and Phase 1 (platform shell) are complete and tested. Later
 | Directory: 10 international organizations, 16 Indian national authorities (seed) | Done — partial coverage |
 | Trade indicators (World Bank snapshot, 213 economies) with charts | Done |
 | Live reference exchange rates (Frankfurter) | Done |
-| Unified search (fuzzy, typo-tolerant, recent searches) | Done |
+| Unified search (fuzzy, typo-tolerant, recent searches) with results template and live web results (Wikipedia, GDELT) | Done |
+| Trade news from five official publishers (daily snapshot) + live headline search | Done |
+| Light / dark theme (follows device, with manual override) | Done |
+| Home page: animated hero, reference-body strip with flags, solutions blocks, quick finder, news, FAQ, contact | Done |
 | Trade Knowledge Graph ("Connected records") | Foundation — countries, authorities, organizations |
 | Data Reliability Centre | Done |
 | Static route shells, sitemap, robots, CNAME, deploy workflows | Done |
@@ -40,6 +43,7 @@ Data maintenance:
 ```bash
 npm run data:countries   # regenerate countries + map geometry from world-countries / world-atlas
 npm run data:worldbank   # refresh the World Bank indicator snapshot
+npm run data:news       # refresh official news headlines (daily in CI)
 npm run data:links       # check every official link; add -- --apply to stamp records
 npm run data:validate    # schema, duplicate-id, reference, date and honesty-rule checks
 ```

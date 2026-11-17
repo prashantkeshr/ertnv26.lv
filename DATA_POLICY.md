@@ -48,3 +48,7 @@ Invent laws, fees, tariffs, official forms, authority contacts, API results or v
 ## Identifiers
 
 ISO 3166-1 (alpha-2 is the primary key for countries), ISO 4217 currencies, UN/LOCODE for ports. International HS (6-digit) is kept separate from national tariff extensions.
+
+## News snapshot
+
+`public/data/news/latest.json` is validated on every build: unique ids and URLs, HTTPS links, known publisher source ids, no future dates, English language items only. The manifest shows the snapshot's own retrieval date. A snapshot older than 14 days prints a warning in `npm run data:validate`.

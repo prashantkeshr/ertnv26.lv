@@ -15,8 +15,8 @@ const BUTTON_BASE =
   'btn-arrow inline-flex items-center justify-center gap-2 rounded-md font-semibold transition-all duration-200 disabled:cursor-not-allowed disabled:opacity-50 active:translate-y-px';
 const BUTTON_VARIANT: Record<ButtonVariant, string> = {
   primary: 'bg-ocean text-white shadow-[0_10px_24px_-10px_rgb(23_107_154/0.75)] hover:-translate-y-px hover:bg-ocean-dark hover:shadow-[0_14px_28px_-10px_rgb(23_107_154/0.85)]',
-  secondary: 'border border-line bg-white text-navy hover:border-ocean hover:text-ocean',
-  ghost: 'text-ocean hover:bg-info-soft',
+  secondary: 'border border-line bg-surface text-heading hover:border-ocean hover:text-link',
+  ghost: 'text-link hover:bg-info-soft',
   inverse: 'border border-white/25 bg-white/5 text-white hover:border-white/50 hover:bg-white/15',
   light: 'bg-white text-navy shadow-[0_12px_30px_-12px_rgb(0_0_0/0.65)] hover:-translate-y-px hover:bg-sky',
 };
@@ -49,7 +49,7 @@ export function ButtonLink({ variant, size, className, ...rest }: ButtonLinkProp
 /* ---------- layout ---------- */
 
 export function Card({ className, ...rest }: HTMLAttributes<HTMLDivElement>) {
-  return <div className={cn('rounded-lg border border-line bg-white', className)} {...rest} />;
+  return <div className={cn('rounded-lg border border-line bg-surface', className)} {...rest} />;
 }
 
 interface SectionProps extends HTMLAttributes<HTMLElement> {
@@ -99,7 +99,7 @@ export function SectionHeading({ id, kicker, title, description, action, inverse
 
 export function Kicker({ children, inverse }: { children: ReactNode; inverse?: boolean }) {
   return (
-    <p className={cn('mb-2 text-xs font-semibold tracking-[0.14em] uppercase', inverse ? 'text-sky' : 'text-ocean')}>
+    <p className={cn('mb-2 text-xs font-semibold tracking-[0.14em] uppercase', inverse ? 'text-sky' : 'text-link')}>
       {children}
     </p>
   );
@@ -139,7 +139,7 @@ export function FactList({ items }: { items: Array<{ label: string; value: React
       {items.map((item) => (
         <div key={item.label} className="flex items-baseline justify-between gap-4 border-b border-line py-3">
           <dt className="text-sm text-muted">{item.label}</dt>
-          <dd className="text-right text-sm font-medium text-navy">{item.value}</dd>
+          <dd className="text-right text-sm font-medium text-heading">{item.value}</dd>
         </div>
       ))}
     </dl>
@@ -149,4 +149,4 @@ export function FactList({ items }: { items: Array<{ label: string; value: React
 /* ---------- form controls ---------- */
 
 export const inputClass =
-  'min-h-11 w-full rounded-md border border-line bg-white px-3 text-sm text-ink placeholder:text-muted hover:border-muted focus:border-ocean';
+  'min-h-11 w-full rounded-md border border-line bg-surface px-3 text-sm text-ink placeholder:text-muted hover:border-muted focus:border-ocean';

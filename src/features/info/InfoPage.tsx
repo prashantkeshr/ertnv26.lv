@@ -169,13 +169,19 @@ function Privacy() {
       <Ul
         items={[
           <>
-            <strong className="font-semibold text-navy">Recent searches</strong> — your last six searches, so they can be offered again. Clear them from the search box.
+            <strong className="font-semibold text-heading">Recent searches</strong> — your last six searches, so they can be offered again. Clear them from the search box.
           </>,
           <>
-            <strong className="font-semibold text-navy">Language preference</strong> — once more than one language is available.
+            <strong className="font-semibold text-heading">Language preference</strong> — once more than one language is available.
           </>,
           <>
-            <strong className="font-semibold text-navy">Cached reference exchange rates</strong> — so the same rate is not requested repeatedly.
+            <strong className="font-semibold text-heading">Colour theme</strong> — Automatic (follows your device), Light or Dark.
+          </>,
+          <>
+            <strong className="font-semibold text-heading">Live web results setting</strong> — whether search should include live results from Wikipedia and GDELT (on by default).
+          </>,
+          <>
+            <strong className="font-semibold text-heading">Cached exchange rates and live search results</strong> — so the same request is not repeated within a few minutes.
           </>,
         ]}
       />
@@ -189,15 +195,26 @@ function Privacy() {
       <Ul
         items={[
           <>
-            <strong className="font-semibold text-navy">Frankfurter (exchange rates)</strong> — when you open a country profile, your browser asks for one reference rate. The request contains
+            <strong className="font-semibold text-heading">Frankfurter (exchange rates)</strong> — when you open a country profile, your browser asks for one reference rate. The request contains
             two currency codes and, as with any web request, your IP address reaches that service.
           </>,
           <>
-            <strong className="font-semibold text-navy">Official websites</strong> — only when you choose to follow a link. Links open in a new tab without passing a referrer.
+            <strong className="font-semibold text-heading">Wikipedia (live web results)</strong> — when you run a search with live web results on, your browser sends your search words to Wikipedia to fetch matching
+            articles. This is on by default and can be switched off on the search page.
+          </>,
+          <>
+            <strong className="font-semibold text-heading">GDELT Project (live news headlines)</strong> — in the same situation, and on the News page when you search live headlines, your browser sends your search
+            words to the GDELT news service.
+          </>,
+          <>
+            <strong className="font-semibold text-heading">Official websites</strong> — only when you choose to follow a link. Links open in a new tab without passing a referrer.
           </>,
         ]}
       />
-      <P>Fonts, map geometry and all eport data are served from eport.live itself. World Bank statistics are published as static files and are not requested from the World Bank by your browser.</P>
+      <P>
+        As with any web request, the IP address of your connection reaches Wikipedia, GDELT and Frankfurter when they are contacted. Web results are not checked by eport. Fonts, flags, map geometry, official
+        news headlines and all eport data are served from eport.live itself; World Bank statistics and publisher news feeds are collected by eport in advance and are not requested by your browser.
+      </P>
 
       <H2>Contacting us</H2>
       <P>

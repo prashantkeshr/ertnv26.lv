@@ -9,6 +9,8 @@ const PREFIX = 'eport:';
 
 interface PrefShape {
   locale: string;
+  theme: string;
+  liveWeb: boolean;
   recentSearches: string[];
 }
 

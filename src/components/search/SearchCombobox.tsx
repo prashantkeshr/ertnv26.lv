@@ -148,7 +148,7 @@ export function SearchCombobox({ variant = 'hero', initialQuery = '', inputId }:
     >
       <div
         className={cn(
-          'flex items-center bg-white',
+          'flex items-center bg-surface',
           hero ? 'rounded-lg p-1.5 shadow-menu ring-1 ring-white/20' : 'rounded-md border border-line focus-within:border-ocean',
         )}
       >
@@ -193,14 +193,14 @@ export function SearchCombobox({ variant = 'hero', initialQuery = '', inputId }:
 
       <div
         hidden={!showPopup}
-        className="absolute inset-x-0 top-full z-40 mt-2 overflow-hidden rounded-lg border border-line bg-white text-start shadow-menu"
+        className="absolute inset-x-0 top-full z-40 mt-2 overflow-hidden rounded-lg border border-line bg-surface text-start shadow-menu"
       >
         {!trimmed && options.length > 0 && (
           <div className="flex items-center justify-between border-b border-line px-4 py-2">
             <span className="text-xs font-semibold tracking-wide text-muted uppercase">{t('search.recent')}</span>
             <button
               type="button"
-              className="rounded px-2 py-1 text-xs font-medium text-ocean hover:bg-info-soft"
+              className="rounded px-2 py-1 text-xs font-medium text-link hover:bg-info-soft"
               onMouseDown={(e) => e.preventDefault()}
               onClick={() => {
                 recentSearches.clear();
@@ -236,7 +236,7 @@ export function SearchCombobox({ variant = 'hero', initialQuery = '', inputId }:
               {option.kind === 'result' && (
                 <>
                   <span className="min-w-0 flex-1">
-                    <span className="block truncate font-medium text-navy">
+                    <span className="block truncate font-medium text-heading">
                       <Highlight text={option.result.title} query={trimmed} terms={option.result.terms} />
                     </span>
                     <span className="block truncate text-xs text-muted">{option.result.subtitle}</span>
@@ -254,9 +254,9 @@ export function SearchCombobox({ variant = 'hero', initialQuery = '', inputId }:
               )}
               {option.kind === 'all' && (
                 <>
-                  <Search aria-hidden="true" className="size-4 shrink-0 text-ocean" />
-                  <span className="flex-1 truncate font-medium text-ocean">{t('search.seeAll', { query: trimmed })}</span>
-                  <ArrowRight aria-hidden="true" className="size-4 shrink-0 text-ocean rtl:rotate-180" />
+                  <Search aria-hidden="true" className="size-4 shrink-0 text-link" />
+                  <span className="flex-1 truncate font-medium text-link">{t('search.seeAll', { query: trimmed })}</span>
+                  <ArrowRight aria-hidden="true" className="size-4 shrink-0 text-link rtl:rotate-180" />
                 </>
               )}
             </div>

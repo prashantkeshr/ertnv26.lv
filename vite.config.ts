@@ -13,7 +13,8 @@ export default defineConfig({
   },
   server: { port: 5400, strictPort: true },
   preview: { port: 5401, strictPort: true },
-  build: { target: 'es2022', sourcemap: false },
+  // SVG flags stay separate files so a visitor downloads only the flags actually shown, not ~270 inlined into JavaScript.
+  build: { target: 'es2022', sourcemap: false, assetsInlineLimit: (file) => (file.endsWith('.svg') ? false : undefined) },
   test: {
     environment: 'jsdom',
     globals: true,

@@ -19,6 +19,7 @@ import { cn } from '@/components/common/primitives';
 import { ModuleStatusBadge } from '@/components/common/StatusBadge';
 import { Dialog } from '@/components/feedback/Dialog';
 import { SearchCombobox } from '@/components/search/SearchCombobox';
+import { ThemeToggle } from './ThemeToggle';
 import { useI18n } from '@/i18n';
 
 export const DIVISION_ICON: Record<Division['icon'], LucideIcon> = {
@@ -48,10 +49,10 @@ function DivisionPanel({ division, onNavigate }: { division: Division; onNavigat
   return (
     <div className="container-page grid gap-8 py-8 lg:grid-cols-[18rem_1fr]">
       <div>
-        <p className="text-xs font-semibold tracking-[0.14em] text-ocean uppercase">{division.kicker}</p>
-        <p className="mt-2 font-display text-lg font-bold text-navy">{division.purpose}</p>
+        <p className="text-xs font-semibold tracking-[0.14em] text-link uppercase">{division.kicker}</p>
+        <p className="mt-2 font-display text-lg font-bold text-heading">{division.purpose}</p>
         <p className="mt-2 text-sm leading-relaxed text-muted">{division.description}</p>
-        <Link to={division.path} onClick={onNavigate} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-ocean hover:text-ocean-dark">
+        <Link to={division.path} onClick={onNavigate} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-link hover:text-link-hover">
           {t('nav.overview', { division: division.title })}
           <ArrowRight aria-hidden="true" className="size-4 rtl:rotate-180" />
         </Link>
@@ -61,7 +62,7 @@ function DivisionPanel({ division, onNavigate }: { division: Division; onNavigat
           const body = (
             <>
               <span className="flex flex-wrap items-center gap-x-2 gap-y-1">
-                <span className={cn('text-sm font-semibold', m.path ? 'text-navy group-hover:text-ocean' : 'text-ink')}>{m.title}</span>
+                <span className={cn('text-sm font-semibold', m.path ? 'text-heading group-hover:text-link' : 'text-ink')}>{m.title}</span>
                 <ModuleStatusBadge status={m.status} />
               </span>
               <span className="mt-0.5 line-clamp-2 block text-xs leading-relaxed text-muted">{m.summary}</span>
@@ -160,15 +161,6 @@ export function Header() {
 
   return (
     <header ref={headerRef} className="sticky top-0 z-30">
-      <div className="bg-midnight text-white/85">
-        <div className="container-page flex min-h-8 items-center justify-between gap-4 py-1.5 text-xs">
-          <p>{t('brand.independent')}</p>
-          <Link to="/data-reliability" className="hidden shrink-0 font-medium text-sky hover:underline sm:block">
-            Data Reliability Centre
-          </Link>
-        </div>
-      </div>
-
       <div className={cn('relative text-white transition-[background-color,box-shadow] duration-300', scrolled ? 'bg-deep/90 shadow-[0_10px_30px_-18px_rgb(0_0_0/0.8)] backdrop-blur-md' : 'bg-navy')}>
         <div aria-hidden="true" className="absolute inset-x-0 bottom-0 h-0.5 bg-white/5">
           <div ref={barRef} className="scroll-progress h-full bg-aurora" style={{ transform: 'scaleX(0)' }} />
@@ -220,13 +212,14 @@ export function Header() {
 
           <div className="ms-auto flex items-center gap-1">
             {/* Inline search where there is room: tablets (no nav bar) and wide desktops. */}
-            <div className="hidden w-64 md:block lg:hidden xl:block">
+            <div className="hidden w-64 md:block lg:hidden 2xl:block">
               <SearchCombobox variant="header" inputId="header-search" />
             </div>
+            <ThemeToggle />
             <Link to="/contact" className="ms-1 hidden min-h-9 items-center rounded-md border border-white/25 px-3.5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white hover:text-navy xl:inline-flex">
               Contact
             </Link>
-            <Link to="/search" aria-label={t('search.label')} className="rounded-md p-2.5 text-white/85 hover:bg-white/10 hover:text-white md:hidden lg:block xl:hidden">
+            <Link to="/search" aria-label={t('search.label')} className="rounded-md p-2.5 text-white/85 hover:bg-white/10 hover:text-white md:hidden lg:block 2xl:hidden">
               <Search aria-hidden="true" className="size-5" />
             </Link>
             <button
@@ -241,7 +234,7 @@ export function Header() {
           </div>
         </div>
 
-        <div id="division-panel" className={cn('absolute inset-x-0 top-full max-h-[calc(100dvh-6rem)] overflow-y-auto border-b border-line bg-white text-ink shadow-menu', openDivision ? 'hidden lg:block' : 'hidden')}>
+        <div id="division-panel" className={cn('absolute inset-x-0 top-full max-h-[calc(100dvh-6rem)] overflow-y-auto border-b border-line bg-surface text-ink shadow-menu', openDivision ? 'hidden lg:block' : 'hidden')}>
           {openDivision && <DivisionPanel division={openDivision} onNavigate={() => setOpenId(null)} />}
         </div>
       </div>
@@ -254,9 +247,9 @@ export function Header() {
               return (
                 <li key={d.id}>
                   <Link to={d.path} className="flex items-center gap-3 rounded-md px-3 py-3 hover:bg-soft">
-                    <Icon aria-hidden="true" className="size-5 shrink-0 text-ocean" />
+                    <Icon aria-hidden="true" className="size-5 shrink-0 text-link" />
                     <span>
-                      <span className="block text-sm font-semibold text-navy">{d.title}</span>
+                      <span className="block text-sm font-semibold text-heading">{d.title}</span>
                       <span className="block text-xs text-muted">{d.purpose}</span>
                     </span>
                   </Link>

@@ -262,6 +262,47 @@ export const ApiProvider = z.object({
 });
 export type ApiProvider = z.infer<typeof ApiProvider>;
 
+/* ---------- news (headline + summary + link to the publisher; never full articles) ---------- */
+
+export const NEWS_CATEGORIES = [
+  'international-trade',
+  'maritime-shipping',
+  'ports',
+  'logistics',
+  'policy',
+  'customs',
+  'tariffs',
+  'agreements',
+  'supply-chains',
+  'technology',
+  'sustainability',
+  'trade-finance',
+] as const;
+export const NewsCategory = z.enum(NEWS_CATEGORIES);
+export type NewsCategory = z.infer<typeof NewsCategory>;
+
+export const NewsItem = z.object({
+  id: z.string().regex(/^[a-f0-9]{12}$/),
+  headline: z.string().min(5).max(300),
+  /** The publisher's own abstract from its feed, trimmed. May be empty. Never article body text. */
+  summary: z.string().max(260),
+  publisherName: z.string(),
+  sourceId: z.string(),
+  publishedOn: IsoDate,
+  url: HttpsUrl,
+  /** Topic tags applied automatically by eport from the headline and summary. */
+  categories: z.array(NewsCategory).min(1).max(3),
+});
+export type NewsItem = z.infer<typeof NewsItem>;
+
+export const NewsFile = z.object({
+  retrievedOn: IsoDate,
+  retrievedAt: z.string(),
+  feeds: z.array(z.object({ sourceId: z.string(), publisherName: z.string(), feedUrl: HttpsUrl, ok: z.boolean(), items: z.number().int(), note: z.string().optional() })),
+  items: z.array(NewsItem),
+});
+export type NewsFile = z.infer<typeof NewsFile>;
+
 /* ---------- statistical indicators (historical statistics, never live data) ---------- */
 
 export const IndicatorSeries = z.object({

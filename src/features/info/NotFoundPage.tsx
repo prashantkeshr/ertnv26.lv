@@ -14,7 +14,7 @@ export default function NotFoundPage() {
         title="This page does not exist"
         description={
           <>
-            Nothing is published at <code className="rounded bg-white px-1.5 py-0.5 text-xs ring-1 ring-line">{pathname}</code>. The feature may still be in development — the Data Reliability Centre
+            Nothing is published at <code className="rounded bg-surface px-1.5 py-0.5 text-xs ring-1 ring-line">{pathname}</code>. The feature may still be in development — the Data Reliability Centre
             lists what is available.
           </>
         }

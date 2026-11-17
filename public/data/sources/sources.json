@@ -1,34 +1,324 @@
 [
-  { "id": "mledoze-countries", "publisher": "mledoze/countries (open-source project)", "title": "World countries dataset (ISO 3166-1 codes, regions, currencies, languages)", "url": "https://github.com/mledoze/countries", "sourceType": "licensed-data-provider", "jurisdiction": "INT", "license": "ODbL-1.0", "attribution": "Country reference data © mledoze/countries contributors, ODbL 1.0." },
-  { "id": "natural-earth", "publisher": "Natural Earth", "title": "Natural Earth 1:110m country boundaries (via the world-atlas package)", "url": "https://www.naturalearthdata.com/", "sourceType": "licensed-data-provider", "jurisdiction": "INT", "license": "Public domain", "attribution": "Map geometry: Natural Earth. Boundaries are generalised and carry no political endorsement." },
-  { "id": "worldbank-wdi", "publisher": "World Bank", "title": "World Development Indicators (Indicators API v2)", "url": "https://data.worldbank.org/", "sourceType": "international-organization", "jurisdiction": "INT", "license": "CC BY 4.0", "attribution": "Source: World Bank, World Development Indicators (CC BY 4.0)." },
-  { "id": "wto", "publisher": "World Trade Organization", "title": "WTO official website", "url": "https://www.wto.org/", "sourceType": "international-organization", "jurisdiction": "INT" },
-  { "id": "wco", "publisher": "World Customs Organization", "title": "WCO official website", "url": "https://www.wcoomd.org/", "sourceType": "international-organization", "jurisdiction": "INT" },
-  { "id": "imo", "publisher": "International Maritime Organization", "title": "IMO official website", "url": "https://www.imo.org/", "sourceType": "international-organization", "jurisdiction": "INT" },
-  { "id": "icc", "publisher": "International Chamber of Commerce", "title": "ICC official website", "url": "https://iccwbo.org/", "sourceType": "statutory-organization", "jurisdiction": "INT" },
-  { "id": "itc", "publisher": "International Trade Centre", "title": "ITC official website", "url": "https://www.intracen.org/", "sourceType": "international-organization", "jurisdiction": "INT" },
-  { "id": "unctad", "publisher": "UN Trade and Development (UNCTAD)", "title": "UNCTAD official website", "url": "https://unctad.org/", "sourceType": "international-organization", "jurisdiction": "INT" },
-  { "id": "worldbank", "publisher": "World Bank Group", "title": "World Bank official website", "url": "https://www.worldbank.org/", "sourceType": "international-organization", "jurisdiction": "INT" },
-  { "id": "iso", "publisher": "International Organization for Standardization", "title": "ISO official website", "url": "https://www.iso.org/", "sourceType": "statutory-organization", "jurisdiction": "INT" },
-  { "id": "ippc", "publisher": "International Plant Protection Convention Secretariat", "title": "IPPC official website", "url": "https://www.ippc.int/", "sourceType": "international-organization", "jurisdiction": "INT" },
-  { "id": "fao", "publisher": "Food and Agriculture Organization of the United Nations", "title": "FAO official website", "url": "https://www.fao.org/", "sourceType": "international-organization", "jurisdiction": "INT" },
-  { "id": "in-commerce", "publisher": "Department of Commerce, Government of India", "title": "Department of Commerce official website", "url": "https://www.commerce.gov.in/", "sourceType": "official-government", "jurisdiction": "IN" },
-  { "id": "in-dgft", "publisher": "Directorate General of Foreign Trade, Government of India", "title": "DGFT official portal", "url": "https://www.dgft.gov.in/", "sourceType": "official-government", "jurisdiction": "IN" },
-  { "id": "in-cbic", "publisher": "Central Board of Indirect Taxes and Customs, Government of India", "title": "CBIC official website", "url": "https://www.cbic.gov.in/", "sourceType": "official-government", "jurisdiction": "IN" },
-  { "id": "in-icegate", "publisher": "Central Board of Indirect Taxes and Customs, Government of India", "title": "ICEGATE — Indian Customs Electronic Gateway", "url": "https://www.icegate.gov.in/", "sourceType": "official-government", "jurisdiction": "IN" },
-  { "id": "in-gst", "publisher": "Goods and Services Tax Network, India", "title": "GST common portal", "url": "https://www.gst.gov.in/", "sourceType": "official-government", "jurisdiction": "IN" },
-  { "id": "in-rbi", "publisher": "Reserve Bank of India", "title": "RBI official website", "url": "https://www.rbi.org.in/", "sourceType": "official-government", "jurisdiction": "IN" },
-  { "id": "in-apeda", "publisher": "Agricultural and Processed Food Products Export Development Authority", "title": "APEDA official website", "url": "https://apeda.gov.in/", "sourceType": "statutory-organization", "jurisdiction": "IN" },
-  { "id": "in-mpeda", "publisher": "Marine Products Export Development Authority", "title": "MPEDA official website", "url": "https://mpeda.gov.in/", "sourceType": "statutory-organization", "jurisdiction": "IN" },
-  { "id": "in-fssai", "publisher": "Food Safety and Standards Authority of India", "title": "FSSAI official website", "url": "https://www.fssai.gov.in/", "sourceType": "statutory-organization", "jurisdiction": "IN" },
-  { "id": "in-bis", "publisher": "Bureau of Indian Standards", "title": "BIS official website", "url": "https://www.bis.gov.in/", "sourceType": "statutory-organization", "jurisdiction": "IN" },
-  { "id": "in-eic", "publisher": "Export Inspection Council of India", "title": "EIC official website", "url": "https://www.eicindia.gov.in/", "sourceType": "statutory-organization", "jurisdiction": "IN" },
-  { "id": "in-ppqs", "publisher": "Directorate of Plant Protection, Quarantine and Storage, Government of India", "title": "PPQS official website", "url": "https://ppqs.gov.in/", "sourceType": "official-government", "jurisdiction": "IN" },
-  { "id": "in-cdsco", "publisher": "Central Drugs Standard Control Organisation, Government of India", "title": "CDSCO official website", "url": "https://cdsco.gov.in/", "sourceType": "official-government", "jurisdiction": "IN" },
-  { "id": "in-dgshipping", "publisher": "Directorate General of Shipping, Government of India", "title": "DG Shipping official website", "url": "https://www.dgshipping.gov.in/", "sourceType": "official-government", "jurisdiction": "IN" },
-  { "id": "in-ecgc", "publisher": "ECGC Limited", "title": "ECGC official website", "url": "https://www.ecgc.in/", "sourceType": "statutory-organization", "jurisdiction": "IN" },
-  { "id": "in-tradeportal", "publisher": "Department of Commerce, Government of India / FIEO", "title": "Indian Trade Portal", "url": "https://www.indiantradeportal.in/", "sourceType": "official-government", "jurisdiction": "IN" },
-  { "id": "frankfurter", "publisher": "Frankfurter (open-source project)", "title": "Frankfurter exchange-rate API documentation", "url": "https://frankfurter.dev/", "sourceType": "licensed-data-provider", "jurisdiction": "INT" },
-  { "id": "digitraffic", "publisher": "Fintraffic", "title": "Digitraffic Marine open data", "url": "https://www.digitraffic.fi/en/marine-traffic/", "sourceType": "official-operator", "jurisdiction": "FI", "license": "CC BY 4.0" },
-  { "id": "un-comtrade", "publisher": "United Nations Statistics Division", "title": "UN Comtrade database", "url": "https://comtradeplus.un.org/", "sourceType": "international-organization", "jurisdiction": "INT" }
+  {
+    "id": "mledoze-countries",
+    "publisher": "mledoze/countries (open-source project)",
+    "title": "World countries dataset (ISO 3166-1 codes, regions, currencies, languages)",
+    "url": "https://github.com/mledoze/countries",
+    "sourceType": "licensed-data-provider",
+    "jurisdiction": "INT",
+    "license": "ODbL-1.0",
+    "attribution": "Country reference data © mledoze/countries contributors, ODbL 1.0."
+  },
+  {
+    "id": "natural-earth",
+    "publisher": "Natural Earth",
+    "title": "Natural Earth 1:110m country boundaries (via the world-atlas package)",
+    "url": "https://www.naturalearthdata.com/",
+    "sourceType": "licensed-data-provider",
+    "jurisdiction": "INT",
+    "license": "Public domain",
+    "attribution": "Map geometry: Natural Earth. Boundaries are generalised and carry no political endorsement."
+  },
+  {
+    "id": "worldbank-wdi",
+    "publisher": "World Bank",
+    "title": "World Development Indicators (Indicators API v2)",
+    "url": "https://data.worldbank.org/",
+    "sourceType": "international-organization",
+    "jurisdiction": "INT",
+    "license": "CC BY 4.0",
+    "attribution": "Source: World Bank, World Development Indicators (CC BY 4.0)."
+  },
+  {
+    "id": "wto",
+    "publisher": "World Trade Organization",
+    "title": "WTO official website",
+    "url": "https://www.wto.org/",
+    "sourceType": "international-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "wco",
+    "publisher": "World Customs Organization",
+    "title": "WCO official website",
+    "url": "https://www.wcoomd.org/",
+    "sourceType": "international-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "imo",
+    "publisher": "International Maritime Organization",
+    "title": "IMO official website",
+    "url": "https://www.imo.org/",
+    "sourceType": "international-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "icc",
+    "publisher": "International Chamber of Commerce",
+    "title": "ICC official website",
+    "url": "https://iccwbo.org/",
+    "sourceType": "statutory-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "itc",
+    "publisher": "International Trade Centre",
+    "title": "ITC official website",
+    "url": "https://www.intracen.org/",
+    "sourceType": "international-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "unctad",
+    "publisher": "UN Trade and Development (UNCTAD)",
+    "title": "UNCTAD official website",
+    "url": "https://unctad.org/",
+    "sourceType": "international-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "worldbank",
+    "publisher": "World Bank Group",
+    "title": "World Bank official website",
+    "url": "https://www.worldbank.org/",
+    "sourceType": "international-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "iso",
+    "publisher": "International Organization for Standardization",
+    "title": "ISO official website",
+    "url": "https://www.iso.org/",
+    "sourceType": "statutory-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "ippc",
+    "publisher": "International Plant Protection Convention Secretariat",
+    "title": "IPPC official website",
+    "url": "https://www.ippc.int/",
+    "sourceType": "international-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "fao",
+    "publisher": "Food and Agriculture Organization of the United Nations",
+    "title": "FAO official website",
+    "url": "https://www.fao.org/",
+    "sourceType": "international-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "in-commerce",
+    "publisher": "Department of Commerce, Government of India",
+    "title": "Department of Commerce official website",
+    "url": "https://www.commerce.gov.in/",
+    "sourceType": "official-government",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "in-dgft",
+    "publisher": "Directorate General of Foreign Trade, Government of India",
+    "title": "DGFT official portal",
+    "url": "https://www.dgft.gov.in/",
+    "sourceType": "official-government",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "in-cbic",
+    "publisher": "Central Board of Indirect Taxes and Customs, Government of India",
+    "title": "CBIC official website",
+    "url": "https://www.cbic.gov.in/",
+    "sourceType": "official-government",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "in-icegate",
+    "publisher": "Central Board of Indirect Taxes and Customs, Government of India",
+    "title": "ICEGATE — Indian Customs Electronic Gateway",
+    "url": "https://www.icegate.gov.in/",
+    "sourceType": "official-government",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "in-gst",
+    "publisher": "Goods and Services Tax Network, India",
+    "title": "GST common portal",
+    "url": "https://www.gst.gov.in/",
+    "sourceType": "official-government",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "in-rbi",
+    "publisher": "Reserve Bank of India",
+    "title": "RBI official website",
+    "url": "https://www.rbi.org.in/",
+    "sourceType": "official-government",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "in-apeda",
+    "publisher": "Agricultural and Processed Food Products Export Development Authority",
+    "title": "APEDA official website",
+    "url": "https://apeda.gov.in/",
+    "sourceType": "statutory-organization",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "in-mpeda",
+    "publisher": "Marine Products Export Development Authority",
+    "title": "MPEDA official website",
+    "url": "https://mpeda.gov.in/",
+    "sourceType": "statutory-organization",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "in-fssai",
+    "publisher": "Food Safety and Standards Authority of India",
+    "title": "FSSAI official website",
+    "url": "https://www.fssai.gov.in/",
+    "sourceType": "statutory-organization",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "in-bis",
+    "publisher": "Bureau of Indian Standards",
+    "title": "BIS official website",
+    "url": "https://www.bis.gov.in/",
+    "sourceType": "statutory-organization",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "in-eic",
+    "publisher": "Export Inspection Council of India",
+    "title": "EIC official website",
+    "url": "https://www.eicindia.gov.in/",
+    "sourceType": "statutory-organization",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "in-ppqs",
+    "publisher": "Directorate of Plant Protection, Quarantine and Storage, Government of India",
+    "title": "PPQS official website",
+    "url": "https://ppqs.gov.in/",
+    "sourceType": "official-government",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "in-cdsco",
+    "publisher": "Central Drugs Standard Control Organisation, Government of India",
+    "title": "CDSCO official website",
+    "url": "https://cdsco.gov.in/",
+    "sourceType": "official-government",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "in-dgshipping",
+    "publisher": "Directorate General of Shipping, Government of India",
+    "title": "DG Shipping official website",
+    "url": "https://www.dgshipping.gov.in/",
+    "sourceType": "official-government",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "in-ecgc",
+    "publisher": "ECGC Limited",
+    "title": "ECGC official website",
+    "url": "https://www.ecgc.in/",
+    "sourceType": "statutory-organization",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "in-tradeportal",
+    "publisher": "Department of Commerce, Government of India / FIEO",
+    "title": "Indian Trade Portal",
+    "url": "https://www.indiantradeportal.in/",
+    "sourceType": "official-government",
+    "jurisdiction": "IN"
+  },
+  {
+    "id": "frankfurter",
+    "publisher": "Frankfurter (open-source project)",
+    "title": "Frankfurter exchange-rate API documentation",
+    "url": "https://frankfurter.dev/",
+    "sourceType": "licensed-data-provider",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "digitraffic",
+    "publisher": "Fintraffic",
+    "title": "Digitraffic Marine open data",
+    "url": "https://www.digitraffic.fi/en/marine-traffic/",
+    "sourceType": "official-operator",
+    "jurisdiction": "FI",
+    "license": "CC BY 4.0"
+  },
+  {
+    "id": "un-comtrade",
+    "publisher": "United Nations Statistics Division",
+    "title": "UN Comtrade database",
+    "url": "https://comtradeplus.un.org/",
+    "sourceType": "international-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "wto-news",
+    "publisher": "World Trade Organization",
+    "title": "WTO news (RSS feed)",
+    "url": "https://www.wto.org/english/news_e/news_e.htm",
+    "sourceType": "international-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "itc-news",
+    "publisher": "International Trade Centre",
+    "title": "ITC news (RSS feed)",
+    "url": "https://www.intracen.org/news-and-events",
+    "sourceType": "international-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "ec-trade-news",
+    "publisher": "European Commission",
+    "title": "Press corner — trade (RSS feed)",
+    "url": "https://ec.europa.eu/commission/presscorner/home/en",
+    "sourceType": "international-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "icc-news",
+    "publisher": "International Chamber of Commerce",
+    "title": "ICC news (RSS feed)",
+    "url": "https://iccwbo.org/news-publications/news/",
+    "sourceType": "statutory-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "un-news",
+    "publisher": "United Nations",
+    "title": "UN News — economic development (RSS feed)",
+    "url": "https://news.un.org/en/",
+    "sourceType": "international-organization",
+    "jurisdiction": "INT"
+  },
+  {
+    "id": "wikipedia",
+    "publisher": "Wikimedia Foundation",
+    "title": "Wikipedia (live search API)",
+    "url": "https://www.wikipedia.org/",
+    "sourceType": "secondary-publication",
+    "jurisdiction": "INT",
+    "license": "CC BY-SA 4.0",
+    "attribution": "Text from Wikipedia contributors, CC BY-SA 4.0."
+  },
+  {
+    "id": "gdelt",
+    "publisher": "The GDELT Project",
+    "title": "GDELT DOC API (live news headlines)",
+    "url": "https://www.gdeltproject.org/",
+    "sourceType": "secondary-publication",
+    "jurisdiction": "INT",
+    "attribution": "Headlines indexed by the GDELT Project; each belongs to its publisher."
+  }
 ]

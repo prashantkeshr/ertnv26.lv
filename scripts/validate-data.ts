@@ -9,7 +9,7 @@
  *   - catalog paths exist, unpublished datasets have no file claim
  */
 import { z } from 'zod';
-import { GraphFile, IndicatorFile, IndicatorIndex, LinkStatus, Manifest, SearchIndexFile } from '../src/types/schemas';
+import { GraphFile, IndicatorFile, IndicatorIndex, LinkStatus, Manifest, NewsFile, SearchIndexFile } from '../src/types/schemas';
 import { makeRef } from '../src/utils/entities';
 import { dataExists, loadSourceData, parseDataset, today } from './lib';
 
@@ -131,6 +131,23 @@ try {
       for (const p of s.points)
         if (p.year < index.period.from || p.year > index.period.to) fail(`indicators ${code}: ${s.indicatorId} has year ${p.year} outside the stated period`);
   }
+} catch (e) {
+  fail(String(e instanceof Error ? e.message : e));
+}
+
+// News snapshot: valid items, known publishers, no duplicates, no future dates, retrieval date present.
+try {
+  const news = parseDataset('news/latest.json', NewsFile);
+  if (news.retrievedOn > now) fail('news: retrievedOn is in the future');
+  checkUnique('news ids', news.items.map((i) => i.id));
+  checkUnique('news urls', news.items.map((i) => i.url));
+  for (const f of news.feeds) if (!sourceIds.has(f.sourceId)) fail(`news feed: unknown sourceId "${f.sourceId}"`);
+  for (const i of news.items) {
+    if (!sourceIds.has(i.sourceId)) fail(`news ${i.id}: unknown sourceId "${i.sourceId}"`);
+    if (i.publishedOn > now) fail(`news ${i.id}: publishedOn ${i.publishedOn} is in the future`);
+  }
+  const ageDays = (Date.parse(now) - Date.parse(news.retrievedOn)) / 86_400_000;
+  if (ageDays > 14) console.warn(`⚠ News snapshot is ${Math.round(ageDays)} days old — the refresh job may have stopped.`);
 } catch (e) {
   fail(String(e instanceof Error ? e.message : e));
 }

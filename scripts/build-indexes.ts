@@ -133,6 +133,7 @@ function countRecords(path: string): number | null {
     if (Array.isArray(o.docs)) return o.docs.length;
     if (Array.isArray(o.edges)) return o.edges.length;
     if (Array.isArray(o.areas)) return o.areas.length;
+    if (Array.isArray(o.items)) return o.items.length;
     const geometries = (o.objects as { countries?: { geometries?: unknown[] } } | undefined)?.countries?.geometries;
     if (Array.isArray(geometries)) return geometries.length;
     if (o.countries && typeof o.countries === 'object') return Object.keys(o.countries).length;
@@ -140,10 +141,21 @@ function countRecords(path: string): number | null {
   return null;
 }
 
+// A dataset that states its own retrieval date (snapshots) is shown with that date, not a hand-typed one.
+function retrievedOn(path: string): string | null {
+  const json = readJson(path) as { retrievedOn?: unknown } | unknown[];
+  const d = !Array.isArray(json) && typeof json.retrievedOn === 'string' ? json.retrievedOn : null;
+  return d && /^d{4}-d{2}-d{2}$/.test(d) ? d : null;
+}
+
 const manifest = Manifest.parse({
   generatedAt,
   schemaVersion: 1,
-  datasets: data.catalog.map((entry) => ({ ...entry, records: entry.path ? countRecords(entry.path) : null })),
+  datasets: data.catalog.map((entry) => ({
+    ...entry,
+    records: entry.path ? countRecords(entry.path) : null,
+    lastUpdated: entry.path ? (retrievedOn(entry.path) ?? entry.lastUpdated) : entry.lastUpdated,
+  })),
 });
 writeJson('manifest.json', manifest, true);
 

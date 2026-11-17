@@ -52,7 +52,7 @@ export function composeEmail(v: Values): { subject: string; body: string; href: 
 function Field({ id, label, error, hint, children }: { id: string; label: string; error?: string; hint?: string; children: React.ReactNode }) {
   return (
     <div>
-      <label htmlFor={id} className="block text-sm font-semibold text-navy">
+      <label htmlFor={id} className="block text-sm font-semibold text-heading">
         {label}
       </label>
       <div className="mt-1.5">{children}</div>
@@ -139,7 +139,7 @@ export function ContactForm() {
         </Button>
       </div>
       <p className="text-xs leading-relaxed text-muted">
-        eport has no server. This opens <strong className="font-semibold text-navy">your own email app</strong> with the message ready to send; nothing is sent until you press send there, and eport
+        eport has no server. This opens <strong className="font-semibold text-heading">your own email app</strong> with the message ready to send; nothing is sent until you press send there, and eport
         does not keep a copy.
       </p>
 

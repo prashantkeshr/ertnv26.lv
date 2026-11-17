@@ -48,7 +48,7 @@ export function EmptyState({ title, description, icon: Icon = SearchX, action, c
   return (
     <div className={cn('rounded-lg border border-dashed border-line bg-soft px-6 py-10 text-center', className)}>
       <Icon aria-hidden="true" className="mx-auto size-7 text-muted" />
-      <p className="mt-3 font-display text-base font-semibold text-navy">{title}</p>
+      <p className="mt-3 font-display text-base font-semibold text-heading">{title}</p>
       {description && <div className="mx-auto mt-1.5 max-w-md text-sm leading-relaxed text-muted">{description}</div>}
       {action && <div className="mt-4">{action}</div>}
     </div>

@@ -56,8 +56,8 @@ export function ContactSection({ headingLevel = 'h2' }: { headingLevel?: 'h1' | 
         </Reveal>
 
         <Reveal delay={120}>
-          <div className="rounded-2xl bg-white p-6 text-ink shadow-[0_30px_70px_-30px_rgb(0_0_0/0.7)] sm:p-8">
-            <h3 className="font-display text-xl font-bold text-navy">Send us a message</h3>
+          <div className="rounded-2xl bg-surface p-6 text-ink shadow-[0_30px_70px_-30px_rgb(0_0_0/0.7)] sm:p-8">
+            <h3 className="font-display text-xl font-bold text-heading">Send us a message</h3>
             <p className="mt-1 mb-6 text-sm text-muted">All fields except organisation are required.</p>
             <ContactForm />
           </div>

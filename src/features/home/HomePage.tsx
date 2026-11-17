@@ -16,6 +16,11 @@ import { useSeo } from '@/hooks/useSeo';
 import { useI18n } from '@/i18n';
 import { formatDate, formatNumber } from '@/utils/format';
 import { HeroCards } from './HeroCards';
+import { LatestNews } from './LatestNews';
+import { Faq, HowItWorks } from './ProcessAndFaq';
+import { QuickFinder } from './QuickFinder';
+import { ReferenceMarquee } from './ReferenceMarquee';
+import { Solutions } from './Solutions';
 
 const WorldMap = lazy(() => import('@/components/maps/WorldMap'));
 const HeroGlobe = lazy(() => import('./HeroGlobe'));
@@ -29,8 +34,8 @@ const QUICK_LINKS = [
   { to: '/directory/organizations', label: 'International organizations' },
 ];
 
-const ASSURANCES: Array<{ icon: LucideIcon; text: string }> = [
-  { icon: ShieldCheck, text: 'Every figure linked to its source' },
+const ASSURANCES: Array<{ icon: LucideIcon; text: string; to?: string }> = [
+  { icon: ShieldCheck, text: 'Every figure linked to its source', to: '/data-reliability' },
   { icon: Lock, text: 'No accounts. Nothing uploaded.' },
   { icon: Scale, text: 'Independent of any government' },
 ];
@@ -76,7 +81,13 @@ function Hero() {
             {ASSURANCES.map((a) => (
               <li key={a.text} className="flex items-center gap-2 text-sm text-white/80">
                 <a.icon aria-hidden="true" className="size-4 shrink-0 text-sky" />
-                {a.text}
+                {a.to ? (
+                  <Link to={a.to} className="underline decoration-white/30 underline-offset-4 hover:decoration-white">
+                    {a.text}
+                  </Link>
+                ) : (
+                  a.text
+                )}
               </li>
             ))}
           </ul>
@@ -103,35 +114,6 @@ function Hero() {
   );
 }
 
-/* --------------------------------------------------------------- marquee */
-
-function ReferenceMarquee() {
-  const orgs = useDataset('organizations');
-  const items = orgs.data ?? [];
-  return (
-    <section aria-label="Official bodies eport references" className="border-b border-line bg-white py-7">
-      <p className="container-page mb-5 text-center text-xs font-semibold tracking-[0.14em] text-muted uppercase">
-        Official bodies whose information eport references
-        <span className="font-normal tracking-normal normal-case"> — references only, not partners or endorsements</span>
-      </p>
-      <div className="marquee overflow-hidden">
-        <div className="marquee-track">
-          {[0, 1].map((copy) => (
-            <ul key={copy} aria-hidden={copy === 1 || undefined} className={cn('flex shrink-0 items-baseline gap-14 pe-14', copy === 1 && 'marquee-dup')}>
-              {items.map((o) => (
-                <li key={o.id} className="whitespace-nowrap">
-                  <span className="font-display text-xl font-bold text-navy">{o.abbreviation}</span>
-                  <span className="ms-2.5 text-xs text-muted">{o.headquarters.city}</span>
-                </li>
-              ))}
-            </ul>
-          ))}
-        </div>
-      </div>
-    </section>
-  );
-}
-
 /* ----------------------------------------------------------------- stats */
 
 /** Coverage figures are counted from the published dataset manifest — they are not marketing numbers. */
@@ -146,7 +128,7 @@ function CoverageStrip() {
     { label: 'International organizations', id: 'organizations' },
   ];
   return (
-    <section aria-label="Published coverage" className="bg-white">
+    <section aria-label="Published coverage" className="bg-surface">
       <div className="container-page py-12 sm:py-14">
         {manifest.status === 'error' ? (
           <ErrorState error={manifest.error} onRetry={manifest.reload} />
@@ -155,7 +137,7 @@ function CoverageStrip() {
             <dl className="grid grid-cols-2 gap-x-6 gap-y-8 lg:grid-cols-4">
               {items.map((item, i) => (
                 <Reveal key={item.id} delay={i * 90} className="border-s-2 border-accent ps-5">
-                  <dd className="tabular font-display text-4xl font-extrabold text-navy sm:text-5xl">
+                  <dd className="tabular font-display text-4xl font-extrabold text-heading sm:text-5xl">
                     {manifest.status === 'loading' || records(item.id) === null ? <Skeleton className="h-10 w-20" /> : <CountUp value={records(item.id)!} format={(n) => formatNumber(n, locale)} />}
                   </dd>
                   <dt className="mt-2 text-sm text-muted">{item.label}</dt>
@@ -198,9 +180,9 @@ function Divisions() {
           const wide = SPANS[i]!.endsWith('4') || SPANS[i]!.endsWith('3');
           return (
             <Reveal key={d.id} delay={(i % 3) * 90} className={cn('sm:col-span-1', SPANS[i])}>
-              <Link to={d.path} {...spotlightHandlers()} className="spot group flex h-full flex-col rounded-2xl border border-line bg-white p-6 sm:p-7">
+              <Link to={d.path} {...spotlightHandlers()} className="spot group flex h-full flex-col rounded-2xl border border-line bg-surface p-6 sm:p-7">
                 <div className="flex items-start justify-between">
-                  <span className="grid size-12 place-items-center rounded-xl bg-info-soft text-ocean transition-colors duration-300 group-hover:bg-ocean group-hover:text-white">
+                  <span className="grid size-12 place-items-center rounded-xl bg-info-soft text-link transition-colors duration-300 group-hover:bg-ocean group-hover:text-white">
                     <Icon aria-hidden="true" className="size-6" strokeWidth={1.75} />
                   </span>
                   <span aria-hidden="true" className="tabular font-display text-sm font-bold text-muted">
@@ -208,7 +190,7 @@ function Divisions() {
                   </span>
                 </div>
                 <p className="mt-5 text-xs font-semibold tracking-[0.14em] text-muted uppercase">{d.kicker}</p>
-                <h3 className="mt-1 text-xl font-bold transition-colors group-hover:text-ocean">{d.purpose}</h3>
+                <h3 className="mt-1 text-xl font-bold transition-colors group-hover:text-link">{d.purpose}</h3>
                 <p className="mt-2 text-sm leading-relaxed text-muted">{d.description}</p>
 
                 {wide && (
@@ -236,7 +218,7 @@ function Divisions() {
                     <span className="tabular text-muted">
                       {available} of {d.modules.length} modules available
                     </span>
-                    <ArrowRight aria-hidden="true" className="size-4 text-ocean transition-transform duration-300 group-hover:translate-x-1 rtl:rotate-180" />
+                    <ArrowRight aria-hidden="true" className="size-4 text-link transition-transform duration-300 group-hover:translate-x-1 rtl:rotate-180" />
                   </p>
                 </div>
               </Link>
@@ -293,20 +275,20 @@ function CountryExploration() {
               {regions.map(([region, count]) => (
                 <li key={region}>
                   <Link to={`/countries?region=${encodeURIComponent(region)}`} className="group flex items-center justify-between py-2.5 text-sm">
-                    <span className="font-medium text-navy transition-colors group-hover:text-ocean">{region}</span>
+                    <span className="font-medium text-heading transition-colors group-hover:text-link">{region}</span>
                     <span className="tabular text-muted">{count}</span>
                   </Link>
                 </li>
               ))}
             </ul>
-            <div className="spot mt-6 rounded-xl border border-line bg-white p-4" {...spotlightHandlers()}>
-              <p className="text-xs font-semibold tracking-[0.14em] text-ocean uppercase">Reference market</p>
-              <p className="mt-1 font-display font-bold text-navy">India</p>
+            <div className="spot mt-6 rounded-xl border border-line bg-surface p-4" {...spotlightHandlers()}>
+              <p className="text-xs font-semibold tracking-[0.14em] text-link uppercase">Reference market</p>
+              <p className="mt-1 font-display font-bold text-heading">India</p>
               <div className="mt-2">
                 <CountryLevelBadge level="operational-seed" />
               </div>
               <p className="mt-2 text-sm leading-relaxed text-muted">The first market being documented in operational depth, starting with its national trade authorities.</p>
-              <Link to="/countries/IN" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-ocean hover:text-ocean-dark">
+              <Link to="/countries/IN" className="mt-3 inline-flex items-center gap-1.5 text-sm font-semibold text-link hover:text-link-hover">
                 Open India profile <ArrowRight aria-hidden="true" className="size-4 rtl:rotate-180" />
               </Link>
             </div>
@@ -340,60 +322,20 @@ function Roadmap() {
       <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
         {TASKS.map((task, i) => (
           <Reveal key={task.title} delay={i * 90}>
-            <div {...spotlightHandlers()} className="spot flex h-full flex-col rounded-2xl border border-line bg-white p-5">
-              <task.icon aria-hidden="true" className="size-6 text-ocean" strokeWidth={1.75} />
+            <div {...spotlightHandlers()} className="spot flex h-full flex-col rounded-2xl border border-line bg-surface p-5">
+              <task.icon aria-hidden="true" className="size-6 text-link" strokeWidth={1.75} />
               <h3 className="mt-4 text-base font-bold">{task.title}</h3>
               <div className="mt-2">
                 <ModuleStatusBadge status={task.status} />
               </div>
               <p className="mt-3 flex-1 text-sm leading-relaxed text-muted">{task.text}</p>
-              <Link to={task.to} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-ocean hover:text-ocean-dark">
+              <Link to={task.to} className="mt-4 inline-flex items-center gap-1.5 text-sm font-semibold text-link hover:text-link-hover">
                 {task.cta} <ArrowRight aria-hidden="true" className="size-4 rtl:rotate-180" />
               </Link>
             </div>
           </Reveal>
         ))}
       </div>
-    </Section>
-  );
-}
-
-/* --------------------------------------------------------- organizations */
-
-function Organizations() {
-  const orgs = useDataset('organizations');
-  return (
-    <Section aria-labelledby="orgs-heading">
-      <Reveal>
-        <SectionHeading
-          id="orgs-heading"
-          kicker="eport Directory"
-          title="The bodies that shape trade rules"
-          description="Intergovernmental, UN-system, treaty and private organizations — kept clearly apart, each linked to its official website."
-          action={
-            <ButtonLink to="/directory/organizations" variant="secondary">
-              All organizations
-              <ArrowRight aria-hidden="true" className="size-4 rtl:rotate-180" />
-            </ButtonLink>
-          }
-        />
-      </Reveal>
-      {orgs.status === 'error' && <ErrorState error={orgs.error} onRetry={orgs.reload} />}
-      {orgs.status === 'loading' && <Skeleton className="h-40 w-full rounded-lg" />}
-      {orgs.data && (
-        <Reveal>
-          <ul className="grid gap-px overflow-hidden rounded-2xl border border-line bg-line sm:grid-cols-2 lg:grid-cols-5">
-            {orgs.data.map((o) => (
-              <li key={o.id} className="bg-white">
-                <Link to={`/directory/organizations/${o.id}`} className="group block h-full px-5 py-5 transition-colors hover:bg-info-soft">
-                  <span className="font-display text-xl font-bold text-navy transition-colors group-hover:text-ocean">{o.abbreviation}</span>
-                  <span className="mt-1 block text-xs leading-snug text-muted">{o.name}</span>
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </Reveal>
-      )}
     </Section>
   );
 }
@@ -453,6 +395,8 @@ export default function HomePage() {
       <Hero />
       <ReferenceMarquee />
       <CoverageStrip />
+      <Solutions />
+      <QuickFinder />
       <Divisions />
       <CountryExploration />
       <Section tone="soft" aria-labelledby="stats-heading">
@@ -474,9 +418,11 @@ export default function HomePage() {
           <IndicatorPanel areaCode="WLD" areaName="World" />
         </Reveal>
       </Section>
+      <LatestNews />
+      <HowItWorks />
       <Roadmap />
-      <Organizations />
       <Trust />
+      <Faq />
       <ContactSection />
     </>
   );

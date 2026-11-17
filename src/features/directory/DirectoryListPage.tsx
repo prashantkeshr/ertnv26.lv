@@ -2,6 +2,7 @@ import { Building2, Landmark } from 'lucide-react';
 import { useMemo, useState } from 'react';
 import { Link } from 'react-router';
 import { routeMeta } from '@/app/route-meta';
+import { Flag } from '@/components/common/Flag';
 import { PageHeader, seoCrumbs } from '@/components/common/PageHeader';
 import { hostOf, inputClass } from '@/components/common/primitives';
 import { Badge, VerificationBadge } from '@/components/common/StatusBadge';
@@ -20,6 +21,7 @@ interface Row {
   typeLabel: string;
   official: boolean;
   place: string;
+  flag: string;
   summary: string;
   website: string;
   status: VerificationStatus;
@@ -56,6 +58,7 @@ function fromOrganization(o: Organization): Row {
     typeLabel: ORG_TYPE_LABEL[o.orgType],
     official: ORG_IS_OFFICIAL[o.orgType],
     place: o.headquarters.city,
+    flag: o.headquarters.countryCode,
     summary: o.summary,
     website: o.website,
     status: o.verification.status,
@@ -73,6 +76,7 @@ function fromAuthority(a: Authority): Row {
     typeLabel: AUTHORITY_CATEGORY_LABEL[a.category],
     official: true,
     place: a.jurisdiction === 'IN' ? 'India' : a.jurisdiction,
+    flag: a.jurisdiction,
     summary: a.summary,
     website: a.website,
     status: a.verification.status,
@@ -107,11 +111,11 @@ export default function DirectoryListPage({ kind }: { kind: 'organization' | 'au
         {config.scopeNote && <p className="mb-6 rounded-md border border-warn/25 bg-warn-soft px-4 py-3 text-sm text-ink">{config.scopeNote}</p>}
 
         <form role="search" aria-label={`Filter ${config.crumb.toLowerCase()}`} onSubmit={(e) => e.preventDefault()} className="grid gap-4 rounded-lg border border-line bg-soft p-4 sm:grid-cols-[1fr_18rem]">
-          <label className="block text-sm font-medium text-navy">
+          <label className="block text-sm font-medium text-heading">
             Name, abbreviation or function
             <input type="search" value={q} onChange={(e) => setQ(e.target.value)} placeholder={kind === 'organization' ? 'e.g. customs, Incoterms, WTO' : 'e.g. IEC, customs, phytosanitary'} className={`${inputClass} mt-1.5`} autoComplete="off" />
           </label>
-          <label className="block text-sm font-medium text-navy">
+          <label className="block text-sm font-medium text-heading">
             {config.typeFilterLabel}
             <select value={type} onChange={(e) => setType(e.target.value)} className={`${inputClass} mt-1.5`}>
               <option value="">All</option>
@@ -138,9 +142,9 @@ export default function DirectoryListPage({ kind }: { kind: 'organization' | 'au
                 <ul className="grid gap-4 md:grid-cols-2">
                   {filtered.map((r) => (
                     <li key={r.id}>
-                      <Link to={r.path} className="group flex h-full flex-col rounded-lg border border-line bg-white p-5 transition-colors hover:border-ocean">
+                      <Link to={r.path} className="group flex h-full flex-col rounded-lg border border-line bg-surface p-5 transition-colors hover:border-ocean">
                         <div className="flex items-start justify-between gap-3">
-                          <h2 className="text-base font-bold group-hover:text-ocean">
+                          <h2 className="text-base font-bold group-hover:text-link">
                             {r.name}
                             {r.short && <span className="ms-2 font-sans text-sm font-medium text-muted">{r.short}</span>}
                           </h2>
@@ -153,7 +157,10 @@ export default function DirectoryListPage({ kind }: { kind: 'organization' | 'au
                         </div>
                         <p className="mt-3 line-clamp-3 flex-1 text-sm leading-relaxed text-muted">{r.summary}</p>
                         <p className="mt-4 flex items-center justify-between border-t border-line pt-3 text-xs text-muted">
-                          <span>{r.place}</span>
+                          <span className="inline-flex items-center gap-2">
+                            <Flag code={r.flag} />
+                            {r.place}
+                          </span>
                           <span>{hostOf(r.website)}</span>
                         </p>
                       </Link>

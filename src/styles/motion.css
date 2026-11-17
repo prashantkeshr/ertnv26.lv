@@ -228,3 +228,25 @@
     transform: none;
   }
 }
+
+/* ---------- second marquee row runs the other way ---------- */
+.motion .marquee-reverse .marquee-track {
+  animation-direction: reverse;
+  animation-duration: 60s;
+}
+
+/* ---------- animated graph / route lines (decorative SVG) ---------- */
+@keyframes dash-flow {
+  to {
+    stroke-dashoffset: -24;
+  }
+}
+.motion .flow {
+  stroke-dasharray: 4 8;
+  animation: dash-flow 1.6s linear infinite;
+}
+@media (prefers-reduced-motion: reduce) {
+  .flow {
+    animation: none !important;
+  }
+}

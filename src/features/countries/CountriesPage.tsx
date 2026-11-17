@@ -1,6 +1,7 @@
 import { useMemo, useState } from 'react';
 import { Link, useSearchParams } from 'react-router';
 import { routeMeta } from '@/app/route-meta';
+import { Flag } from '@/components/common/Flag';
 import { PageHeader, seoCrumbs } from '@/components/common/PageHeader';
 import { Button, inputClass } from '@/components/common/primitives';
 import { CountryLevelBadge } from '@/components/common/StatusBadge';
@@ -62,11 +63,11 @@ export default function CountriesPage() {
       />
       <div className="container-page py-10">
         <form role="search" aria-label="Filter countries" onSubmit={(e) => e.preventDefault()} className="grid gap-4 rounded-lg border border-line bg-soft p-4 sm:grid-cols-[1fr_12rem_14rem]">
-          <label className="block text-sm font-medium text-navy">
+          <label className="block text-sm font-medium text-heading">
             Name, capital, ISO or currency code
             <input type="search" value={q} onChange={(e) => update('q', e.target.value)} placeholder="e.g. India, IN, IND, Nairobi, EUR" className={`${inputClass} mt-1.5`} autoComplete="off" />
           </label>
-          <label className="block text-sm font-medium text-navy">
+          <label className="block text-sm font-medium text-heading">
             Region
             <select value={region} onChange={(e) => update('region', e.target.value)} className={`${inputClass} mt-1.5`}>
               <option value="">All regions</option>
@@ -77,7 +78,7 @@ export default function CountriesPage() {
               ))}
             </select>
           </label>
-          <label className="block text-sm font-medium text-navy">
+          <label className="block text-sm font-medium text-heading">
             eport coverage
             <select value={depth} onChange={(e) => update('coverage', e.target.value)} className={`${inputClass} mt-1.5`}>
               <option value="">Any coverage</option>
@@ -132,9 +133,12 @@ export default function CountriesPage() {
                       {filtered.slice(0, visible).map((c) => (
                         <tr key={c.id} className="border-t border-line hover:bg-soft">
                           <th scope="row" className="px-4 py-3 text-left font-normal">
-                            <Link to={`/countries/${c.cca2}`} className="font-semibold text-navy hover:text-ocean hover:underline">
-                              {c.name}
-                            </Link>
+                            <span className="flex items-center gap-2.5">
+                              <Flag code={c.cca2} />
+                              <Link to={`/countries/${c.cca2}`} className="font-semibold text-heading hover:text-link hover:underline">
+                                {c.name}
+                              </Link>
+                            </span>
                             {c.capital[0] && <span className="block text-xs text-muted">{c.capital[0]}</span>}
                           </th>
                           <td className="tabular px-4 py-3 whitespace-nowrap text-ink">

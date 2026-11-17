@@ -25,9 +25,9 @@ interface LineChartProps {
 }
 
 const STYLE = [
-  { stroke: 'var(--color-ocean)', dash: undefined },
-  { stroke: 'var(--color-navy)', dash: '5 4' },
-  { stroke: 'var(--color-muted)', dash: '2 3' },
+  { stroke: 'var(--link)', dash: undefined },
+  { stroke: 'var(--heading)', dash: '5 4' },
+  { stroke: 'var(--muted)', dash: '2 3' },
 ];
 
 function niceMax(max: number): number {
@@ -108,18 +108,18 @@ export function LineChart({ series, formatAxis, formatValue, summary, height = 2
       >
         {ticks.map((t) => (
           <g key={t}>
-            <line x1={pad.left} x2={W - pad.right} y1={y(t)} y2={y(t)} stroke="var(--color-line)" strokeWidth="1" />
-            <text x={pad.left - 8} y={y(t) + 4} textAnchor="end" fontSize="12" fill="var(--color-muted)">
+            <line x1={pad.left} x2={W - pad.right} y1={y(t)} y2={y(t)} stroke="var(--line)" strokeWidth="1" />
+            <text x={pad.left - 8} y={y(t) + 4} textAnchor="end" fontSize="12" fill="var(--muted)">
               {formatAxis(t)}
             </text>
           </g>
         ))}
         {yearTicks.map((yr) => (
-          <text key={yr} x={x(yr)} y={H - 8} textAnchor="middle" fontSize="12" fill="var(--color-muted)">
+          <text key={yr} x={x(yr)} y={H - 8} textAnchor="middle" fontSize="12" fill="var(--muted)">
             {yr}
           </text>
         ))}
-        {hoverYear !== null && <line x1={x(hoverYear)} x2={x(hoverYear)} y1={pad.top} y2={H - pad.bottom} stroke="var(--color-muted)" strokeWidth="1" strokeDasharray="3 3" />}
+        {hoverYear !== null && <line x1={x(hoverYear)} x2={x(hoverYear)} y1={pad.top} y2={H - pad.bottom} stroke="var(--muted)" strokeWidth="1" strokeDasharray="3 3" />}
         {series.map((s, i) => {
           const st = STYLE[i % STYLE.length]!;
           return (
@@ -128,7 +128,7 @@ export function LineChart({ series, formatAxis, formatValue, summary, height = 2
                 <path key={j} d={d} fill="none" stroke={st.stroke} strokeWidth="2.25" strokeDasharray={st.dash} strokeLinejoin="round" strokeLinecap="round" />
               ))}
               {hoverYear !== null && valueAt(s, hoverYear) !== undefined && (
-                <circle cx={x(hoverYear)} cy={y(valueAt(s, hoverYear)!)} r="4" fill="#fff" stroke={st.stroke} strokeWidth="2" />
+                <circle cx={x(hoverYear)} cy={y(valueAt(s, hoverYear)!)} r="4" fill="var(--surface)" stroke={st.stroke} strokeWidth="2" />
               )}
             </g>
           );

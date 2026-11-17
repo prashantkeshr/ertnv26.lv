@@ -44,3 +44,20 @@ export const INTEGRATION_LABEL: Record<ApiProvider['integrationStatus'], string>
   'coming-soon-secure-layer': 'Coming Soon — requires a secure integration layer',
   'external-link-only': 'External link only',
 };
+
+import type { NewsCategory } from '@/types/schemas';
+
+export const NEWS_CATEGORY_LABEL: Record<NewsCategory, string> = {
+  'international-trade': 'International trade',
+  'maritime-shipping': 'Maritime shipping',
+  ports: 'Ports',
+  logistics: 'Logistics',
+  policy: 'Trade policy',
+  customs: 'Customs',
+  tariffs: 'Tariffs',
+  agreements: 'Agreements',
+  'supply-chains': 'Supply chains',
+  technology: 'Technology',
+  sustainability: 'Sustainability',
+  'trade-finance': 'Trade finance',
+};

@@ -281,14 +281,20 @@
   },
   {
     "id": "news",
-    "title": "Trade news references",
-    "path": null,
-    "coverage": "unavailable",
-    "scope": "Global",
-    "phase": 5,
-    "sourceIds": [],
-    "generated": false,
-    "notes": "Not yet published.",
-    "lastUpdated": null
+    "title": "Trade news headlines",
+    "path": "news/latest.json",
+    "coverage": "partial",
+    "scope": "Latest headlines from five official publishers (WTO, ITC, European Commission, ICC, UN News)",
+    "phase": 1,
+    "sourceIds": [
+      "wto-news",
+      "itc-news",
+      "ec-trade-news",
+      "icc-news",
+      "un-news"
+    ],
+    "generated": true,
+    "notes": "Headline, publisher abstract, date and link only. Refreshed daily by a scheduled job; topic tags are applied automatically. Not a complete view of trade news.",
+    "lastUpdated": "2026-11-17"
   }
 ]

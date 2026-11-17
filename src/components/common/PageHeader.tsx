@@ -40,18 +40,23 @@ interface PageHeaderProps {
   crumbs: Crumb[];
   kicker?: string;
   title: string;
+  /** Optional mark shown before the title, e.g. a country flag. */
+  leading?: ReactNode;
   description?: ReactNode;
   /** Badges, identifiers or actions shown under the description. */
   children?: ReactNode;
 }
 
-export function PageHeader({ crumbs, kicker, title, description, children }: PageHeaderProps) {
+export function PageHeader({ crumbs, kicker, title, leading, description, children }: PageHeaderProps) {
   return (
     <header className="bg-navy text-white">
       <div className="container-page py-9 sm:py-12">
         <Breadcrumbs items={crumbs} />
         {kicker && <Kicker inverse>{kicker}</Kicker>}
-        <h1 className="max-w-3xl text-3xl font-bold text-white sm:text-4xl">{title}</h1>
+        <div className="flex items-center gap-4">
+          {leading}
+          <h1 className="max-w-3xl text-3xl font-bold text-white sm:text-4xl">{title}</h1>
+        </div>
         {description && <p className="mt-3 max-w-2xl text-base leading-relaxed text-white/80 sm:text-lg">{description}</p>}
         {children && <div className="mt-5 flex flex-wrap items-center gap-2">{children}</div>}
       </div>

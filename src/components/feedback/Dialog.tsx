@@ -34,7 +34,7 @@ export function Dialog({ open, onClose, title, children, closeLabel = 'Close', v
       onClose={onClose}
       onClick={(e) => e.target === ref.current && onClose()}
       className={cn(
-        'bg-white p-0 text-ink shadow-menu',
+        'bg-surface p-0 text-ink shadow-menu',
         variant === 'modal' && 'm-auto w-[min(32rem,calc(100vw-2rem))] rounded-lg',
         variant === 'sheet' && 'ms-auto me-0 h-dvh max-h-none w-[min(22rem,100vw)] max-w-none',
       )}
@@ -45,7 +45,7 @@ export function Dialog({ open, onClose, title, children, closeLabel = 'Close', v
             <h2 id={titleId} className="text-base font-bold">
               {title}
             </h2>
-            <button type="button" onClick={onClose} aria-label={closeLabel} className="-me-2 rounded-md p-2.5 text-muted hover:bg-soft hover:text-navy">
+            <button type="button" onClick={onClose} aria-label={closeLabel} className="-me-2 rounded-md p-2.5 text-muted hover:bg-soft hover:text-heading">
               <X aria-hidden="true" className="size-5" />
             </button>
           </div>

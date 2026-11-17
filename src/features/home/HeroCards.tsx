@@ -9,7 +9,7 @@ import { useI18n } from '@/i18n';
 import { loadIndicators } from '@/services/data/loader';
 import { formatNumber, formatUsdCompact } from '@/utils/format';
 
-function Sparkline({ points }: { points: Array<{ year: number; value: number }> }) {
+export function Sparkline({ points }: { points: Array<{ year: number; value: number }> }) {
   if (points.length < 2) return null;
   const W = 150;
   const H = 38;

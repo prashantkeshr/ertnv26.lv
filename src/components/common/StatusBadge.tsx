@@ -24,7 +24,7 @@ export type Tone = 'ok' | 'info' | 'warn' | 'bad' | 'neutral';
 
 const TONE: Record<Tone, string> = {
   ok: 'bg-ok-soft text-ok',
-  info: 'bg-info-soft text-ocean-dark',
+  info: 'bg-info-soft text-link-hover',
   warn: 'bg-warn-soft text-warn',
   bad: 'bg-bad-soft text-bad',
   neutral: 'bg-soft text-muted ring-1 ring-inset ring-line',

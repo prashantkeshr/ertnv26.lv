@@ -1,0 +1,382 @@
+{
+  "retrievedOn": "2026-11-17",
+  "retrievedAt": "2026-11-17T04:45:33.365Z",
+  "feeds": [
+    {
+      "sourceId": "wto-news",
+      "publisherName": "World Trade Organization",
+      "feedUrl": "https://www.wto.org/library/rss/latest_news_e.xml",
+      "ok": true,
+      "items": 10
+    },
+    {
+      "sourceId": "itc-news",
+      "publisherName": "International Trade Centre",
+      "feedUrl": "https://www.intracen.org/rss.xml",
+      "ok": true,
+      "items": 5
+    },
+    {
+      "sourceId": "ec-trade-news",
+      "publisherName": "European Commission",
+      "feedUrl": "https://ec.europa.eu/commission/presscorner/api/rss?language=en&topic=trade",
+      "ok": true,
+      "items": 0
+    },
+    {
+      "sourceId": "icc-news",
+      "publisherName": "International Chamber of Commerce",
+      "feedUrl": "https://iccwbo.org/feed/",
+      "ok": true,
+      "items": 10
+    },
+    {
+      "sourceId": "un-news",
+      "publisherName": "United Nations News",
+      "feedUrl": "https://news.un.org/feed/subscribe/en/news/topic/economic-development/feed/rss.xml",
+      "ok": true,
+      "items": 2
+    }
+  ],
+  "items": [
+    {
+      "id": "5e32cf0975c8",
+      "headline": "Kazakhstan Presents Climate Report at COP31, Prepares Exporters for EU Carbon Rules",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-17",
+      "url": "https://www.intracen.org/node/439784",
+      "categories": [
+        "sustainability"
+      ]
+    },
+    {
+      "id": "e8bc434ad056",
+      "headline": "Less than 5% of the coffee plant ends up in the cup, a missed opportunity for farmers and businesses",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-17",
+      "url": "https://www.intracen.org/node/439789",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "47a6e3bfc447",
+      "headline": "T&T businesses eager to expand trade with Africa",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-17",
+      "url": "https://www.intracen.org/node/439788",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "de6639cb0142",
+      "headline": "TTMA celebrates Ramdeen after 20 years of leadership",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-17",
+      "url": "https://www.intracen.org/node/439785",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "61de43d5546d",
+      "headline": "Venezuela welcomes T&T to join US$19.6B reconstruction programme",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-17",
+      "url": "https://www.intracen.org/node/439790",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "4f818759026e",
+      "headline": "ICC honours trade finance contributions",
+      "summary": "David Meynell and Gary Collyer have been named recipients of the inaugural ICC Wilbert Ward Trade Finance Excellence Award at the 2026 ICC Global Banking Commission Autumn Meeting. The post ICC honours trade finance contributions appeared…",
+      "publisherName": "International Chamber of Commerce",
+      "sourceId": "icc-news",
+      "publishedOn": "2026-11-16",
+      "url": "https://iccwbo.org/news-publications/news/icc-honours-trade-finance-contributions/",
+      "categories": [
+        "trade-finance",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "6169cd706d3c",
+      "headline": "ICC urges COP31 to put private investment at the centre of climate finance delivery",
+      "summary": "The International Chamber of Commerce (ICC) today called on governments at COP31 to broaden climate finance discussions beyond public funding commitments, with an actionable agenda to scale private investment in clean energy…",
+      "publisherName": "International Chamber of Commerce",
+      "sourceId": "icc-news",
+      "publishedOn": "2026-11-13",
+      "url": "https://iccwbo.org/news-publications/news/icc-urges-cop31-to-put-private-investment-at-the-centre-of-climate-finance-delivery/",
+      "categories": [
+        "sustainability",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "18369288ce0f",
+      "headline": "Ireland contributes EUR 200,000 to strengthen trade opportunities in developing countries",
+      "summary": "Ireland is contributing EUR 200,000 (approximately CHF 185,000) to the Standards and Trade Development Facility (STDF) in 2026 to strengthen sanitary and phytosanitary capacity in developing and least-developed countries. The contribution…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-13",
+      "url": "https://www.wto.org/english/news_e/pres26_e/pr998_551_e.htm",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "3446f253b8be",
+      "headline": "Security Council LIVE: Fragile Gulf calm tested as threats to Hormuz shipping mount",
+      "summary": "Nearly nine months after Israeli and US strikes on Iran set off a regional war, the Gulf remains on a knife edge. Iran has all but closed the Strait of Hormuz, which carried a fifth of the world’s oil before the conflict. Attacks on…",
+      "publisherName": "United Nations News",
+      "sourceId": "un-news",
+      "publishedOn": "2026-11-13",
+      "url": "https://news.un.org/feed/view/en/story/2026/11/1168804",
+      "categories": [
+        "maritime-shipping"
+      ]
+    },
+    {
+      "id": "1c47e8eae99d",
+      "headline": "How can coalitions turn WTO stalemate into progress?",
+      "summary": "With multilateral trade negotiations at the World Trade Organization (WTO) at an impasse, plurilateral agreements offer a practical way forward. In this episode of Trading Thoughts, ICC's Head of Trade Valerie Picard invites trade policy…",
+      "publisherName": "International Chamber of Commerce",
+      "sourceId": "icc-news",
+      "publishedOn": "2026-11-12",
+      "url": "https://iccwbo.org/news-publications/podcast/how-can-coalitions-turn-wto-stalemate-into-progress/",
+      "categories": [
+        "agreements",
+        "policy",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "e7698668d3c6",
+      "headline": "South Africa notifies launch of safeguard investigation into certain non-wired float glass products",
+      "summary": "On 11 November 2026, South Africa notified the WTO’s Committee on Safeguards regarding the initiation on 3 November 2026 of a safeguard investigation into imports of certain non-wired float glass products.",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-11",
+      "url": "https://www.wto.org/english/news_e/news26_e/safe_zaf_11nov26_546_e.htm",
+      "categories": [
+        "tariffs",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "c08bc27701d5",
+      "headline": "Ethiopia's accession maintains momentum as WTO members review progress",
+      "summary": "At its eighth meeting on 9 and 10 November, the Working Party on Ethiopia's Accession to the WTO took stock of the latest progress in bilateral market access negotiations and reforms of Ethiopia's foreign trade regime. Leading a…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-10",
+      "url": "https://www.wto.org/english/news_e/news26_e/acc_10nov26_550_e.htm",
+      "categories": [
+        "agreements",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "820a05d552db",
+      "headline": "ICC network mobilised to drive COP31 ambition on electrification",
+      "summary": "The International Chamber of Commerce has issued the following statement in support of the COP31 “35 by 35” Global Electrification Pledge ahead of today’s Electrification Ministerial. The post ICC network mobilised to drive COP31 ambition…",
+      "publisherName": "International Chamber of Commerce",
+      "sourceId": "icc-news",
+      "publishedOn": "2026-11-10",
+      "url": "https://iccwbo.org/news-publications/news/icc-network-mobilsed-to-drive-cop31-ambition-on-electrification/",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "57de77cf5a9a",
+      "headline": "Expert panel launches plan for product carbon ledgers to make carbon performance visible",
+      "summary": "Governments are starting to tax the carbon in imported products, yet there is still no common way to track it as it passes along supply chains. A new framework from an expert panel, convened by ICC and Carbon Measures, would let companies…",
+      "publisherName": "International Chamber of Commerce",
+      "sourceId": "icc-news",
+      "publishedOn": "2026-11-09",
+      "url": "https://iccwbo.org/news-publications/news/expert-panel-launches-plan-for-product-carbon-ledgers-to-make-carbon-performance-visible/",
+      "categories": [
+        "supply-chains",
+        "sustainability"
+      ]
+    },
+    {
+      "id": "397d159570a2",
+      "headline": "Germany contributes EUR 500,000 to strengthen developing economies' trade capacity",
+      "summary": "Germany is contributing EUR 500,000 (approximately CHF 460,000) to the WTO's Global Trust Fund (GTF) to help developing economies and least developed countries (LDCs) enhance their participation in the multilateral trading system. Carmen…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-09",
+      "url": "https://www.wto.org/english/news_e/news26_e/tech_09nov26_543_e.htm",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "0aa7dad0065a",
+      "headline": "EU launches safeguard investigation on certain PET resin chemicals",
+      "summary": "On 6 November 2026, the European Union notified the WTO’s Committee on Safeguards that it had initiated, on the same day (6 November 2026), a safeguard investigation on imports of certain polyethylene terephthalate resin chemicals.",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-06",
+      "url": "https://www.wto.org/english/news_e/news26_e/safe_eec_06nov26_542_e.htm",
+      "categories": [
+        "tariffs",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "043544525036",
+      "headline": "ICC wins international innovation award for ATA digitalisation",
+      "summary": "ICC’s digital ATA Carnet system (eATA) has won the Global Innovation Management Institute (GIMI) international innovation award for advancing digital trade facilitation as the global ATA Carnet system moves closer to full digitalisation…",
+      "publisherName": "International Chamber of Commerce",
+      "sourceId": "icc-news",
+      "publishedOn": "2026-11-06",
+      "url": "https://iccwbo.org/news-publications/news/icc-wins-international-innovation-award-for-ata-digitalisation/",
+      "categories": [
+        "technology",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "9ed10eb28db3",
+      "headline": "Director-General: Leverage trade and partnerships to build a resilient ocean economy",
+      "summary": "The multilateral trading system provides important tools for the development of a healthy and prosperous ocean economy, Director-General Ngozi Okonjo-Iweala said in her keynote speech at an event on Trade, Biodiversity and the Ocean…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-05",
+      "url": "https://www.wto.org/english/news_e/news26_e/envir_05nov26_541_e.htm",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "4d2928b4b8c2",
+      "headline": "Global trade hits US$35 trillion despite disruption and uncertainty, ICC report finds",
+      "summary": "Formerly the ICC Trade Register, the 2026 report combines 18 years of credit-risk data with new intelligence on global trade trends and the future of trade finance. The post Global trade hits US$35 trillion despite disruption and…",
+      "publisherName": "International Chamber of Commerce",
+      "sourceId": "icc-news",
+      "publishedOn": "2026-11-04",
+      "url": "https://iccwbo.org/news-publications/news/global-trade-hits-us35-trillion-despite-disruption-and-uncertainty-icc-report-finds/",
+      "categories": [
+        "trade-finance",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "2a53f2faaa3c",
+      "headline": "ICC Global Trade Intelligence Report 2026",
+      "summary": "The ICC Global Trade Intelligence Report is the leading industry benchmark and analytical resource for trade finance, providing banks, regulators and market participants with robust data and insights on the performance and resilience of…",
+      "publisherName": "International Chamber of Commerce",
+      "sourceId": "icc-news",
+      "publishedOn": "2026-11-04",
+      "url": "https://iccwbo.org/news-publications/report/icc-global-trade-intelligence-report-2026/",
+      "categories": [
+        "trade-finance",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "be1ce15a7919",
+      "headline": "Members review progress in resolving SPS trade concerns at WTO",
+      "summary": "The WTO's Committee on Sanitary and Phytosanitary (SPS) Measures met on 4-6 November, receiving an update on the resolution of past SPS-related trade concerns raised by members, reviewing a list of new and previously raised trade…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-04",
+      "url": "https://www.wto.org/english/news_e/news26_e/sps_04nov26_548_e.htm",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "77b409378df9",
+      "headline": "Trade Policy Review: Viet Nam",
+      "summary": "The third review of the trade policies and practices of Viet Nam takes place on 4 and 6 November 2026. The basis for the review is a report by the WTO Secretariat and a report by the Government of Viet Nam.",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-04",
+      "url": "https://www.wto.org/english/tratop_e/tpr_e/tpr_vnm_04nov26_e.htm",
+      "categories": [
+        "policy",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "d3c3fcbc5bd7",
+      "headline": "EU launches safeguard investigation on certain new hybrid vehicles",
+      "summary": "On 30 October 2026, the European Union notified the WTO’s Committee on Safeguards that it had initiated, on the same day (30 October 2026), a safeguard investigation on imports of certain new hybrid vehicles.",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-02",
+      "url": "https://www.wto.org/english/news_e/news26_e/safe_eec_02nov26_536_e.htm",
+      "categories": [
+        "tariffs",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "705dbd7a97d3",
+      "headline": "ICC launches selection process for next ICC Court President",
+      "summary": "The International Chamber of Commerce (ICC) has launched the process to select the next President of the ICC International Court of Arbitration, for the 2027–2030 term. The post ICC launches selection process for next ICC Court President…",
+      "publisherName": "International Chamber of Commerce",
+      "sourceId": "icc-news",
+      "publishedOn": "2026-11-02",
+      "url": "https://iccwbo.org/news-publications/news/icc-launches-selection-process-for-next-icc-court-president/",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "0e672582424e",
+      "headline": "Working Party chair visits Uzbekistan as WTO accession negotiations enter critical phase",
+      "summary": "A WTO delegation led by Ambassador Sung-yo Choi of the Republic of Korea, chair of the Working Party on the Accession of Uzbekistan, visited Tashkent, Uzbekistan, from 1 to 3 November to support Uzbekistan's preparations for WTO accession…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-01",
+      "url": "https://www.wto.org/english/news_e/news26_e/acc_01nov26_545_e.htm",
+      "categories": [
+        "agreements"
+      ]
+    },
+    {
+      "id": "960a421704db",
+      "headline": "Electronic Bill of Lading adoption grows as focus shifts to interoperability",
+      "summary": "Joint statement on the results of the 2026 global survey on electronic Bills of Lading (eBL) by the FIT Alliance, co-founded by ICC, BIMCO, DCSA, FIATA and Swift. Conducted in partnership with Shanghai Maritime University and the Digital…",
+      "publisherName": "International Chamber of Commerce",
+      "sourceId": "icc-news",
+      "publishedOn": "2026-10-21",
+      "url": "https://iccwbo.org/news-publications/news/electronic-bill-of-lading-adoption-grows-as-focus-shifts-to-interoperability/",
+      "categories": [
+        "maritime-shipping",
+        "technology"
+      ]
+    },
+    {
+      "id": "0811fe2cca1d",
+      "headline": "Global trade reaches record $35 trillion despite conflicts",
+      "summary": "World trade reached a record $35 trillion in 2025 – but developing countries were held back from greater participation in the global economy because of new technological and policy barriers, the UN trade and development agency UNCTAD said…",
+      "publisherName": "United Nations News",
+      "sourceId": "un-news",
+      "publishedOn": "2026-10-09",
+      "url": "https://news.un.org/feed/view/en/story/2026/10/1168566",
+      "categories": [
+        "policy",
+        "international-trade"
+      ]
+    }
+  ]
+}

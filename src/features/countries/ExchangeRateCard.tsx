@@ -30,9 +30,9 @@ export function ExchangeRateCard({ country }: { country: Country }) {
   const rate = useAsync(`fx:${code}`, async () => (code && code !== 'USD' ? referenceRate('USD', code) : null));
 
   return (
-    <section aria-labelledby="fx-heading" className="rounded-lg border border-line bg-white p-5">
+    <section aria-labelledby="fx-heading" className="rounded-lg border border-line bg-surface p-5">
       <h2 id="fx-heading" className="flex items-center gap-2 text-sm font-bold">
-        <Banknote aria-hidden="true" className="size-4 text-ocean" />
+        <Banknote aria-hidden="true" className="size-4 text-link" />
         Reference exchange rate
       </h2>
 
@@ -61,7 +61,7 @@ export function ExchangeRateCard({ country }: { country: Country }) {
         )}
         {rate.status === 'ready' && rate.data && (
           <>
-            <p className="tabular font-display text-2xl font-bold text-navy">
+            <p className="tabular font-display text-2xl font-bold text-heading">
               1 USD = {formatRate(rate.data.rate, locale)} {rate.data.quote}
             </p>
             <p className="mt-1 flex flex-wrap items-center gap-2 text-xs text-muted">

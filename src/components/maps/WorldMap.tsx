@@ -121,7 +121,7 @@ export default function WorldMap({ countries, coverage }: WorldMapProps) {
 
   return (
     <div>
-      <div className="relative overflow-hidden rounded-lg border border-line bg-white">
+      <div className="relative overflow-hidden rounded-lg border border-line bg-surface">
         {topo.status === 'loading' && <Skeleton className="absolute inset-0 rounded-none" />}
         <svg
           viewBox={`0 0 ${W} ${H}`}
@@ -137,12 +137,12 @@ export default function WorldMap({ countries, coverage }: WorldMapProps) {
           <defs>
             <pattern id="map-hatch" width="5" height="5" patternUnits="userSpaceOnUse" patternTransform="rotate(45)">
               <rect width="5" height="5" fill="var(--color-ocean)" />
-              <line x1="0" y1="0" x2="0" y2="5" stroke="#fff" strokeOpacity="0.45" strokeWidth="1.5" />
+              <line x1="0" y1="0" x2="0" y2="5" stroke="var(--map-stroke)" strokeOpacity="0.5" strokeWidth="1.5" />
             </pattern>
           </defs>
           <g transform={`translate(${view.x} ${view.y}) scale(${view.k})`}>
-            <path d={sphere} fill="#f4f7fa" />
-            <path d={graticule} fill="none" stroke="var(--color-line)" strokeWidth={0.5 / view.k} />
+            <path d={sphere} style={{ fill: 'var(--map-sea)' }} />
+            <path d={graticule} fill="none" stroke="var(--line)" strokeWidth={0.5 / view.k} />
             {shapes.map((s) => {
               const c = s.country;
               const featured = c ? levelOf(c) !== 'reference' : false;
@@ -151,10 +151,9 @@ export default function WorldMap({ countries, coverage }: WorldMapProps) {
                 <path
                   key={s.key}
                   d={s.d}
-                  fill={featured ? 'url(#map-hatch)' : active && c ? 'var(--color-accent)' : c ? '#c5d3df' : '#e4eaf0'}
-                  stroke={active && c ? 'var(--color-navy)' : '#fff'}
+                  style={{ fill: featured ? 'url(#map-hatch)' : active && c ? 'var(--color-accent)' : c ? 'var(--map-land)' : 'var(--map-land-2)', cursor: c ? 'pointer' : 'default' }}
+                  stroke={active && c ? 'var(--heading)' : 'var(--map-stroke)'}
                   strokeWidth={(active && c ? 1.2 : 0.6) / view.k}
-                  style={{ cursor: c ? 'pointer' : 'default' }}
                   onPointerEnter={() => setHover(s)}
                   onClick={() => {
                     if (c && !drag.current?.moved) navigate(`/countries/${c.cca2}`);
@@ -162,25 +161,25 @@ export default function WorldMap({ countries, coverage }: WorldMapProps) {
                 />
               );
             })}
-            <path d={sphere} fill="none" stroke="var(--color-line)" strokeWidth={1 / view.k} />
+            <path d={sphere} fill="none" stroke="var(--line)" strokeWidth={1 / view.k} />
           </g>
         </svg>
 
-        <div className="absolute end-3 top-3 flex flex-col overflow-hidden rounded-md border border-line bg-white shadow-sm">
-          <button type="button" onClick={() => zoom(1.6)} disabled={view.k >= MAX_ZOOM} aria-label="Zoom in" className="p-2.5 text-navy hover:bg-soft disabled:opacity-40">
+        <div className="absolute end-3 top-3 flex flex-col overflow-hidden rounded-md border border-line bg-surface shadow-sm">
+          <button type="button" onClick={() => zoom(1.6)} disabled={view.k >= MAX_ZOOM} aria-label="Zoom in" className="p-2.5 text-heading hover:bg-soft disabled:opacity-40">
             <Plus aria-hidden="true" className="size-4" />
           </button>
-          <button type="button" onClick={() => zoom(1 / 1.6)} disabled={view.k <= 1} aria-label="Zoom out" className="border-t border-line p-2.5 text-navy hover:bg-soft disabled:opacity-40">
+          <button type="button" onClick={() => zoom(1 / 1.6)} disabled={view.k <= 1} aria-label="Zoom out" className="border-t border-line p-2.5 text-heading hover:bg-soft disabled:opacity-40">
             <Minus aria-hidden="true" className="size-4" />
           </button>
-          <button type="button" onClick={() => setView({ k: 1, x: 0, y: 0 })} disabled={view.k === 1} aria-label="Reset map view" className="border-t border-line p-2.5 text-navy hover:bg-soft disabled:opacity-40">
+          <button type="button" onClick={() => setView({ k: 1, x: 0, y: 0 })} disabled={view.k === 1} aria-label="Reset map view" className="border-t border-line p-2.5 text-heading hover:bg-soft disabled:opacity-40">
             <RotateCcw aria-hidden="true" className="size-4" />
           </button>
         </div>
       </div>
 
       <div className="mt-3 flex flex-wrap items-start justify-between gap-x-6 gap-y-2 text-sm">
-        <p aria-hidden="true" className="min-h-5 font-medium text-navy">
+        <p aria-hidden="true" className="min-h-5 font-medium text-heading">
           {hoverText}
         </p>
         <ul className="flex flex-wrap gap-x-5 gap-y-1 text-xs text-muted">
@@ -191,7 +190,7 @@ export default function WorldMap({ countries, coverage }: WorldMapProps) {
             Operational guidance in progress
           </li>
           <li className="inline-flex items-center gap-1.5">
-            <span aria-hidden="true" className="size-3.5 rounded-sm bg-[#c5d3df]" />
+            <span aria-hidden="true" className="size-3.5 rounded-sm bg-[var(--map-land)]" />
             Reference record
           </li>
         </ul>
