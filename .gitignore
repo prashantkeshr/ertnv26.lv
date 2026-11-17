@@ -1,0 +1,12 @@
+node_modules/
+dist/
+test-results/
+playwright-report/
+.vite/
+*.local
+.DS_Store
+
+# Derived at build time by scripts/build-indexes.ts
+public/data/manifest.json
+public/data/graph/
+public/data/search/

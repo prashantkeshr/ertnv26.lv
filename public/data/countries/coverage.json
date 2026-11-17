@@ -1,0 +1,12 @@
+{
+  "defaultLevel": "reference",
+  "updated": "2026-11-17",
+  "countries": {
+    "IN": {
+      "level": "operational-seed",
+      "summary": "India is eport's initial operational reference market. The national authority directory is seeded; procedures, documents and product rules are being researched against official sources.",
+      "available": ["ISO identifiers and reference facts", "National trade authorities (seed directory)", "World Bank trade and economic indicators"],
+      "pending": ["Importer-Exporter Code guidance", "Export and import procedures", "Shipping Bill and Bill of Entry guidance", "Product-specific compliance", "Trade incentives and export finance references"]
+    }
+  }
+}

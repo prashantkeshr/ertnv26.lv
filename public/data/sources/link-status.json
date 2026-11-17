@@ -1,0 +1,150 @@
+{
+  "checkedAt": "2026-11-17T00:38:05.125Z",
+  "results": {
+    "https://data.worldbank.org/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://apeda.gov.in/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://frankfurter.dev/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://cdsco.gov.in/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://iccwbo.org/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://github.com/mledoze/countries": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://comtradeplus.un.org/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://unctad.org/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://ppqs.gov.in/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.commerce.gov.in/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.aishub.net/api": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://mpeda.gov.in/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.cbic.gov.in/": {
+      "ok": false,
+      "httpStatus": null,
+      "detail": "TypeError"
+    },
+    "https://comtradedeveloper.un.org/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.dgft.gov.in/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.digitraffic.fi/en/marine-traffic/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.eicindia.gov.in/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.fao.org/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.gst.gov.in/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.fssai.gov.in/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.bis.gov.in/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.imo.org/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.intracen.org/": {
+      "ok": true,
+      "httpStatus": 403,
+      "detail": "Reachable; refuses automated requests"
+    },
+    "https://www.icegate.gov.in/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.indiantradeportal.in/": {
+      "ok": true,
+      "httpStatus": 403,
+      "detail": "Reachable; refuses automated requests"
+    },
+    "https://www.ecgc.in/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.iso.org/": {
+      "ok": true,
+      "httpStatus": 403,
+      "detail": "Reachable; refuses automated requests"
+    },
+    "https://www.rbi.org.in/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.worldbank.org/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.naturalearthdata.com/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.ippc.int/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.wto.org/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.wcoomd.org/": {
+      "ok": true,
+      "httpStatus": 200
+    },
+    "https://www.dgshipping.gov.in/": {
+      "ok": false,
+      "httpStatus": null,
+      "detail": "TypeError"
+    }
+  }
+}

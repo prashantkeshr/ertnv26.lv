@@ -1,0 +1,32 @@
+name: Validate data
+
+on:
+  pull_request:
+    paths: ['public/data/**', 'src/types/**', 'scripts/**']
+  workflow_dispatch:
+  schedule:
+    - cron: '0 5 * * 1' # Mondays 05:00 UTC — weekly official-link check
+
+permissions:
+  contents: read
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Build derived indexes
+        run: npm run data:build
+      - name: Schema, duplicate and reference checks
+        run: npm run data:validate
+      - name: Official link check (report only)
+        run: npm run data:links
+      - uses: actions/upload-artifact@v4
+        with:
+          name: link-status
+          path: public/data/sources/link-status.json

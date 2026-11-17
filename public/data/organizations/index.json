@@ -1,0 +1,294 @@
+[
+  {
+    "id": "wto",
+    "name": "World Trade Organization",
+    "abbreviation": "WTO",
+    "orgType": "intergovernmental",
+    "headquarters": {
+      "city": "Geneva",
+      "countryCode": "CH"
+    },
+    "website": "https://www.wto.org/",
+    "summary": "The intergovernmental organization that administers the multilateral trade agreements negotiated by its members, provides a forum for trade negotiations and operates a dispute settlement system.",
+    "tradeRelevance": [
+      "Multilateral trade agreements",
+      "Tariff schedules and notifications",
+      "Trade Facilitation Agreement",
+      "Trade policy reviews and statistics"
+    ],
+    "relations": [],
+    "sourceIds": [
+      "wto"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "wco",
+    "name": "World Customs Organization",
+    "abbreviation": "WCO",
+    "orgType": "intergovernmental",
+    "headquarters": {
+      "city": "Brussels",
+      "countryCode": "BE"
+    },
+    "website": "https://www.wcoomd.org/",
+    "summary": "The intergovernmental organization of customs administrations. It maintains the Harmonized Commodity Description and Coding System (HS), the six-digit product nomenclature on which national tariff schedules are built.",
+    "tradeRelevance": [
+      "Harmonized System (HS) nomenclature",
+      "Customs valuation and rules of origin (technical work)",
+      "Revised Kyoto Convention",
+      "SAFE Framework of Standards"
+    ],
+    "relations": [],
+    "sourceIds": [
+      "wco"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "imo",
+    "name": "International Maritime Organization",
+    "abbreviation": "IMO",
+    "orgType": "un-system",
+    "headquarters": {
+      "city": "London",
+      "countryCode": "GB"
+    },
+    "website": "https://www.imo.org/",
+    "summary": "The United Nations specialized agency responsible for the safety and security of shipping and the prevention of pollution by ships. The IMO ship identification number scheme takes its name from the organization.",
+    "tradeRelevance": [
+      "SOLAS and MARPOL conventions",
+      "IMDG Code for dangerous goods by sea",
+      "IMO ship identification numbers",
+      "Shipping emissions regulation"
+    ],
+    "relations": [],
+    "sourceIds": [
+      "imo"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "icc",
+    "name": "International Chamber of Commerce",
+    "abbreviation": "ICC",
+    "orgType": "private-business-organization",
+    "headquarters": {
+      "city": "Paris",
+      "countryCode": "FR"
+    },
+    "website": "https://iccwbo.org/",
+    "summary": "A private international business organization — not an intergovernmental body. ICC publishes widely used commercial rules, including the Incoterms® rules and the Uniform Customs and Practice for Documentary Credits (UCP 600).",
+    "tradeRelevance": [
+      "Incoterms® 2020 rules",
+      "UCP 600 (documentary credits)",
+      "URC 522 (collections)",
+      "ICC arbitration"
+    ],
+    "relations": [],
+    "sourceIds": [
+      "icc"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "itc",
+    "name": "International Trade Centre",
+    "abbreviation": "ITC",
+    "orgType": "un-system",
+    "headquarters": {
+      "city": "Geneva",
+      "countryCode": "CH"
+    },
+    "website": "https://www.intracen.org/",
+    "summary": "A joint agency of the World Trade Organization and the United Nations that supports the internationalization of small and medium-sized enterprises and publishes trade and market-access analysis tools.",
+    "tradeRelevance": [
+      "Trade Map and Market Access Map tools",
+      "SME export development",
+      "Market analysis resources"
+    ],
+    "relations": [
+      {
+        "to": "organization:wto",
+        "type": "joint-agency-of"
+      },
+      {
+        "to": "organization:unctad",
+        "type": "joint-agency-of",
+        "note": "The United Nations participates through UNCTAD."
+      }
+    ],
+    "sourceIds": [
+      "itc"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "unctad",
+    "name": "UN Trade and Development",
+    "abbreviation": "UNCTAD",
+    "orgType": "un-system",
+    "headquarters": {
+      "city": "Geneva",
+      "countryCode": "CH"
+    },
+    "website": "https://unctad.org/",
+    "summary": "The United Nations body dealing with trade, investment and development. It publishes the annual Review of Maritime Transport and maintains trade and maritime statistics.",
+    "tradeRelevance": [
+      "Review of Maritime Transport",
+      "UNCTADstat trade and maritime statistics",
+      "ASYCUDA customs automation programme"
+    ],
+    "relations": [],
+    "sourceIds": [
+      "unctad"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "world-bank",
+    "name": "World Bank Group",
+    "abbreviation": "World Bank",
+    "orgType": "intergovernmental",
+    "headquarters": {
+      "city": "Washington, D.C.",
+      "countryCode": "US"
+    },
+    "website": "https://www.worldbank.org/",
+    "summary": "An international financial institution owned by its member countries. Its open data programme publishes the World Development Indicators, which eport uses for country-level trade and economic indicators.",
+    "tradeRelevance": [
+      "World Development Indicators",
+      "Logistics Performance Index",
+      "World Integrated Trade Solution (WITS)"
+    ],
+    "relations": [],
+    "sourceIds": [
+      "worldbank",
+      "worldbank-wdi"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "iso",
+    "name": "International Organization for Standardization",
+    "abbreviation": "ISO",
+    "orgType": "non-governmental-standards-body",
+    "headquarters": {
+      "city": "Geneva",
+      "countryCode": "CH"
+    },
+    "website": "https://www.iso.org/",
+    "summary": "An independent, non-governmental international organization whose members are national standards bodies. It publishes voluntary international standards, including the country, currency and freight-container standards used throughout trade.",
+    "tradeRelevance": [
+      "ISO 3166 country codes",
+      "ISO 4217 currency codes",
+      "ISO 6346 freight container coding",
+      "ISO 9001 quality management"
+    ],
+    "relations": [],
+    "sourceIds": [
+      "iso"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "ippc",
+    "name": "International Plant Protection Convention",
+    "abbreviation": "IPPC",
+    "orgType": "treaty-body",
+    "headquarters": {
+      "city": "Rome",
+      "countryCode": "IT"
+    },
+    "website": "https://www.ippc.int/",
+    "summary": "An intergovernmental plant health treaty whose Secretariat is hosted by FAO. Its governing body adopts International Standards for Phytosanitary Measures (ISPMs), including ISPM 15 on wood packaging material.",
+    "tradeRelevance": [
+      "ISPM 15 (wood packaging material)",
+      "ISPM 12 (phytosanitary certificates)",
+      "ePhyto electronic certification"
+    ],
+    "relations": [
+      {
+        "to": "organization:fao",
+        "type": "hosted-by",
+        "note": "The IPPC Secretariat is hosted by FAO."
+      }
+    ],
+    "sourceIds": [
+      "ippc"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "fao",
+    "name": "Food and Agriculture Organization of the United Nations",
+    "abbreviation": "FAO",
+    "orgType": "un-system",
+    "headquarters": {
+      "city": "Rome",
+      "countryCode": "IT"
+    },
+    "website": "https://www.fao.org/",
+    "summary": "The United Nations specialized agency for food and agriculture. Together with the World Health Organization it runs the Codex Alimentarius Commission, whose food standards are a reference point for international food trade.",
+    "tradeRelevance": [
+      "Codex Alimentarius (with WHO)",
+      "Agricultural trade and market statistics (FAOSTAT)",
+      "Hosts the IPPC Secretariat"
+    ],
+    "relations": [],
+    "sourceIds": [
+      "fao"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  }
+]

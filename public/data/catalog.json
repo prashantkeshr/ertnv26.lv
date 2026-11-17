@@ -1,0 +1,280 @@
+[
+  {
+    "id": "countries",
+    "title": "Countries and territories",
+    "path": "countries/index.json",
+    "coverage": "verified",
+    "scope": "Global — ISO 3166-1 codes, regions, capitals, currencies, languages",
+    "phase": 1,
+    "sourceIds": [
+      "mledoze-countries"
+    ],
+    "generated": true,
+    "notes": "Generated from an openly licensed dataset. Reference facts only; no trade rules.",
+    "lastUpdated": "2026-11-17"
+  },
+  {
+    "id": "country-coverage",
+    "title": "Country coverage levels",
+    "path": "countries/coverage.json",
+    "coverage": "verified",
+    "scope": "Global — states how deep eport's guidance is for each country",
+    "phase": 1,
+    "sourceIds": [],
+    "generated": false,
+    "notes": "Maintained by eport. Every country not listed is a reference record only.",
+    "lastUpdated": "2026-11-17"
+  },
+  {
+    "id": "geo",
+    "title": "World map geometry",
+    "path": "geo/countries-110m.json",
+    "coverage": "verified",
+    "scope": "Global — generalised country boundaries at 1:110m",
+    "phase": 1,
+    "sourceIds": [
+      "natural-earth"
+    ],
+    "generated": true,
+    "notes": "Natural Earth public-domain geometry. Boundaries are generalised for display and carry no political endorsement.",
+    "lastUpdated": "2026-11-17"
+  },
+  {
+    "id": "organizations",
+    "title": "International organizations",
+    "path": "organizations/index.json",
+    "coverage": "partial",
+    "scope": "International — 10 organizations central to trade and shipping",
+    "phase": 1,
+    "sourceIds": [
+      "wto",
+      "wco",
+      "imo",
+      "icc",
+      "itc",
+      "unctad",
+      "worldbank",
+      "iso",
+      "ippc",
+      "fao"
+    ],
+    "generated": false,
+    "notes": "Editorial summaries with links to each organization's official website. More organizations and industry associations to follow.",
+    "lastUpdated": "2026-11-17"
+  },
+  {
+    "id": "authorities-in",
+    "title": "India — national trade authorities",
+    "path": "authorities/in.json",
+    "coverage": "seed",
+    "scope": "India — central (national) authorities only",
+    "phase": 1,
+    "sourceIds": [
+      "in-commerce",
+      "in-dgft",
+      "in-cbic",
+      "in-icegate",
+      "in-gst",
+      "in-rbi",
+      "in-apeda",
+      "in-mpeda",
+      "in-fssai",
+      "in-bis",
+      "in-eic",
+      "in-ppqs",
+      "in-cdsco",
+      "in-dgshipping",
+      "in-ecgc",
+      "in-tradeportal"
+    ],
+    "generated": false,
+    "notes": "Seed directory. State-level bodies, export promotion councils and port authorities are not yet included.",
+    "lastUpdated": "2026-11-17"
+  },
+  {
+    "id": "trade-indicators",
+    "title": "Trade and economic indicators",
+    "path": "trade/indicators/index.json",
+    "coverage": "partial",
+    "scope": "World aggregate and economies with World Bank data — exports, imports, GDP and trade share of GDP, from 2000",
+    "phase": 1,
+    "sourceIds": [
+      "worldbank-wdi"
+    ],
+    "generated": true,
+    "notes": "Build-time snapshot of World Bank World Development Indicators (CC BY 4.0). Annual historical statistics; not every economy reports every indicator.",
+    "lastUpdated": "2026-11-17"
+  },
+  {
+    "id": "sources",
+    "title": "Source registry",
+    "path": "sources/sources.json",
+    "coverage": "verified",
+    "scope": "Every publisher referenced by an eport record",
+    "phase": 0,
+    "sourceIds": [],
+    "generated": false,
+    "notes": "Each record on eport cites one or more entries in this registry.",
+    "lastUpdated": "2026-11-17"
+  },
+  {
+    "id": "api-providers",
+    "title": "API provider registry",
+    "path": "sources/api-providers.json",
+    "coverage": "verified",
+    "scope": "External data services evaluated for browser use",
+    "phase": 0,
+    "sourceIds": [],
+    "generated": false,
+    "notes": "Browser access is recorded only from an actual cross-origin test.",
+    "lastUpdated": "2026-11-17"
+  },
+  {
+    "id": "graph",
+    "title": "Trade Knowledge Graph index",
+    "path": "graph/index.json",
+    "coverage": "partial",
+    "scope": "Relationships between countries, authorities and organizations",
+    "phase": 1,
+    "sourceIds": [],
+    "generated": true,
+    "notes": "Derived from the relations declared on published records. Grows as documents, ports, products and agreements are added.",
+    "lastUpdated": "2026-11-17"
+  },
+  {
+    "id": "search",
+    "title": "Search index",
+    "path": "search/index.json",
+    "coverage": "verified",
+    "scope": "All published records and live pages",
+    "phase": 1,
+    "sourceIds": [],
+    "generated": true,
+    "notes": "Compact index built from published datasets at build time.",
+    "lastUpdated": "2026-11-17"
+  },
+  {
+    "id": "documents",
+    "title": "Trade documents library",
+    "path": null,
+    "coverage": "unavailable",
+    "scope": "Global documents with India-specific detail",
+    "phase": 2,
+    "sourceIds": [],
+    "generated": false,
+    "notes": "Schema defined. Content is being researched against official sources and is not yet published.",
+    "lastUpdated": null
+  },
+  {
+    "id": "trade-requirements",
+    "title": "Trade requirements and procedures",
+    "path": null,
+    "coverage": "unavailable",
+    "scope": "India first, then priority trading partners",
+    "phase": 2,
+    "sourceIds": [],
+    "generated": false,
+    "notes": "Not yet published. eport will not show a requirement without an official source.",
+    "lastUpdated": null
+  },
+  {
+    "id": "hs-codes",
+    "title": "HS classification (international 6-digit)",
+    "path": null,
+    "coverage": "unavailable",
+    "scope": "International HS, kept separate from national tariff lines",
+    "phase": 3,
+    "sourceIds": [
+      "wco"
+    ],
+    "generated": false,
+    "notes": "Not yet published. Licensing of the HS nomenclature text is under review.",
+    "lastUpdated": null
+  },
+  {
+    "id": "tariffs",
+    "title": "Tariffs and duties",
+    "path": null,
+    "coverage": "unavailable",
+    "scope": "By origin, destination and HS code",
+    "phase": 4,
+    "sourceIds": [],
+    "generated": false,
+    "notes": "Not available. eport does not display tariff rates without a verifiable official source and validity date.",
+    "lastUpdated": null
+  },
+  {
+    "id": "ports",
+    "title": "Global port directory",
+    "path": null,
+    "coverage": "unavailable",
+    "scope": "Global seaports with UN/LOCODE",
+    "phase": 4,
+    "sourceIds": [],
+    "generated": false,
+    "notes": "Not yet published.",
+    "lastUpdated": null
+  },
+  {
+    "id": "vessels",
+    "title": "Vessel information and positions",
+    "path": null,
+    "coverage": "unavailable",
+    "scope": "Depends on provider coverage",
+    "phase": 4,
+    "sourceIds": [
+      "digitraffic"
+    ],
+    "generated": false,
+    "notes": "No global open vessel feed can be used from a static site. A regional (Finland) layer is approved; global tracking needs a secure integration layer.",
+    "lastUpdated": null
+  },
+  {
+    "id": "shipping-lines",
+    "title": "Shipping lines and logistics organizations",
+    "path": null,
+    "coverage": "unavailable",
+    "scope": "Global",
+    "phase": 4,
+    "sourceIds": [],
+    "generated": false,
+    "notes": "Not yet published.",
+    "lastUpdated": null
+  },
+  {
+    "id": "businesses",
+    "title": "Buyer and supplier directories",
+    "path": null,
+    "coverage": "unavailable",
+    "scope": "Global",
+    "phase": 5,
+    "sourceIds": [],
+    "generated": false,
+    "notes": "Not yet published. Listings will carry an explicit verification status.",
+    "lastUpdated": null
+  },
+  {
+    "id": "events",
+    "title": "Trade events and opportunities",
+    "path": null,
+    "coverage": "unavailable",
+    "scope": "Global",
+    "phase": 5,
+    "sourceIds": [],
+    "generated": false,
+    "notes": "Not yet published. eport does not list events or tenders without an official link.",
+    "lastUpdated": null
+  },
+  {
+    "id": "news",
+    "title": "Trade news references",
+    "path": null,
+    "coverage": "unavailable",
+    "scope": "Global",
+    "phase": 5,
+    "sourceIds": [],
+    "generated": false,
+    "notes": "Not yet published.",
+    "lastUpdated": null
+  }
+]

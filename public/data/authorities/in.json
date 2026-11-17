@@ -1,0 +1,482 @@
+[
+  {
+    "id": "in-commerce",
+    "name": "Department of Commerce",
+    "abbreviation": "DoC",
+    "category": "trade-ministry",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": "Ministry of Commerce and Industry",
+    "website": "https://www.commerce.gov.in/",
+    "summary": "The Government of India department responsible for formulating and implementing foreign trade policy and for multilateral and bilateral commercial relations.",
+    "functions": [
+      "Foreign trade policy formulation",
+      "Trade agreements and negotiations",
+      "Oversight of export promotion bodies"
+    ],
+    "relations": [],
+    "sourceIds": [
+      "in-commerce"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "in-dgft",
+    "name": "Directorate General of Foreign Trade",
+    "abbreviation": "DGFT",
+    "category": "trade-regulator",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": "Department of Commerce, Ministry of Commerce and Industry",
+    "website": "https://www.dgft.gov.in/",
+    "summary": "The authority that implements India's Foreign Trade Policy. It issues the Importer-Exporter Code (IEC), administers export and import authorisations and schemes, and notifies the ITC (HS) import and export policy for goods.",
+    "functions": [
+      "Importer-Exporter Code (IEC)",
+      "Export and import authorisations and licences",
+      "ITC (HS) import/export policy notifications",
+      "Foreign Trade Policy schemes"
+    ],
+    "relations": [
+      {
+        "to": "authority:in-commerce",
+        "type": "parent-body"
+      }
+    ],
+    "sourceIds": [
+      "in-dgft"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "in-cbic",
+    "name": "Central Board of Indirect Taxes and Customs",
+    "abbreviation": "CBIC",
+    "category": "customs",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": "Department of Revenue, Ministry of Finance",
+    "website": "https://www.cbic.gov.in/",
+    "summary": "The national board that administers customs law and central indirect taxes in India, including the levy and collection of customs duties and the regulation of import and export clearance.",
+    "functions": [
+      "Customs Act administration",
+      "Customs tariff and duty notifications",
+      "Import and export clearance procedures",
+      "Central GST administration"
+    ],
+    "relations": [],
+    "sourceIds": [
+      "in-cbic"
+    ],
+    "verification": {
+      "status": "needs-review",
+      "lastChecked": null,
+      "method": "none",
+      "note": "Official website did not respond to an automated check on 2026-11-17."
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "in-icegate",
+    "name": "Indian Customs Electronic Gateway",
+    "abbreviation": "ICEGATE",
+    "category": "single-window",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": "Central Board of Indirect Taxes and Customs",
+    "website": "https://www.icegate.gov.in/",
+    "summary": "The national e-commerce portal of Indian Customs, used by traders, customs brokers and carriers for electronic filing of customs documents such as the Bill of Entry and the Shipping Bill, and for e-payment of duty.",
+    "functions": [
+      "Electronic filing of Bill of Entry and Shipping Bill",
+      "Customs duty e-payment",
+      "Document and query status tracking"
+    ],
+    "relations": [
+      {
+        "to": "authority:in-cbic",
+        "type": "operated-by"
+      }
+    ],
+    "sourceIds": [
+      "in-icegate"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "in-gst-portal",
+    "name": "Goods and Services Tax common portal",
+    "abbreviation": "GST portal",
+    "category": "tax",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": "Goods and Services Tax Network",
+    "website": "https://www.gst.gov.in/",
+    "summary": "The common portal for Goods and Services Tax registration, returns and refunds in India. GST registration and returns are relevant to exporters and importers, including IGST on imports and export refunds.",
+    "functions": [
+      "GST registration (GSTIN)",
+      "Return filing",
+      "Export refund processing interface"
+    ],
+    "relations": [],
+    "sourceIds": [
+      "in-gst"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "in-rbi",
+    "name": "Reserve Bank of India",
+    "abbreviation": "RBI",
+    "category": "foreign-exchange",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": null,
+    "website": "https://www.rbi.org.in/",
+    "summary": "India's central bank. Under the Foreign Exchange Management Act it regulates foreign-exchange transactions, including the realisation and repatriation of export proceeds and payments for imports, through authorised dealer banks.",
+    "functions": [
+      "Foreign-exchange regulation (FEMA)",
+      "Export proceeds realisation rules",
+      "Import payment rules",
+      "Authorised dealer bank framework"
+    ],
+    "relations": [],
+    "sourceIds": [
+      "in-rbi"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "in-apeda",
+    "name": "Agricultural and Processed Food Products Export Development Authority",
+    "abbreviation": "APEDA",
+    "category": "export-promotion",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": "Ministry of Commerce and Industry",
+    "website": "https://apeda.gov.in/",
+    "summary": "A statutory authority that promotes and develops exports of scheduled agricultural and processed food products, and registers exporters of those products.",
+    "functions": [
+      "Registration of exporters of scheduled products",
+      "Export promotion for agricultural and processed foods",
+      "Standards and traceability systems for scheduled products"
+    ],
+    "relations": [
+      {
+        "to": "authority:in-commerce",
+        "type": "parent-body"
+      }
+    ],
+    "sourceIds": [
+      "in-apeda"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "in-mpeda",
+    "name": "Marine Products Export Development Authority",
+    "abbreviation": "MPEDA",
+    "category": "export-promotion",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": "Ministry of Commerce and Industry",
+    "website": "https://mpeda.gov.in/",
+    "summary": "A statutory authority responsible for the development and promotion of India's marine product exports, including registration of exporters and processing facilities in the sector.",
+    "functions": [
+      "Registration of marine product exporters",
+      "Marine export promotion",
+      "Sector quality and traceability programmes"
+    ],
+    "relations": [
+      {
+        "to": "authority:in-commerce",
+        "type": "parent-body"
+      }
+    ],
+    "sourceIds": [
+      "in-mpeda"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "in-fssai",
+    "name": "Food Safety and Standards Authority of India",
+    "abbreviation": "FSSAI",
+    "category": "food-safety",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": "Ministry of Health and Family Welfare",
+    "website": "https://www.fssai.gov.in/",
+    "summary": "The statutory food regulator of India. It sets food standards and regulates the manufacture, storage, distribution, sale and import of food, including clearance of imported food consignments.",
+    "functions": [
+      "Food standards",
+      "Food business licensing and registration",
+      "Imported food clearance"
+    ],
+    "relations": [
+      {
+        "to": "organization:fao",
+        "type": "works-with",
+        "note": "Codex Alimentarius standards are an international reference for food regulation."
+      }
+    ],
+    "sourceIds": [
+      "in-fssai"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "in-bis",
+    "name": "Bureau of Indian Standards",
+    "abbreviation": "BIS",
+    "category": "standards",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": "Ministry of Consumer Affairs, Food and Public Distribution",
+    "website": "https://www.bis.gov.in/",
+    "summary": "The national standards body of India. It formulates Indian Standards and operates product certification schemes; some products require BIS certification before they can be imported or sold in India.",
+    "functions": [
+      "Indian Standards",
+      "Product certification and compulsory registration schemes",
+      "Foreign manufacturers certification scheme"
+    ],
+    "relations": [
+      {
+        "to": "organization:iso",
+        "type": "works-with",
+        "note": "BIS is India's national standards body in ISO."
+      }
+    ],
+    "sourceIds": [
+      "in-bis"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "in-eic",
+    "name": "Export Inspection Council of India",
+    "abbreviation": "EIC",
+    "category": "inspection",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": "Ministry of Commerce and Industry",
+    "website": "https://www.eicindia.gov.in/",
+    "summary": "India's official export certification body, set up to ensure the quality of exports through quality control and pre-shipment inspection of notified commodities, operating through Export Inspection Agencies.",
+    "functions": [
+      "Pre-shipment inspection and certification of notified commodities",
+      "Health certificates for certain food exports",
+      "Certificates of origin under certain preferential schemes"
+    ],
+    "relations": [
+      {
+        "to": "authority:in-commerce",
+        "type": "parent-body"
+      }
+    ],
+    "sourceIds": [
+      "in-eic"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "in-ppqs",
+    "name": "Directorate of Plant Protection, Quarantine and Storage",
+    "abbreviation": "PPQS",
+    "category": "plant-health",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": "Ministry of Agriculture and Farmers Welfare",
+    "website": "https://ppqs.gov.in/",
+    "summary": "India's national plant protection organization. It operates plant quarantine stations, issues phytosanitary certificates for exports of plants and plant products, and regulates their import.",
+    "functions": [
+      "Phytosanitary certificates for export",
+      "Plant quarantine import permits and inspection",
+      "Fumigation and treatment provider accreditation"
+    ],
+    "relations": [
+      {
+        "to": "organization:ippc",
+        "type": "works-with",
+        "note": "National plant protection organizations implement IPPC standards (ISPMs)."
+      }
+    ],
+    "sourceIds": [
+      "in-ppqs"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "in-cdsco",
+    "name": "Central Drugs Standard Control Organisation",
+    "abbreviation": "CDSCO",
+    "category": "pharmaceutical-regulator",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": "Ministry of Health and Family Welfare",
+    "website": "https://cdsco.gov.in/",
+    "summary": "India's national regulatory authority for drugs, medical devices and cosmetics. It regulates the import of these products and issues related registrations, licences and export certificates.",
+    "functions": [
+      "Import registration and licensing for drugs, medical devices and cosmetics",
+      "Export no-objection certificates for regulated products",
+      "Approval of new drugs and clinical trials"
+    ],
+    "relations": [],
+    "sourceIds": [
+      "in-cdsco"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "in-dgshipping",
+    "name": "Directorate General of Shipping",
+    "abbreviation": "DGS",
+    "category": "maritime",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": "Ministry of Ports, Shipping and Waterways",
+    "website": "https://www.dgshipping.gov.in/",
+    "summary": "India's maritime administration. It implements merchant shipping law, including ship registration, maritime safety, seafarer certification and the implementation of international maritime conventions.",
+    "functions": [
+      "Ship registration and survey",
+      "Maritime safety and pollution prevention",
+      "Seafarer training and certification"
+    ],
+    "relations": [
+      {
+        "to": "organization:imo",
+        "type": "works-with",
+        "note": "Maritime administrations implement IMO conventions."
+      }
+    ],
+    "sourceIds": [
+      "in-dgshipping"
+    ],
+    "verification": {
+      "status": "needs-review",
+      "lastChecked": null,
+      "method": "none",
+      "note": "Official website did not respond to an automated check on 2026-11-17."
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "in-ecgc",
+    "name": "ECGC Limited",
+    "abbreviation": "ECGC",
+    "category": "export-credit",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": "Ministry of Commerce and Industry",
+    "website": "https://www.ecgc.in/",
+    "summary": "A Government of India enterprise that provides export credit insurance to exporters against the risk of non-payment by overseas buyers, and credit-risk cover to banks that finance exports.",
+    "functions": [
+      "Export credit insurance policies for exporters",
+      "Export credit insurance for banks",
+      "Buyer and country risk information"
+    ],
+    "relations": [
+      {
+        "to": "authority:in-commerce",
+        "type": "parent-body"
+      }
+    ],
+    "sourceIds": [
+      "in-ecgc"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  },
+  {
+    "id": "in-tradeportal",
+    "name": "Indian Trade Portal",
+    "abbreviation": null,
+    "category": "trade-portal",
+    "jurisdiction": "IN",
+    "level": "national",
+    "parentBody": "Department of Commerce (maintained by the Federation of Indian Export Organisations)",
+    "website": "https://www.indiantradeportal.in/",
+    "summary": "A Department of Commerce trade information portal that publishes tariff, rules-of-origin and market-access information for Indian exporters and importers.",
+    "functions": [
+      "Tariff and preferential tariff lookup",
+      "Rules of origin information",
+      "SPS and TBT measure information"
+    ],
+    "relations": [
+      {
+        "to": "authority:in-commerce",
+        "type": "parent-body"
+      }
+    ],
+    "sourceIds": [
+      "in-tradeportal"
+    ],
+    "verification": {
+      "status": "source-referenced",
+      "lastChecked": "2026-11-17",
+      "method": "automated-link-check"
+    },
+    "publicationStatus": "published"
+  }
+]

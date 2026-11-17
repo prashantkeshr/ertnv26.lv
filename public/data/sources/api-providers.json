@@ -1,0 +1,67 @@
+[
+  {
+    "id": "worldbank-indicators", "name": "World Bank Indicators API (v2)", "operator": "World Bank",
+    "docsUrl": "https://datahelpdesk.worldbank.org/knowledgebase/articles/889392-about-the-indicators-api-documentation",
+    "dataKind": "Annual country and world economic and trade indicators (historical statistics)",
+    "auth": "none", "browserAccess": "failed", "browserAccessCheckedOn": "2026-11-17",
+    "browserAccessNote": "A cross-origin request from a browser was blocked: the API sends no Access-Control-Allow-Origin header (tested 2026-11-17). eport therefore does not call it from the page.",
+    "coverage": "Around 200 economies plus the world aggregate; coverage varies by indicator and year. Missing observations are left missing.",
+    "freshness": "Annual observations. Each figure shows the World Bank's database update date and the date eport retrieved it.",
+    "license": "CC BY 4.0", "attribution": "Source: World Bank, World Development Indicators.",
+    "rateLimit": "Not applicable at runtime — four requests per snapshot refresh.",
+    "integrationStatus": "build-time-snapshot", "usedBy": ["Home and Intelligence: world trade indicators", "Country profile: key indicators"],
+    "notes": "Retrieved at build time and published as dated static files, as the CC BY 4.0 licence permits. Values are historical statistics, not live data; the publisher may revise recent years."
+  },
+  {
+    "id": "frankfurter", "name": "Frankfurter", "operator": "Frankfurter (open-source project)",
+    "docsUrl": "https://frankfurter.dev/",
+    "dataKind": "Daily reference exchange rates published by central banks",
+    "auth": "none", "browserAccess": "verified", "browserAccessCheckedOn": "2026-11-17",
+    "browserAccessNote": "A cross-origin request from a browser succeeded; the response carries Access-Control-Allow-Origin: * (tested 2026-11-17).",
+    "coverage": "Currencies with published central-bank reference rates; not every ISO 4217 currency. eport checks the provider's currency list before requesting a rate.",
+    "freshness": "Updated on working days. Reference rates only — not tradable, bank or customs rates.",
+    "license": "Open-source service; underlying rates published by central banks.", "attribution": "Exchange rates via Frankfurter.",
+    "rateLimit": "No API key or published quota. eport caches rates in the browser for 6 hours and the currency list for 7 days.",
+    "integrationStatus": "integrated", "usedBy": ["Country profile: reference exchange rate", "Planned: Trade Cost Explorer currency conversion (Phase 3)"],
+    "notes": "Called live from the browser. Your browser sends only the currency codes being requested."
+  },
+  {
+    "id": "digitraffic-marine", "name": "Digitraffic Marine", "operator": "Fintraffic (Finland)",
+    "docsUrl": "https://www.digitraffic.fi/en/marine-traffic/",
+    "dataKind": "AIS vessel locations and metadata, port calls",
+    "auth": "none", "browserAccess": "verified", "browserAccessCheckedOn": "2026-11-17",
+    "browserAccessNote": "Response carried Access-Control-Allow-Origin: * (checked 2026-11-17). The service requires gzip, which browsers send by default.",
+    "coverage": "Vessels received by Finnish AIS base stations — the Baltic Sea around Finland only. Not global coverage.",
+    "freshness": "Near real time for vessels inside the coverage area.",
+    "license": "CC BY 4.0", "attribution": "Source: Fintraffic / digitraffic.fi, licence CC BY 4.0.",
+    "rateLimit": "Published fair-use limits apply; a Digitraffic-User identification header is requested by the operator.",
+    "integrationStatus": "approved-planned", "usedBy": ["Planned: Maritime Intelligence regional vessel layer (Phase 4)"],
+    "notes": "When integrated, eport will label this as regional coverage. It must never be presented as a global vessel feed."
+  },
+  {
+    "id": "un-comtrade", "name": "UN Comtrade API", "operator": "United Nations Statistics Division",
+    "docsUrl": "https://comtradedeveloper.un.org/",
+    "dataKind": "Bilateral merchandise trade statistics by HS commodity",
+    "auth": "api-key", "browserAccess": "failed", "browserAccessCheckedOn": "2026-11-17",
+    "browserAccessNote": "The keyless preview endpoint returned no Access-Control-Allow-Origin header (checked 2026-11-17). Full access needs a subscription key, which cannot be placed in a static site.",
+    "coverage": "Most reporting economies; detailed bilateral flows by commodity.",
+    "freshness": "Annual and monthly, as reported by national statistical offices.",
+    "license": "UN Comtrade terms of use", "attribution": "Source: UN Comtrade Database.",
+    "rateLimit": "Per-key quotas.",
+    "integrationStatus": "coming-soon-secure-layer", "usedBy": [],
+    "notes": "Coming Soon — requires a secure integration layer. Until then eport links users to the official UN Comtrade website."
+  },
+  {
+    "id": "aishub", "name": "AISHub", "operator": "AISHub",
+    "docsUrl": "https://www.aishub.net/api",
+    "dataKind": "Community-shared AIS vessel positions",
+    "auth": "membership", "browserAccess": "not-tested", "browserAccessCheckedOn": null,
+    "browserAccessNote": "Not tested: access requires membership and a personal credential, which cannot be placed in a static site.",
+    "coverage": "Depends on contributing stations.",
+    "freshness": "Near real time.",
+    "license": "Member terms", "attribution": "—",
+    "rateLimit": "Per-member limits.",
+    "integrationStatus": "coming-soon-secure-layer", "usedBy": [],
+    "notes": "Coming Soon — requires a secure integration layer and a data-sharing membership."
+  }
+]

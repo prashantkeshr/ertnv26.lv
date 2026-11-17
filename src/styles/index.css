@@ -1,0 +1,126 @@
+@import 'tailwindcss';
+
+/*
+ * eport design tokens.
+ * Palette follows the brand brief; "muted" is darkened from #687B8B to #566A7A so that
+ * secondary text meets WCAG 2.2 AA (4.5:1) on both white and the soft-grey surface.
+ * Ocean (#176B9A) is the text/link blue; Accent (#2689C7) is for non-text marks only.
+ */
+@theme {
+  --font-sans: 'Inter Variable', ui-sans-serif, system-ui, -apple-system, 'Segoe UI', sans-serif;
+  --font-display: 'Manrope Variable', 'Inter Variable', ui-sans-serif, system-ui, sans-serif;
+
+  --color-navy: #0b1f33;
+  --color-midnight: #102a43;
+  --color-ocean: #176b9a;
+  --color-ocean-dark: #115478;
+  --color-accent: #2689c7;
+  --color-sky: #9fd0ee;
+  --color-soft: #f4f7fa;
+  --color-line: #dce4eb;
+  --color-ink: #263746;
+  --color-muted: #566a7a;
+
+  --color-ok: #17694a;
+  --color-ok-soft: #e7f4ee;
+  --color-warn: #7a5200;
+  --color-warn-soft: #fbf2dd;
+  --color-bad: #a12d2a;
+  --color-bad-soft: #fbebea;
+  --color-info-soft: #e8f2f9;
+
+  --container-page: 76rem;
+  --shadow-menu: 0 12px 32px -8px rgb(11 31 51 / 0.18), 0 2px 6px rgb(11 31 51 / 0.06);
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
+  }
+  body {
+    @apply bg-white font-sans text-ink antialiased;
+    font-feature-settings: 'cv11', 'ss01';
+  }
+  h1,
+  h2,
+  h3,
+  h4 {
+    @apply font-display text-navy;
+    letter-spacing: -0.015em;
+    text-wrap: balance;
+  }
+  p {
+    text-wrap: pretty;
+  }
+  :focus-visible {
+    outline: 2px solid var(--color-accent);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+  mark {
+    background: #fdecb4;
+    color: inherit;
+    border-radius: 2px;
+    padding: 0 1px;
+  }
+  dialog::backdrop {
+    background: rgb(11 31 51 / 0.55);
+  }
+  .tabular {
+    font-variant-numeric: tabular-nums;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    html {
+      scroll-behavior: auto;
+    }
+    *,
+    *::before,
+    *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+    }
+  }
+}
+
+@utility container-page {
+  width: 100%;
+  max-width: var(--container-page);
+  margin-inline: auto;
+  padding-inline: 1.25rem;
+  @media (width >= 40rem) {
+    padding-inline: 1.5rem;
+  }
+  @media (width >= 64rem) {
+    padding-inline: 2rem;
+  }
+}
+
+/* Restrained text link used inside body copy. */
+@utility link {
+  color: var(--color-ocean);
+  text-decoration: underline;
+  text-decoration-color: color-mix(in srgb, var(--color-ocean) 35%, transparent);
+  text-underline-offset: 3px;
+  &:hover {
+    color: var(--color-ocean-dark);
+    text-decoration-color: currentColor;
+  }
+}
+
+@keyframes eport-shimmer {
+  from {
+    background-position: 200% 0;
+  }
+  to {
+    background-position: -200% 0;
+  }
+}
+@utility skeleton {
+  border-radius: 4px;
+  background: linear-gradient(90deg, #e9eef3 25%, #f4f7fa 37%, #e9eef3 63%);
+  background-size: 400% 100%;
+  animation: eport-shimmer 1.6s ease-in-out infinite;
+}
