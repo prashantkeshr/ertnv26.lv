@@ -45,4 +45,5 @@ console.log(`countries/index.json — ${parsed.length} records`);
 // Map geometry: Natural Earth 1:110m (public domain), packaged by world-atlas (ISC).
 mkdirSync(dataPath('geo'), { recursive: true });
 copyFileSync(resolve(ROOT, 'node_modules/world-atlas/countries-110m.json'), dataPath('geo/countries-110m.json'));
-console.log('geo/countries-110m.json — copied');
+copyFileSync(resolve(ROOT, 'node_modules/world-atlas/countries-50m.json'), dataPath('geo/countries-50m.json'));
+console.log('geo/countries-110m.json, geo/countries-50m.json — copied');

@@ -49,3 +49,16 @@ Rules: results are labelled "Unverified web content", shown in a separate panel 
 ## Official news feeds (build-time)
 
 Headlines from the WTO, ITC, European Commission, ICC and UN News are fetched by `scripts/fetch-news.ts` (daily via `.github/workflows/refresh-news.yml`), because RSS feeds are not offered for cross-origin browser requests. Only the publisher's headline, a short abstract, date and link are stored — never article bodies. Items are English-only, de-duplicated and, for general-interest feeds, filtered for trade relevance. A failing feed keeps its previous items and is flagged on the News page and in the Data Reliability Centre.
+
+## Country page data (holidays, weekend, videos)
+
+| Source | Used for | How | Notes |
+| --- | --- | --- | --- |
+| Nager.Date | Upcoming public holidays on a country profile | Live from the browser (verified 2026-11-17, CORS `*`) | MIT. Coverage is partial: a country can answer HTTP 204 (no data), as India did on the day of testing. eport then says holidays are unavailable. Cached 24 h. |
+| Unicode CLDR (browser `Intl` week info) | Typical weekend | Computed in the browser, no request | Only a valid two-letter region code is looked up; where the browser lacks week info the fact is hidden. |
+| YouTube oEmbed | Verifying listed videos | Build/CI-time only (`npm run data:videos`) | Checks each video exists, is embeddable and is uploaded by the recorded channel. |
+| YouTube embed | Playing a video | Only after the visitor presses play, from youtube-nocookie.com | No thumbnail, script or cookie is requested before play. |
+
+## Featured countries
+
+`countries/featured.json` is computed at build time from the World Bank snapshot (largest economies per region by exports of goods and services) and drives the Countries menu. It is derived data, never hand-edited.

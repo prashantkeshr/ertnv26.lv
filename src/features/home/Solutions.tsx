@@ -221,7 +221,7 @@ export function Solutions() {
       <div className="mt-16 space-y-20 sm:space-y-24">
         {BLOCKS.map((b, i) => (
           <div key={b.title} className="grid items-center gap-10 lg:grid-cols-2 lg:gap-16">
-            <Reveal from={i % 2 ? 'left' : 'up'} className={cn(i % 2 === 1 && 'lg:order-2')}>
+            <Reveal from={i % 2 ? 'left' : 'up'} className={cn('min-w-0', i % 2 === 1 && 'lg:order-2')}>
               <p className="text-xs font-semibold tracking-[0.14em] text-link uppercase">{b.kicker}</p>
               <h3 className="mt-2 text-2xl font-bold sm:text-3xl">{b.title}</h3>
               <p className="mt-4 text-base leading-relaxed text-muted">{b.text}</p>
@@ -237,7 +237,7 @@ export function Solutions() {
                 <ArrowRight aria-hidden="true" className="size-4 rtl:rotate-180" />
               </ButtonLink>
             </Reveal>
-            <Reveal from="scale" delay={100} className={cn(i % 2 === 1 && 'lg:order-1')}>
+            <Reveal from="scale" delay={100} className={cn('min-w-0', i % 2 === 1 && 'lg:order-1')}>
               <div className="relative">
                 <div aria-hidden="true" className="absolute -inset-3 -z-10 rounded-[1.75rem] bg-gradient-to-br from-ocean/15 via-transparent to-aurora/10 blur-xl" />
                 <div className={cn('overflow-hidden rounded-2xl border border-line bg-surface shadow-[0_24px_60px_-30px_rgb(11_31_51/0.45)]', b.padded && 'p-4')}>{b.visual}</div>

@@ -26,6 +26,8 @@ jobs:
         run: npm run data:validate
       - name: Official link check (report only)
         run: npm run data:links
+      - name: Re-verify listed videos (report only)
+        run: npm run data:videos
       - uses: actions/upload-artifact@v4
         with:
           name: link-status

@@ -339,6 +339,72 @@ export const IndicatorIndex = z.object({
 });
 export type IndicatorIndex = z.infer<typeof IndicatorIndex>;
 
+/* ---------- featured countries (computed from indicator data; drives the Countries menu) ---------- */
+
+export const FeaturedCountries = z.object({
+  retrievedOn: IsoDate,
+  basis: z.object({
+    indicatorId: z.string(),
+    indicatorName: z.string(),
+    sourceId: z.string(),
+    rule: z.string(),
+  }),
+  /** Region name (as in the country dataset) → largest economies by the basis indicator, newest year. */
+  regions: z.record(
+    z.string(),
+    z.array(z.object({ code: Iso2, name: z.string(), year: z.number().int(), value: z.number() })),
+  ),
+});
+export type FeaturedCountries = z.infer<typeof FeaturedCountries>;
+
+/* ---------- videos (official channels only; verified against YouTube oEmbed) ---------- */
+
+export const VIDEO_TOPICS = ['trade-rules', 'customs', 'exporting', 'shipping', 'incoterms'] as const;
+export const VideoTopic = z.enum(VIDEO_TOPICS);
+export type VideoTopic = z.infer<typeof VideoTopic>;
+
+export const Video = z.object({
+  /** YouTube video id. */
+  id: z.string().regex(/^[A-Za-z0-9_-]{11}$/),
+  /** Title exactly as published. */
+  title: z.string(),
+  /** Uploader name exactly as YouTube reports it. */
+  channel: z.string(),
+  sourceId: z.string(),
+  topics: z.array(VideoTopic).min(1),
+  verifiedOn: IsoDate,
+  /** One neutral line from eport describing what the video is, derived from its title. */
+  note: z.string(),
+});
+export type Video = z.infer<typeof Video>;
+
+export const VideosFile = z.object({ verifiedOn: IsoDate, videos: z.array(Video) });
+export type VideosFile = z.infer<typeof VideosFile>;
+
+/* ---------- country guides (eport editorial overviews — never presented as official) ---------- */
+
+export const GuideStep = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/),
+  title: z.string(),
+  summary: z.string(),
+  appliesTo: z.enum(['export', 'import', 'both']),
+  /** Authorities (by directory id) that run or regulate this step. */
+  authorityIds: z.array(z.string()),
+});
+export type GuideStep = z.infer<typeof GuideStep>;
+
+export const CountryGuide = z.object({
+  countryCode: Iso2,
+  /** An editorial overview is "needs-review" until an editor compares it with the official sources. */
+  status: VerificationStatus,
+  draftedOn: IsoDate,
+  intro: z.string(),
+  limits: z.string(),
+  steps: z.array(GuideStep).min(3),
+  sourceIds: z.array(z.string()).min(1),
+});
+export type CountryGuide = z.infer<typeof CountryGuide>;
+
 /* ---------- catalog, manifest and derived indexes ---------- */
 
 export const DatasetCoverage = z.enum(['verified', 'partial', 'seed', 'unavailable']);

@@ -43,3 +43,15 @@ If a feature cannot work without a backend it is marked Coming Soon, specificall
 ## News
 
 Headline, publisher abstract, date and link only. Topic tags are automatic and labelled as such. Live web headlines are unverified and shown apart from official-publisher news.
+
+## Videos
+
+Only videos uploaded by the organization itself, or by its own academy or national committee, are listed, and the real channel name is shown on every card. Third-party explainers are excluded even when they are accurate. Each video is checked against YouTube oEmbed (exists, embeddable, same uploader and title). Videos are general explainers, never presented as guidance for a particular country or shipment, and are not an endorsement of eport by their publishers.
+
+## Country guides
+
+A country guide is an eport editorial overview of how exporting and importing is generally organised, with each stage linked to the responsible authority. It is marked **Needs review** until an editor has compared it line by line with the official sources, states its limits beside the steps, and is never described as a list of requirements. Guides are published one market at a time; countries without one say so plainly. Nothing in a guide is presented as an official form, fee, tariff or deadline.
+
+## What eport does not claim
+
+Pages do not state shipping lane availability, carrier recommendations, lead times, restricted-item lists or service levels, because eport is an information platform and does not operate or quote freight, importer-of-record or clearance services. Where a similar slot exists on a page (for example restricted items) it either carries sourced information or says that none is published.

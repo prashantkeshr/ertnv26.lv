@@ -13,20 +13,12 @@ import { Minus, Plus, RotateCcw } from 'lucide-react';
 import { useMemo, useRef, useState, type PointerEvent as ReactPointerEvent } from 'react';
 import { useNavigate } from 'react-router';
 import { feature } from 'topojson-client';
-import { z } from 'zod';
 import { ErrorState, Skeleton } from '@/components/feedback/states';
 import { COUNTRY_LEVEL_LABEL } from '@/components/common/StatusBadge';
 import { useAsync } from '@/hooks/useAsync';
 import { loadFile } from '@/services/data/loader';
 import type { Country, CountryCoverage } from '@/types/schemas';
-
-// Loose objects: the quantisation `transform` and other TopoJSON members must survive validation.
-const Topology = z.looseObject({
-  type: z.literal('Topology'),
-  objects: z.looseObject({ countries: z.looseObject({ type: z.string(), geometries: z.array(z.unknown()) }) }),
-  arcs: z.array(z.unknown()),
-  transform: z.object({ scale: z.tuple([z.number(), z.number()]), translate: z.tuple([z.number(), z.number()]) }),
-});
+import { Topology } from './topology';
 
 const W = 960;
 const H = 500;

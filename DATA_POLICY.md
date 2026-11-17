@@ -52,3 +52,7 @@ ISO 3166-1 (alpha-2 is the primary key for countries), ISO 4217 currencies, UN/L
 ## News snapshot
 
 `public/data/news/latest.json` is validated on every build: unique ids and URLs, HTTPS links, known publisher source ids, no future dates, English language items only. The manifest shows the snapshot's own retrieval date. A snapshot older than 14 days prints a warning in `npm run data:validate`.
+
+## Country guides and videos
+
+`countries/guides.json` and `videos/index.json` are validated on every build: a guide's step ids are unique, every authority it names exists in the directory, its sources exist, and it can never be marked `officially-verified` without a review record. Videos need unique 11-character ids, a known source organization and a recorded verification date; `npm run data:videos` re-verifies them against YouTube.

@@ -165,5 +165,26 @@
       "Home and News page: latest trade news"
     ],
     "notes": "Only what the feed provides is kept — never article bodies. A feed that fails keeps its previous items and is flagged."
+  },
+  {
+    "id": "nager-date",
+    "name": "Nager.Date public holiday API",
+    "operator": "Nager.Date (open-source project)",
+    "docsUrl": "https://date.nager.at/Api",
+    "dataKind": "Public holidays by country and year",
+    "auth": "none",
+    "browserAccess": "verified",
+    "browserAccessCheckedOn": "2026-11-17",
+    "browserAccessNote": "A cross-origin request succeeded; the response carries Access-Control-Allow-Origin: * (tested 2026-11-17).",
+    "coverage": "Many countries, not all. Some — including India on the day of testing — answer with no data (HTTP 204); eport then says holidays are unavailable rather than guessing.",
+    "freshness": "Published per calendar year; national and regional holidays can be announced or changed late.",
+    "license": "MIT",
+    "attribution": "Public holidays via Nager.Date.",
+    "rateLimit": "No key or published quota. eport caches each country-year in the browser for 24 hours.",
+    "integrationStatus": "integrated",
+    "usedBy": [
+      "Country profile: upcoming public holidays"
+    ],
+    "notes": "Informational only — confirm working days with the relevant customs authority and carrier. Regional and religious observances may be missing."
   }
 ]

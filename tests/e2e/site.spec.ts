@@ -11,6 +11,24 @@ test.beforeEach(async ({ page }) => {
     return route.fulfill({ json: body, headers: { 'access-control-allow-origin': '*' } });
   });
   const cors = { 'access-control-allow-origin': '*' };
+  // Public holidays: Germany has data (dates in the current and next year), everything else answers 204 like India does.
+  await page.route('https://date.nager.at/**', (route) => {
+    const m = /\/PublicHolidays\/(\d{4})\/([A-Z]{2})$/.exec(route.request().url());
+    if (m?.[2] !== 'DE') return route.fulfill({ status: 204, headers: cors });
+    const y = m[1];
+    return route.fulfill({
+      json: [
+        { date: `${y}-01-01`, localName: 'Neujahr', name: "New Year's Day", global: true, types: ['Public'] },
+        { date: `${y}-05-01`, localName: 'Tag der Arbeit', name: 'Labour Day', global: true, types: ['Public'] },
+        { date: `${y}-10-03`, localName: 'Tag der Deutschen Einheit', name: 'German Unity Day', global: true, types: ['Public'] },
+        { date: `${y}-12-25`, localName: 'Weihnachtstag', name: 'Christmas Day', global: true, types: ['Public'] },
+        { date: `${y}-12-26`, localName: 'Zweiter Weihnachtstag', name: "St. Stephen's Day", global: true, types: ['Public'] },
+      ],
+      headers: cors,
+    });
+  });
+  // YouTube is never contacted by tests; the requests are still observable, so tests can prove nothing loads before play.
+  await page.route(/youtube(-nocookie)?\.com|ytimg\.com/, (route) => route.fulfill({ status: 200, contentType: 'text/html', body: '<html><body>video</body></html>' }));
   await page.route('https://en.wikipedia.org/**', (route) =>
     route.fulfill({
       json: {
@@ -37,6 +55,8 @@ const PAGES = [
   '/countries',
   '/countries/IN',
   '/countries/DE',
+  '/countries/GI', // no outline in the map data: exercises the marker fallback
+  '/academy/videos',
   '/directory/organizations',
   '/directory/organizations/wto',
   '/directory/authorities',
@@ -136,7 +156,7 @@ test.describe('trust and honesty', () => {
 
   test('India shows what is published and what is still pending', async ({ page }) => {
     await page.goto('/countries/IN');
-    await expect(page.getByRole('heading', { name: /Published now/ })).toBeVisible();
+    await expect(page.getByRole('heading', { name: /Published for India now/ })).toBeVisible();
     await expect(page.getByRole('heading', { name: /not yet published/ })).toBeVisible();
   });
 
@@ -412,10 +432,10 @@ test.describe('news', () => {
 
   test('news page filters by topic and publisher and shows feed status', async ({ page }) => {
     await page.goto('/intelligence/news');
-    const total = await page.getByRole('status').filter({ hasText: /headlines/ }).textContent();
+    const total = await page.getByRole('status').filter({ hasText: /of \d+ headlines/ }).textContent();
     expect(total).toMatch(/of \d+ headlines/);
     await page.getByRole('combobox', { name: /^Publisher/ }).selectOption({ index: 1 });
-    await expect(page.getByRole('status').filter({ hasText: /headlines/ })).not.toHaveText(total ?? '');
+    await expect(page.getByRole('status').filter({ hasText: /of \d+ headlines/ })).not.toHaveText(total ?? '');
     await page.getByText('Feed status').click();
     await expect(page.getByText(/Updated|Using previous items/).first()).toBeVisible();
   });
@@ -474,6 +494,194 @@ test.describe('search with live web results', () => {
   });
 });
 
+test.describe('mega menus', () => {
+  test.beforeEach(({ isMobile }) => test.skip(isMobile, 'the desktop navigation bar is hidden on small screens'));
+
+  test('Countries: regions, flags, featured economies and helpful resources', async ({ page }) => {
+    await page.goto('/about');
+    const trigger = page.locator('[data-division="countries"]');
+    await trigger.click();
+    await expect(trigger).toHaveAttribute('aria-expanded', 'true');
+    const panel = page.locator('#division-panel');
+    await expect(panel.getByRole('button', { name: /^Asia/ })).toHaveAttribute('aria-pressed', 'true');
+    await expect(panel.getByRole('link', { name: /^India Exports/ })).toBeVisible();
+    await expect.poll(() => panel.locator('img[src*=".svg"]').count()).toBeGreaterThan(8);
+    await expect(panel.getByRole('link', { name: /View all \d+ in Asia/ })).toBeVisible();
+    await expect(panel.getByRole('complementary', { name: 'Helpful resources' }).getByRole('link', { name: /India: export and import process guide/ })).toBeVisible();
+    // Switching region changes the list.
+    await panel.getByRole('button', { name: /^Europe/ }).click();
+    await expect(panel.getByRole('link', { name: /^Germany/ })).toBeVisible();
+    await expect(panel.getByRole('link', { name: /^India Exports/ })).toHaveCount(0);
+    // Choosing a country navigates and closes the menu.
+    await panel.getByRole('link', { name: /^Germany/ }).click();
+    await expect(page).toHaveURL(/\/countries\/DE$/);
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+  });
+
+  test('Escape closes a menu and returns focus to its button', async ({ page }) => {
+    await page.goto('/about');
+    const trigger = page.locator('[data-division="countries"]');
+    await trigger.click();
+    await expect(page.locator('#division-panel').getByRole('button', { name: /^Asia/ })).toBeVisible();
+    await page.keyboard.press('Escape');
+    await expect(trigger).toHaveAttribute('aria-expanded', 'false');
+    await expect(trigger).toBeFocused();
+  });
+
+  test('moving between menu buttons with the mouse switches menus once one is open', async ({ page }) => {
+    await page.goto('/about');
+    await page.locator('[data-division="countries"]').click();
+    await page.locator('[data-division="resources"]').hover();
+    await expect(page.locator('[data-division="resources"]')).toHaveAttribute('aria-expanded', 'true');
+    await expect(page.locator('#division-panel').getByText('Latest news | Official publishers')).toBeVisible();
+  });
+
+  test('Resources: latest news, videos and guides', async ({ page }) => {
+    await page.goto('/about');
+    await page.locator('[data-division="resources"]').click();
+    const panel = page.locator('#division-panel');
+    await expect(panel.getByRole('link', { name: /opens in a new tab/ }).first()).toHaveAttribute('target', '_blank');
+    await panel.getByRole('button', { name: 'Videos' }).click();
+    await expect(panel.getByRole('link', { name: /WTO explained/ })).toBeVisible();
+    await panel.getByRole('button', { name: 'Guides' }).click();
+    await expect(panel.getByRole('link', { name: /India: export and import process/ })).toBeVisible();
+  });
+
+  test('the navigation bar never overlaps the controls beside it', async ({ page }) => {
+    await page.goto('/');
+    const gap = await page.evaluate(() => {
+      const nav = document.querySelector('header nav ul')!.getBoundingClientRect();
+      const toggle = document.querySelector('[data-theme-toggle]')!.getBoundingClientRect();
+      return toggle.left - nav.right;
+    });
+    expect(gap).toBeGreaterThanOrEqual(0);
+  });
+
+  test('is accessible with a menu open (light and dark)', async ({ page }) => {
+    for (const scheme of ['light', 'dark'] as const) {
+      await page.emulateMedia({ reducedMotion: 'reduce', colorScheme: scheme });
+      await page.goto('/about');
+      await page.locator('[data-division="countries"]').click();
+      await expect(page.locator('#division-panel').getByRole('link', { name: /^India Exports/ })).toBeVisible();
+      const results = await new AxeBuilder({ page }).include('header').withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa']).analyze();
+      expect(results.violations.map((v) => `${scheme} ${v.id}: ${v.nodes.map((n) => n.target.join(' ')).slice(0, 2).join(' | ')}`)).toEqual([]);
+    }
+  });
+});
+
+test.describe('country page', () => {
+  test('hero: status, flag, summary, highlighted map and key facts', async ({ page }) => {
+    await page.goto('/countries/IN');
+    const hero = page.locator('header', { has: page.getByRole('heading', { level: 1, name: 'India' }) });
+    await expect(hero.getByText('Operational guidance in progress')).toBeVisible();
+    await expect(hero.getByText('India is a coastal UN member state in Southern Asia.')).toBeVisible();
+    const map = hero.locator('svg[aria-label^="Map highlighting India"]');
+    await expect(map).toBeVisible({ timeout: 20_000 });
+    await expect(map.locator('path.map-selected')).toHaveCount(1);
+    expect(await map.locator('path.map-neighbour').count()).toBeGreaterThan(2);
+    await expect(hero.getByText('English, Hindi, Tamil')).toBeVisible();
+    await expect(hero.getByText('Indian rupee (INR)')).toBeVisible();
+    await expect(hero.getByText('Typical weekend')).toBeVisible();
+    await expect(hero.getByText('No holiday data for this country')).toBeVisible();
+    await expect(hero.getByText('6 land neighbours')).toBeVisible();
+  });
+
+  test('a territory without an outline gets a marker on a regional map', async ({ page }) => {
+    await page.goto('/countries/GI');
+    await expect(page.locator('svg[aria-label="Regional map with Gibraltar marked"]')).toBeVisible({ timeout: 20_000 });
+  });
+
+  test('a country with holiday data shows the next holiday in the hero and the working-days section', async ({ page }) => {
+    await page.goto('/countries/DE');
+    await expect(page.getByText('Reference record', { exact: true })).toBeVisible();
+    const calendar = page.locator('#calendar');
+    await expect(calendar.getByText('Upcoming public holidays')).toBeVisible();
+    await expect(calendar.getByRole('listitem').first()).toBeVisible();
+    await expect(calendar.getByText(/Public holidays via/)).toBeVisible();
+    await expect(page.getByText('Next public holiday')).toBeVisible();
+    await expect(page.getByText('No holiday data for this country')).toHaveCount(0);
+  });
+
+  test('a country without holiday data says so instead of guessing', async ({ page }) => {
+    await page.goto('/countries/IN');
+    await expect(page.locator('#calendar').getByText('No public-holiday data for India')).toBeVisible();
+  });
+
+  test('section tabs jump to sections and track the one in view', async ({ page }) => {
+    await page.goto('/countries/IN');
+    const nav = page.getByRole('navigation', { name: 'On this page' });
+    await expect(nav.getByRole('link', { name: 'Overview' })).toHaveAttribute('aria-current', 'true');
+    await nav.getByRole('link', { name: 'Process guide' }).click();
+    await expect(nav.getByRole('link', { name: 'Process guide' })).toHaveAttribute('aria-current', 'true');
+    await expect(page.getByRole('heading', { name: 'Exporting and importing: India' })).toBeInViewport();
+  });
+
+  test('a deep link to #guide lands on the guide', async ({ page }) => {
+    await page.goto('/countries/IN#guide');
+    await expect(page.getByRole('heading', { name: 'Exporting and importing: India' })).toBeInViewport({ timeout: 15_000 });
+  });
+
+  test('the India guide is labelled as an unreviewed overview and can be filtered by direction', async ({ page }) => {
+    await page.goto('/countries/IN');
+    const guide = page.locator('#guide');
+    await expect(guide.getByText('Needs review').first()).toBeVisible();
+    await expect(guide.getByText(/Read this first/)).toBeVisible();
+    await expect(guide.getByText(/not a checklist of requirements/i)).toBeVisible();
+    await expect(guide.getByText('10 of 10 steps shown')).toBeVisible();
+    await guide.getByRole('button', { name: 'Exporting' }).click();
+    await expect(guide.getByText('8 of 10 steps shown')).toBeVisible();
+    await expect(guide.getByRole('heading', { name: /Declare exports to Customs/ })).toBeVisible();
+    await expect(guide.getByRole('heading', { name: /Declare imports to Customs/ })).toHaveCount(0);
+    await guide.getByRole('button', { name: 'Importing' }).click();
+    await expect(guide.getByRole('heading', { name: /Declare imports to Customs/ })).toBeVisible();
+    // Each step links to the responsible authority's directory page and official site.
+    await expect(guide.getByRole('link', { name: 'DGFT' }).first()).toHaveAttribute('href', '/directory/authorities/in-dgft');
+    await expect(guide.getByRole('link', { name: /DGFT official website/ }).first()).toHaveAttribute('target', '_blank');
+  });
+
+  test('countries without a guide say so, and show no empty authority list', async ({ page }) => {
+    await page.goto('/countries/DE');
+    await expect(page.locator('#guide').getByText(/has not yet published export or import procedures/)).toBeVisible();
+    await expect(page.getByText('Read this first')).toHaveCount(0);
+    await expect(page.locator('#authorities').getByText('No authorities are published for Germany yet')).toBeVisible();
+  });
+
+  test('India lists its published authorities as cards', async ({ page }) => {
+    await page.goto('/countries/IN');
+    await expect(page.locator('#authorities article')).toHaveCount(16);
+    await expect(page.locator('#authorities').getByRole('link', { name: /Official website · dgft\.gov\.in/ })).toHaveAttribute('target', '_blank');
+  });
+});
+
+test.describe('videos', () => {
+  test('nothing is requested from YouTube until play, then it loads privacy-enhanced', async ({ page }) => {
+    const youtube: string[] = [];
+    page.on('request', (r) => /youtube|ytimg/.test(r.url()) && youtube.push(r.url()));
+    await page.goto('/countries/DE');
+    const shelf = page.locator('#videos');
+    await expect(shelf.getByRole('button', { name: /^Play video:/ })).toHaveCount(3);
+    await expect(shelf.getByText('Plays from YouTube when you press play').first()).toBeVisible();
+    expect(youtube).toEqual([]);
+    await shelf.getByRole('button', { name: /^Play video:/ }).first().click();
+    const frame = shelf.locator('iframe');
+    await expect(frame).toHaveCount(1);
+    await expect(frame).toHaveAttribute('src', /^https:\/\/www\.youtube-nocookie\.com\/embed\/[\w-]{11}\?autoplay=1&rel=0$/);
+    await expect(frame).toHaveAttribute('title', /.+/);
+  });
+
+  test('the videos page lists official-channel videos, filters by topic and explains privacy', async ({ page }) => {
+    await page.goto('/academy/videos');
+    await expect(page.getByRole('heading', { level: 1, name: 'Official explainer videos' })).toBeVisible();
+    await expect(page.getByText(/13 of 13 videos/)).toBeVisible();
+    await expect(page.getByText('Channel: World Trade Organization').first()).toBeVisible();
+    await expect(page.getByText('Channel: IMOHQ').first()).toBeVisible();
+    await page.getByRole('button', { name: /^Incoterms/ }).click();
+    await expect(page.getByText(/2 of 13 videos/)).toBeVisible();
+    await expect(page.getByRole('article')).toHaveCount(2);
+    await expect(page.getByText(/Nothing is requested from YouTube until you press play/)).toBeVisible();
+  });
+});
+
 test.describe('mobile navigation', () => {
   test('menu opens as a dialog, traps focus and closes with Escape', async ({ page, isMobile }) => {
     test.skip(!isMobile, 'mobile only');
@@ -488,11 +696,25 @@ test.describe('mobile navigation', () => {
 
   test('no horizontal scroll on key pages', async ({ page, isMobile }) => {
     test.skip(!isMobile, 'mobile only');
-    for (const path of ['/', '/countries', '/countries/IN', '/data-reliability']) {
+    // A page that overflows makes a mobile browser widen its layout viewport, so comparing the page with
+    // innerWidth would always pass. Compare with the device width (clientWidth) and list real offenders.
+    for (const path of ['/', '/countries', '/countries/IN', '/countries/GI', '/academy/videos', '/intelligence/news', '/search?q=India', '/contact', '/data-reliability']) {
       await page.goto(path);
       await page.waitForLoadState('networkidle');
-      const overflow = await page.evaluate(() => document.documentElement.scrollWidth - window.innerWidth);
-      expect(overflow, path).toBeLessThanOrEqual(1);
+      const result = await page.evaluate(() => {
+        const vw = document.documentElement.clientWidth;
+        const offenders = [...document.querySelectorAll('body *')]
+          .filter((e) => {
+            const r = e.getBoundingClientRect();
+            // Shapes inside an <svg> are clipped by it and cannot widen the page; the <svg> element itself is still checked.
+            const insideSvg = e.tagName.toLowerCase() !== 'svg' && e.closest('svg') !== null;
+            return r.width > 0 && r.right > vw + 1 && !insideSvg && !e.closest('.marquee, canvas, .sr-only, .overflow-x-auto, [aria-hidden="true"], dialog');
+          })
+          .slice(0, 5)
+          .map((e) => `${e.tagName.toLowerCase()}.${String(e.className).slice(0, 50)}`);
+        return { widened: window.innerWidth - vw, scroll: document.documentElement.scrollWidth - vw, offenders };
+      });
+      expect(result, path).toEqual({ widened: 0, scroll: 0, offenders: [] });
     }
   });
 });

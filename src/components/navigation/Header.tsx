@@ -13,12 +13,13 @@ import {
   type LucideIcon,
 } from 'lucide-react';
 import { useEffect, useRef, useState } from 'react';
-import { Link, NavLink, useLocation } from 'react-router';
+import { Link, useLocation } from 'react-router';
 import { DIVISIONS, type Division } from '@/app/modules';
 import { cn } from '@/components/common/primitives';
 import { ModuleStatusBadge } from '@/components/common/StatusBadge';
 import { Dialog } from '@/components/feedback/Dialog';
 import { SearchCombobox } from '@/components/search/SearchCombobox';
+import { CountriesPanel, ResourcesPanel } from './MegaMenus';
 import { ThemeToggle } from './ThemeToggle';
 import { useI18n } from '@/i18n';
 
@@ -170,7 +171,7 @@ export function Header() {
             <Logo />
           </Link>
 
-          <nav aria-label={t('nav.primary')} className="hidden min-w-0 lg:block">
+          <nav aria-label={t('nav.primary')} className="hidden min-w-0 xl:block">
             <ul className="flex items-center">
               {DIVISIONS.map((d) => {
                 const expanded = openId === d.id;
@@ -183,6 +184,7 @@ export function Header() {
                       aria-expanded={expanded}
                       aria-controls="division-panel"
                       onClick={() => setOpenId(expanded ? null : d.id)}
+                      onPointerEnter={(e) => e.pointerType === 'mouse' && openId !== null && setOpenId(d.id)}
                       className={cn(
                         'flex h-16 items-center gap-1 border-b-2 px-2.5 text-sm font-medium whitespace-nowrap transition-colors xl:px-3',
                         expanded || current ? 'border-sky text-white' : 'border-transparent text-white/80 hover:text-white',
@@ -194,32 +196,44 @@ export function Header() {
                   </li>
                 );
               })}
-              <li>
-                <NavLink
-                  to="/countries"
-                  className={({ isActive }) =>
-                    cn(
-                      'flex h-16 items-center border-b-2 px-2.5 text-sm font-medium transition-colors xl:px-3',
-                      isActive ? 'border-sky text-white' : 'border-transparent text-white/80 hover:text-white',
-                    )
-                  }
-                >
-                  {t('nav.countries')}
-                </NavLink>
-              </li>
+              {[
+                { id: 'countries', label: t('nav.countries'), current: location.pathname.startsWith('/countries') },
+                { id: 'resources', label: 'Resources', current: location.pathname.startsWith('/intelligence/news') || location.pathname.startsWith('/academy/videos') },
+              ].map((item) => {
+                const expanded = openId === item.id;
+                return (
+                  <li key={item.id}>
+                    <button
+                      type="button"
+                      data-division={item.id}
+                      aria-expanded={expanded}
+                      aria-controls="division-panel"
+                      onClick={() => setOpenId(expanded ? null : item.id)}
+                      onPointerEnter={(e) => e.pointerType === 'mouse' && openId !== null && setOpenId(item.id)}
+                      className={cn(
+                        'flex h-16 items-center gap-1 border-b-2 px-2.5 text-sm font-medium whitespace-nowrap transition-colors xl:px-3',
+                        expanded || item.current ? 'border-sky text-white' : 'border-transparent text-white/80 hover:text-white',
+                      )}
+                    >
+                      {item.label}
+                      <ChevronDown aria-hidden="true" className={cn('size-3.5 transition-transform', expanded && 'rotate-180')} />
+                    </button>
+                  </li>
+                );
+              })}
             </ul>
           </nav>
 
           <div className="ms-auto flex items-center gap-1">
             {/* Inline search where there is room: tablets (no nav bar) and wide desktops. */}
-            <div className="hidden w-64 md:block lg:hidden 2xl:block">
+            <div className="hidden w-64 md:block xl:hidden 2xl:block">
               <SearchCombobox variant="header" inputId="header-search" />
             </div>
             <ThemeToggle />
-            <Link to="/contact" className="ms-1 hidden min-h-9 items-center rounded-md border border-white/25 px-3.5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white hover:text-navy xl:inline-flex">
+            <Link to="/contact" className="ms-1 hidden min-h-9 items-center rounded-md border border-white/25 px-3.5 text-sm font-semibold text-white transition-colors hover:border-white hover:bg-white hover:text-navy 2xl:inline-flex">
               Contact
             </Link>
-            <Link to="/search" aria-label={t('search.label')} className="rounded-md p-2.5 text-white/85 hover:bg-white/10 hover:text-white md:hidden lg:block 2xl:hidden">
+            <Link to="/search" aria-label={t('search.label')} className="rounded-md p-2.5 text-white/85 hover:bg-white/10 hover:text-white md:hidden xl:block 2xl:hidden">
               <Search aria-hidden="true" className="size-5" />
             </Link>
             <button
@@ -227,15 +241,21 @@ export function Header() {
               aria-label={t('nav.openMenu')}
               aria-haspopup="dialog"
               onClick={() => setMobileOpen(true)}
-              className="rounded-md p-2.5 text-white/85 hover:bg-white/10 hover:text-white lg:hidden"
+              className="rounded-md p-2.5 text-white/85 hover:bg-white/10 hover:text-white xl:hidden"
             >
               <Menu aria-hidden="true" className="size-5" />
             </button>
           </div>
         </div>
 
-        <div id="division-panel" className={cn('absolute inset-x-0 top-full max-h-[calc(100dvh-6rem)] overflow-y-auto border-b border-line bg-surface text-ink shadow-menu', openDivision ? 'hidden lg:block' : 'hidden')}>
-          {openDivision && <DivisionPanel division={openDivision} onNavigate={() => setOpenId(null)} />}
+        <div id="division-panel" className={cn('absolute inset-x-0 top-full max-h-[calc(100dvh-6rem)] overflow-y-auto border-b border-line bg-soft text-ink shadow-menu', openId ? 'hidden xl:block' : 'hidden')}>
+          {openDivision && (
+            <div className="bg-surface">
+              <DivisionPanel division={openDivision} onNavigate={() => setOpenId(null)} />
+            </div>
+          )}
+          {openId === 'countries' && <CountriesPanel onNavigate={() => setOpenId(null)} />}
+          {openId === 'resources' && <ResourcesPanel onNavigate={() => setOpenId(null)} />}
         </div>
       </div>
 
@@ -262,6 +282,9 @@ export function Header() {
               { to: '/countries', label: 'Country Explorer' },
               { to: '/directory/organizations', label: 'International organizations' },
               { to: '/directory/authorities', label: 'Official authorities' },
+              { to: '/intelligence/news', label: 'Trade and maritime news' },
+              { to: '/academy/videos', label: 'Official explainer videos' },
+              { to: '/countries/IN#guide', label: 'India: export and import guide' },
               { to: '/data-reliability', label: 'Data Reliability Centre' },
               { to: '/contact', label: 'Contact us' },
               { to: '/methodology', label: 'Sources and methodology' },

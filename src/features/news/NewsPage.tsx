@@ -80,7 +80,7 @@ export default function NewsPage() {
                   </button>
                   {categories.map(([c, n]) => (
                     <button key={c} type="button" aria-pressed={category === c} onClick={() => (setCategory(c), setVisible(PAGE))} className={chip(category === c)}>
-                      {NEWS_CATEGORY_LABEL[c]} <span className="tabular opacity-70">{n}</span>
+                      {NEWS_CATEGORY_LABEL[c]} <span className="tabular opacity-90">{n}</span>
                     </button>
                   ))}
                 </div>

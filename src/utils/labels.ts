@@ -61,3 +61,13 @@ export const NEWS_CATEGORY_LABEL: Record<NewsCategory, string> = {
   sustainability: 'Sustainability',
   'trade-finance': 'Trade finance',
 };
+
+import type { VideoTopic } from '@/types/schemas';
+
+export const VIDEO_TOPIC_LABEL: Record<VideoTopic, string> = {
+  'trade-rules': 'Trade rules',
+  customs: 'Customs and classification',
+  exporting: 'Exporting',
+  shipping: 'Shipping',
+  incoterms: 'Incoterms®',
+};

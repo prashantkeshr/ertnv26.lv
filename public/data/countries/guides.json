@@ -1,0 +1,82 @@
+[
+  {
+    "countryCode": "IN",
+    "status": "needs-review",
+    "draftedOn": "2026-11-17",
+    "intro": "A plain-language overview of the main stages of exporting goods from, and importing goods into, India, and which authority is responsible for each. It is eport's own summary of how the system is generally organised.",
+    "limits": "This is an overview, not a checklist of requirements. It does not cover state-level rules, product-specific licences and standards, special schemes, services, or recent changes. It has not yet been compared line by line with the official sources, so confirm every step with the authority named.",
+    "steps": [
+      {
+        "id": "iec",
+        "title": "Get an Importer-Exporter Code (IEC)",
+        "summary": "Businesses that import or export goods from India generally need an IEC, a unique code issued by the Directorate General of Foreign Trade. Limited exemptions exist, so check with DGFT whether one applies to you.",
+        "appliesTo": "both",
+        "authorityIds": ["in-dgft"]
+      },
+      {
+        "id": "classify",
+        "title": "Classify your product",
+        "summary": "Goods are classified under the international Harmonized System. India's ITC (HS) classification, notified by DGFT, sits alongside the Customs Tariff administered by the Central Board of Indirect Taxes and Customs, which is what duty rates are based on.",
+        "appliesTo": "both",
+        "authorityIds": ["in-dgft", "in-cbic"]
+      },
+      {
+        "id": "policy",
+        "title": "Check import and export policy conditions",
+        "summary": "Foreign Trade Policy conditions for an item can mean it is freely tradable, restricted or prohibited. Restricted items typically need an authorisation before they can move. DGFT publishes the policy; confirm the current condition for your exact item.",
+        "appliesTo": "both",
+        "authorityIds": ["in-dgft", "in-commerce"]
+      },
+      {
+        "id": "sector",
+        "title": "Check sector registrations and product rules",
+        "summary": "Depending on the product, other bodies may be involved: APEDA for scheduled agricultural and processed food exports, MPEDA for marine products, FSSAI for imported food, BIS for standards and certification, CDSCO for drugs, medical devices and cosmetics, and the plant quarantine authority (PPQS) for phytosanitary matters.",
+        "appliesTo": "both",
+        "authorityIds": ["in-apeda", "in-mpeda", "in-fssai", "in-bis", "in-cdsco", "in-ppqs", "in-eic"]
+      },
+      {
+        "id": "gst",
+        "title": "Register for GST where applicable",
+        "summary": "Goods and Services Tax registration and returns run through the GST common portal. How GST applies to a particular export or import depends on your circumstances, so take advice before assuming a treatment.",
+        "appliesTo": "both",
+        "authorityIds": ["in-gst-portal"]
+      },
+      {
+        "id": "shipping-bill",
+        "title": "Declare exports to Customs",
+        "summary": "Exporters declare their goods to Indian Customs electronically by filing a Shipping Bill. Indian Customs' electronic filing runs through ICEGATE.",
+        "appliesTo": "export",
+        "authorityIds": ["in-icegate", "in-cbic"]
+      },
+      {
+        "id": "bill-of-entry",
+        "title": "Declare imports to Customs",
+        "summary": "Importers declare their goods to Indian Customs electronically by filing a Bill of Entry, again through ICEGATE.",
+        "appliesTo": "import",
+        "authorityIds": ["in-icegate", "in-cbic"]
+      },
+      {
+        "id": "duty",
+        "title": "Pay customs duty and taxes on imports",
+        "summary": "Imported goods are assessed to customs duty and applicable taxes. Rates depend on the product's classification and the applicable notifications; the Indian Trade Portal and CBIC publish tariff information.",
+        "appliesTo": "import",
+        "authorityIds": ["in-cbic", "in-tradeportal"]
+      },
+      {
+        "id": "foreign-exchange",
+        "title": "Handle payments through an authorised bank",
+        "summary": "Foreign-exchange rules under the Foreign Exchange Management Act, administered by the Reserve Bank of India, govern receiving payment for exports and paying for imports, which is done through authorised dealer banks.",
+        "appliesTo": "both",
+        "authorityIds": ["in-rbi"]
+      },
+      {
+        "id": "credit-insurance",
+        "title": "Consider export credit insurance",
+        "summary": "ECGC, a Government of India enterprise, offers export credit insurance against the risk of non-payment by overseas buyers. Using it is optional.",
+        "appliesTo": "export",
+        "authorityIds": ["in-ecgc"]
+      }
+    ],
+    "sourceIds": ["in-dgft", "in-cbic", "in-icegate", "in-rbi"]
+  }
+]

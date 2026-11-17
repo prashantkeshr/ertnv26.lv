@@ -199,6 +199,14 @@ function Privacy() {
             two currency codes and, as with any web request, your IP address reaches that service.
           </>,
           <>
+            <strong className="font-semibold text-heading">Nager.Date (public holidays)</strong> — when you open a country profile, your browser asks for that country’s public holidays. The request contains the
+            two-letter country code and the year.
+          </>,
+          <>
+            <strong className="font-semibold text-heading">YouTube (videos)</strong> — only when you press play on a video. Until then nothing is requested from YouTube. Videos load in YouTube’s
+            privacy-enhanced mode (youtube-nocookie.com), but YouTube can still see your IP address and may set its own technical data once the video loads.
+          </>,
+          <>
             <strong className="font-semibold text-heading">Wikipedia (live web results)</strong> — when you run a search with live web results on, your browser sends your search words to Wikipedia to fetch matching
             articles. This is on by default and can be switched off on the search page.
           </>,

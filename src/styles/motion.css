@@ -250,3 +250,38 @@
     animation: none !important;
   }
 }
+
+/* ---------- country map entrance ---------- */
+@keyframes map-in {
+  from { opacity: 0; transform: scale(0.985); }
+  to { opacity: 1; transform: none; }
+}
+.motion .map-selected {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: map-in 1s var(--ease-out) 0.15s backwards;
+}
+.motion .map-neighbour {
+  animation: map-in 0.9s var(--ease-out) 0.35s backwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .map-selected, .map-neighbour { animation: none !important; }
+}
+
+/* ---------- mega menu panels ---------- */
+@keyframes menu-in {
+  from { opacity: 0; transform: translate3d(0, -6px, 0); }
+  to { opacity: 1; transform: none; }
+}
+.motion .menu-in {
+  animation: menu-in 0.22s var(--ease-out) backwards;
+}
+@media (prefers-reduced-motion: reduce) {
+  .menu-in { animation: none !important; }
+}
+
+/* Menus and dialogs scroll instantly: smooth scrolling inside them is slow and fights assistive tech and tests. */
+dialog,
+dialog * {
+  scroll-behavior: auto;
+}

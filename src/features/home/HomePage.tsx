@@ -16,6 +16,7 @@ import { useSeo } from '@/hooks/useSeo';
 import { useI18n } from '@/i18n';
 import { formatDate, formatNumber } from '@/utils/format';
 import { HeroCards } from './HeroCards';
+import { VideoShelf } from '@/features/videos/VideoShelf';
 import { LatestNews } from './LatestNews';
 import { Faq, HowItWorks } from './ProcessAndFaq';
 import { QuickFinder } from './QuickFinder';
@@ -419,6 +420,23 @@ export default function HomePage() {
         </Reveal>
       </Section>
       <LatestNews />
+      <Section tone="soft" aria-labelledby="videos-heading">
+        <Reveal>
+          <SectionHeading
+            id="videos-heading"
+            kicker="Learn with official videos"
+            title="Explainers from the organizations themselves"
+            description="Videos from the WTO, World Customs Organization, ITC, IMO and ICC. Nothing loads from YouTube until you press play."
+            action={
+              <ButtonLink to="/academy/videos" variant="secondary">
+                All videos
+                <ArrowRight aria-hidden="true" className="size-4 rtl:rotate-180" />
+              </ButtonLink>
+            }
+          />
+        </Reveal>
+        <VideoShelf limit={3} />
+      </Section>
       <HowItWorks />
       <Roadmap />
       <Trust />

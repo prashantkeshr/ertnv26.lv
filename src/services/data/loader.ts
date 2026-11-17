@@ -12,6 +12,8 @@ import {
   Authority,
   Country,
   CountryCoverage,
+  CountryGuide,
+  FeaturedCountries,
   GraphFile,
   IndicatorFile,
   IndicatorIndex,
@@ -21,6 +23,7 @@ import {
   Organization,
   SearchIndexFile,
   Source,
+  VideosFile,
 } from '@/types/schemas';
 
 export const DATASETS = {
@@ -35,6 +38,9 @@ export const DATASETS = {
   graph: { path: 'graph/index.json', schema: GraphFile },
   search: { path: 'search/index.json', schema: SearchIndexFile },
   news: { path: 'news/latest.json', schema: NewsFile },
+  featured: { path: 'countries/featured.json', schema: FeaturedCountries },
+  guides: { path: 'countries/guides.json', schema: z.array(CountryGuide) },
+  videos: { path: 'videos/index.json', schema: VideosFile },
   'indicator-index': { path: 'trade/indicators/index.json', schema: IndicatorIndex },
 } as const;
 

@@ -28,7 +28,7 @@ interface RequestOptions<T> {
   timeoutMs?: number;
 }
 
-export async function fetchJson<T>(url: string, { providerId, schema, timeoutMs = 12_000 }: RequestOptions<T>): Promise<T> {
+async function request(url: string, providerId: string, timeoutMs: number): Promise<Response> {
   let response: Response;
   try {
     response = await fetch(url, {
@@ -47,7 +47,10 @@ export async function fetchJson<T>(url: string, { providerId, schema, timeoutMs 
   }
   if (response.status === 404) throw new ApiError('not-found', providerId, 'The provider has no data for this request.');
   if (!response.ok) throw new ApiError('http', providerId, `The provider returned HTTP ${response.status}.`);
+  return response;
+}
 
+async function parse<T>(response: Response, providerId: string, schema: z.ZodType<T>): Promise<T> {
   let json: unknown;
   try {
     json = await response.json();
@@ -57,4 +60,20 @@ export async function fetchJson<T>(url: string, { providerId, schema, timeoutMs 
   const parsed = schema.safeParse(json);
   if (!parsed.success) throw new ApiError('invalid-response', providerId, 'The provider response did not match the expected format.');
   return parsed.data;
+}
+
+export async function fetchJson<T>(url: string, { providerId, schema, timeoutMs = 12_000 }: RequestOptions<T>): Promise<T> {
+  return parse(await request(url, providerId, timeoutMs), providerId, schema);
+}
+
+/**
+ * Like fetchJson, but an HTTP 204 ("no content") or an empty body returns null instead of an
+ * error — some providers answer that way when they simply have no data for the request.
+ */
+export async function fetchJsonOrEmpty<T>(url: string, { providerId, schema, timeoutMs = 12_000 }: RequestOptions<T>): Promise<T | null> {
+  const response = await request(url, providerId, timeoutMs);
+  if (response.status === 204) return null;
+  const text = await response.text();
+  if (!text.trim()) return null;
+  return parse(new Response(text), providerId, schema);
 }

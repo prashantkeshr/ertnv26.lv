@@ -320,5 +320,24 @@
     "sourceType": "secondary-publication",
     "jurisdiction": "INT",
     "attribution": "Headlines indexed by the GDELT Project; each belongs to its publisher."
+  },
+  {
+    "id": "nager-date",
+    "publisher": "Nager.Date (open-source project)",
+    "title": "Nager.Date public holiday API",
+    "url": "https://date.nager.at/",
+    "sourceType": "licensed-data-provider",
+    "jurisdiction": "INT",
+    "license": "MIT",
+    "attribution": "Public holidays via Nager.Date."
+  },
+  {
+    "id": "cldr",
+    "publisher": "Unicode Consortium",
+    "title": "Unicode CLDR week data (via the browser Intl API)",
+    "url": "https://cldr.unicode.org/",
+    "sourceType": "research-organization",
+    "jurisdiction": "INT",
+    "license": "Unicode License"
   }
 ]

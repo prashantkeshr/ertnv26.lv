@@ -79,6 +79,7 @@ export const DIVISIONS: Division[] = [
       { id: 'incoterms', title: 'Incoterms® Learning Centre', summary: 'The 11 Incoterms® 2020 rules: obligations, cost, risk transfer and suitable use.', status: 'planned', phase: 2 },
       { id: 'trade-finance', title: 'Trade Finance Academy', summary: 'Payment methods and financing instruments, with their risks and parties.', status: 'planned', phase: 2 },
       { id: 'compliance', title: 'Product Compliance Academy', summary: 'How compliance depends on product, use, origin and destination, by sector.', status: 'planned', phase: 2 },
+      { id: 'videos', title: 'Official Explainer Videos', summary: 'Videos from the WTO, WCO, ITC, IMO and ICC channels, verified against YouTube. Nothing loads until you press play.', status: 'foundation', phase: 1, path: '/academy/videos', note: 'General explainers from official channels. Country-specific video guides are not published.' },
       { id: 'document-generator', title: 'Document Template Generator', summary: 'Browser-based commercial templates with calculations, preview, PDF and local drafts.', status: 'planned', phase: 3 },
     ],
   },

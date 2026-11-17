@@ -9,7 +9,7 @@
  *   - catalog paths exist, unpublished datasets have no file claim
  */
 import { z } from 'zod';
-import { GraphFile, IndicatorFile, IndicatorIndex, LinkStatus, Manifest, NewsFile, SearchIndexFile } from '../src/types/schemas';
+import { CountryGuide, FeaturedCountries, GraphFile, IndicatorFile, IndicatorIndex, LinkStatus, Manifest, NewsFile, SearchIndexFile, VideosFile } from '../src/types/schemas';
 import { makeRef } from '../src/utils/entities';
 import { dataExists, loadSourceData, parseDataset, today } from './lib';
 
@@ -148,6 +148,30 @@ try {
   }
   const ageDays = (Date.parse(now) - Date.parse(news.retrievedOn)) / 86_400_000;
   if (ageDays > 14) console.warn(`⚠ News snapshot is ${Math.round(ageDays)} days old — the refresh job may have stopped.`);
+} catch (e) {
+  fail(String(e instanceof Error ? e.message : e));
+}
+
+// Videos, country guides and featured countries.
+try {
+  const { videos } = parseDataset('videos/index.json', VideosFile);
+  checkUnique('videos', videos.map((v) => v.id));
+  for (const v of videos) {
+    if (!sourceIds.has(v.sourceId)) fail(`video ${v.id}: unknown sourceId "${v.sourceId}"`);
+    if (v.verifiedOn > now) fail(`video ${v.id}: verifiedOn is in the future`);
+  }
+  const guides = parseDataset('countries/guides.json', z.array(CountryGuide));
+  const authorityIds = new Set(data.authorities.map((a) => a.id));
+  for (const g of guides) {
+    if (!countryIds.has(g.countryCode)) fail(`guide ${g.countryCode}: unknown country`);
+    checkUnique(`guide ${g.countryCode} steps`, g.steps.map((st) => st.id));
+    for (const sid of g.sourceIds) if (!sourceIds.has(sid)) fail(`guide ${g.countryCode}: unknown sourceId "${sid}"`);
+    for (const st of g.steps) for (const aid of st.authorityIds) if (!authorityIds.has(aid)) fail(`guide ${g.countryCode} step ${st.id}: unknown authority "${aid}"`);
+    // An unreviewed overview must never claim to be verified.
+    if (g.status === 'officially-verified') fail(`guide ${g.countryCode}: marked officially-verified without an editorial-review record`);
+  }
+  const featured = parseDataset('countries/featured.json', FeaturedCountries);
+  for (const list of Object.values(featured.regions)) for (const c of list) if (!countryIds.has(c.code)) fail(`featured: unknown country ${c.code}`);
 } catch (e) {
   fail(String(e instanceof Error ? e.message : e));
 }

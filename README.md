@@ -19,6 +19,9 @@ Phase 0 (foundation) and Phase 1 (platform shell) are complete and tested. Later
 | Trade news from five official publishers (daily snapshot) + live headline search | Done |
 | Light / dark theme (follows device, with manual override) | Done |
 | Home page: animated hero, reference-body strip with flags, solutions blocks, quick finder, news, FAQ, contact | Done |
+| Country pages: highlighted map, key-fact strip, section tabs, India process guide, authorities, public holidays, official videos | Done (guide is a seed — India only, marked needs review) |
+| Mega menus: Countries by region (flags, largest economies), Resources (news, videos, guides) | Done |
+| Official explainer videos (13, from the WTO, WCO, ITC, IMO and ICC channels, click-to-play) | Done |
 | Trade Knowledge Graph ("Connected records") | Foundation — countries, authorities, organizations |
 | Data Reliability Centre | Done |
 | Static route shells, sitemap, robots, CNAME, deploy workflows | Done |
@@ -44,6 +47,7 @@ Data maintenance:
 npm run data:countries   # regenerate countries + map geometry from world-countries / world-atlas
 npm run data:worldbank   # refresh the World Bank indicator snapshot
 npm run data:news       # refresh official news headlines (daily in CI)
+npm run data:videos      # re-verify every listed video against YouTube oEmbed (--strict to fail on problems)
 npm run data:links       # check every official link; add -- --apply to stamp records
 npm run data:validate    # schema, duplicate-id, reference, date and honesty-rule checks
 ```

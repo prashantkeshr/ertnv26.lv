@@ -296,5 +296,68 @@
     "generated": true,
     "notes": "Headline, publisher abstract, date and link only. Refreshed daily by a scheduled job; topic tags are applied automatically. Not a complete view of trade news.",
     "lastUpdated": "2026-11-17"
+  },
+  {
+    "id": "geo-50m",
+    "title": "Detailed country shapes (1:50m)",
+    "path": "geo/countries-50m.json",
+    "coverage": "partial",
+    "scope": "Country outlines for the country-page map; 14 very small territories have no outline",
+    "phase": 1,
+    "sourceIds": [
+      "natural-earth"
+    ],
+    "generated": true,
+    "notes": "Natural Earth public-domain geometry. Territories without an outline are shown as a marker. Boundaries carry no political endorsement.",
+    "lastUpdated": "2026-11-17"
+  },
+  {
+    "id": "country-featured",
+    "title": "Featured countries by region",
+    "path": "countries/featured.json",
+    "coverage": "verified",
+    "scope": "Largest economies per region by exports of goods and services",
+    "phase": 1,
+    "sourceIds": [
+      "worldbank-wdi"
+    ],
+    "generated": true,
+    "notes": "Computed from the World Bank indicator snapshot; drives the Countries menu.",
+    "lastUpdated": "2026-11-17"
+  },
+  {
+    "id": "country-guides",
+    "title": "Country process guides",
+    "path": "countries/guides.json",
+    "coverage": "seed",
+    "scope": "India only — a ten-stage overview of exporting and importing, linked to the responsible authorities",
+    "phase": 2,
+    "sourceIds": [
+      "in-dgft",
+      "in-cbic",
+      "in-icegate",
+      "in-rbi"
+    ],
+    "generated": false,
+    "notes": "eport editorial overview marked \"needs review\": not yet compared line by line with the official sources. Other countries are not published.",
+    "lastUpdated": "2026-11-17"
+  },
+  {
+    "id": "videos",
+    "title": "Official explainer videos",
+    "path": "videos/index.json",
+    "coverage": "partial",
+    "scope": "Videos from the WTO, WCO, ITC, IMO and ICC channels, verified against YouTube oEmbed",
+    "phase": 1,
+    "sourceIds": [
+      "wto",
+      "wco",
+      "itc",
+      "imo",
+      "icc"
+    ],
+    "generated": false,
+    "notes": "General explainers, not specific to a country. Only videos uploaded by the organization or its own national committee/academy are listed; each loads from YouTube only when played.",
+    "lastUpdated": "2026-11-17"
   }
 ]
