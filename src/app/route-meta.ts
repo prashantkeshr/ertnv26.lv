@@ -36,6 +36,24 @@ export const ROUTES: RouteMeta[] = [
   { path: '/contact', title: 'Contact eport', description: 'Contact the eport team at support@dhurta.org to report an error, suggest an official source or discuss a partnership. eport is a subsidiary of Dhurta.org, managed by Dhurta Group.', indexable: true },
   { path: '/about', title: 'About eport', description: 'eport is an independent trade and maritime information platform. It is not a government, customs, port or regulatory service.', indexable: true },
   { path: '/privacy', title: 'Privacy and local data', description: 'eport has no accounts and no server. What is stored in your browser, and which external services receive requests.', indexable: true },
+  {
+    path: '/academy/incoterms',
+    title: 'Incoterms® 2020 rules explained — who pays, who clears customs, where risk passes',
+    description: 'The eleven Incoterms® 2020 rules compared: who arranges transport and insurance, who clears export and import, and where risk moves from seller to buyer. Plain-language summaries.',
+    indexable: true,
+  },
+  {
+    path: '/academy/documents',
+    title: 'Trade documents explained — who prepares them and which depend on which',
+    description: 'The common documents in an international shipment — invoice, packing list, bill of lading, certificates, customs declarations — what each is for, who prepares or issues it and what to prepare first.',
+    indexable: true,
+  },
+  {
+    path: '/academy/glossary',
+    title: 'Trade glossary — customs, shipping and trade terms in plain language',
+    description: 'Plain-language definitions of HS codes, Incoterms, customs value, rules of origin, bills of lading, letters of credit and other international trade terms.',
+    indexable: true,
+  },
   ...['Africa', 'Americas', 'Asia', 'Europe', 'Oceania'].map((r) => ({
     path: `/regions/${r.toLowerCase()}`,
     title: `Trade in ${r} — economies, lanes and countries`,

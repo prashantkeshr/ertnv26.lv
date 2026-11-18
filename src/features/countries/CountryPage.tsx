@@ -16,6 +16,7 @@ import type { Country, CountryCoverage } from '@/types/schemas';
 import { makeRef } from '@/utils/entities';
 import { CountryHero } from './CountryHero';
 import { ExchangeRateCard } from './ExchangeRateCard';
+import { GlobalGuidePanel } from './GlobalGuidePanel';
 import { GuideStepper } from './GuideStepper';
 import { PartnersPanel } from '@/features/trade/PartnersPanel';
 import { WorkingDays } from './WorkingDays';
@@ -209,6 +210,13 @@ export default function CountryPage() {
                 </div>
               </div>
             )}
+            <div className="mt-14 border-t border-line pt-10">
+              <h3 className="text-xl font-bold">The same journey in any country: ten stages of a shipment</h3>
+              <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">A worldwide framework for {country.name} and every other market, with the questions to answer and the official pages to start from.</p>
+              <div className="mt-6">
+                <GlobalGuidePanel country={country} hasCountryGuide={Boolean(guide)} />
+              </div>
+            </div>
             {entry && <CoverageLists country={country} entry={entry} />}
           </section>
 

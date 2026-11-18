@@ -60,6 +60,9 @@ const PAGES = [
   '/regions/africa',
   '/trade',
   '/trade/IN/DE',
+  '/academy/incoterms',
+  '/academy/documents',
+  '/academy/glossary',
   '/academy/videos',
   '/directory/organizations',
   '/directory/organizations/wto',
@@ -276,6 +279,54 @@ test.describe('global trade', () => {
     }
     await page.goto('/regions/atlantis');
     await expect(page.getByText(/There is no region called/)).toBeVisible();
+  });
+});
+
+test.describe('learning centre', () => {
+  test('Incoterms can be filtered by mode and every rule is explained', async ({ page }) => {
+    await page.goto('/academy/incoterms');
+    await expect(page.getByRole('heading', { level: 1 })).toContainText('rules, explained');
+    await expect(page.locator('article')).toHaveCount(11);
+    await page.getByRole('button', { name: /Sea and inland waterway only/ }).click();
+    await expect(page.locator('article')).toHaveCount(4);
+    await expect(page.getByRole('status').filter({ hasText: '4 of 11 rules shown' })).toBeVisible();
+    // Only DDP puts import clearance on the seller.
+    await page.getByRole('button', { name: /All 11 rules/ }).click();
+    const ddp = page.getByRole('row', { name: /DDP/ });
+    await expect(ddp.getByRole('cell').last()).toContainText('Seller');
+    await expect(page.getByText(/not affiliated with the ICC/)).toBeVisible();
+  });
+
+  test('documents show what draws on what, and filter by type', async ({ page }) => {
+    await page.goto('/academy/documents');
+    await expect(page.getByRole('heading', { name: 'What to prepare first' })).toBeVisible();
+    const invoice = page.locator('#doc-commercial-invoice');
+    await expect(invoice.getByText('Feeds into')).toBeVisible();
+    await page.getByRole('button', { name: 'Certificates' }).click();
+    await expect(page.locator('article')).toHaveCount(2);
+    await expect(page.locator('#doc-bill-of-lading')).toHaveCount(0);
+  });
+
+  test('the glossary filters as you type and cross-references work', async ({ page }) => {
+    await page.goto('/academy/glossary');
+    await page.getByLabel('Filter terms').fill('origin');
+    await expect(page.getByRole('term').filter({ hasText: 'Rules of origin' })).toBeVisible();
+    await expect(page.getByRole('term').filter({ hasText: 'TEU' })).toHaveCount(0);
+    await page.getByLabel('Filter terms').fill('zzzz');
+    await expect(page.getByText(/No term matches/)).toBeVisible();
+  });
+
+  test('every country page carries the worldwide guide and only verified official pages', async ({ page }) => {
+    await page.goto('/countries/BR');
+    const guide = page.locator('#guide');
+    await expect(guide.getByRole('heading', { name: /Official pages for Brazil/ })).toBeVisible();
+    await expect(guide.getByRole('link', { name: /WTO trade profile/ })).toHaveAttribute('href', /trade_profiles\/BR_e\.pdf/);
+    await expect(guide.getByText('10 of 10 stages shown')).toBeVisible();
+    await guide.getByRole('button', { name: 'Importing' }).click();
+    await expect(guide.getByText(/stages shown/)).toBeVisible();
+    // A territory the sources do not cover gets no invented link.
+    await page.goto('/countries/BV');
+    await expect(page.locator('#guide').getByText(/No country-specific official page could be confirmed/)).toBeVisible();
   });
 });
 
@@ -678,8 +729,8 @@ test.describe('country page', () => {
 
   test('the India guide is labelled as an unreviewed overview and can be filtered by direction', async ({ page }) => {
     await page.goto('/countries/IN');
-    const guide = page.locator('#guide');
-    await expect(guide.getByText('Needs review').first()).toBeVisible();
+    const guide = page.locator('#guide').getByRole('group', { name: 'Show steps for India' }).locator('xpath=ancestor::div[1]');
+    await expect(page.locator('#guide').getByText('Needs review').first()).toBeVisible();
     await expect(guide.getByText(/Read this first/)).toBeVisible();
     await expect(guide.getByText(/not a checklist of requirements/i)).toBeVisible();
     await expect(guide.getByText('10 of 10 steps shown')).toBeVisible();
@@ -697,7 +748,9 @@ test.describe('country page', () => {
   test('countries without a guide say so, and show no empty authority list', async ({ page }) => {
     await page.goto('/countries/DE');
     await expect(page.locator('#guide').getByText(/has not yet published export or import procedures/)).toBeVisible();
-    await expect(page.getByText('Read this first')).toHaveCount(0);
+    // Only the worldwide framework appears, and it says it is a framework rather than Germany's rules.
+    await expect(page.getByText('Read this first')).toHaveCount(1);
+    await expect(page.locator('#guide').getByText(/eport has not yet published Germany’s own procedures/)).toBeVisible();
     await expect(page.locator('#authorities').getByText('No authorities are published for Germany yet')).toBeVisible();
   });
 

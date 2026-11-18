@@ -1,0 +1,127 @@
+{
+  "status": "needs-review",
+  "draftedOn": "2026-11-18",
+  "edition": "Incoterms® 2020",
+  "intro": "Incoterms rules are a set of eleven three-letter trade terms, published by the International Chamber of Commerce (ICC), that a buyer and seller can write into a sales contract. They settle three things: who arranges and pays for transport and insurance, who handles export and import clearance, and the point where the risk of loss or damage passes from seller to buyer. They do not decide who owns the goods, what the price is, or what happens if the contract is broken.",
+  "limits": "These summaries are eport's own plain-language explanations and are not the official text. The rules themselves are published, and copyrighted, by the ICC; read the official publication before relying on a term in a contract, and agree any variation in writing. Incoterms rules say nothing about the law governing the contract, and in some countries a term's local meaning or tax effect may differ.",
+  "officialUrl": "https://iccwbo.org/business-solutions/incoterms-rules/",
+  "groups": [
+    { "id": "E", "title": "Departure", "summary": "The seller makes the goods available at its own premises and does nothing more." },
+    { "id": "F", "title": "Main carriage not paid by the seller", "summary": "The seller delivers the goods to a carrier chosen by the buyer, cleared for export." },
+    { "id": "C", "title": "Main carriage paid by the seller", "summary": "The seller pays for the main journey, but risk passes early, at the point of shipment." },
+    { "id": "D", "title": "Arrival", "summary": "The seller bears the cost and risk until the goods reach the agreed place in the destination country." }
+  ],
+  "rules": [
+    {
+      "code": "EXW", "name": "Ex Works", "group": "E", "modes": "any",
+      "summary": "The seller's job is finished once the goods are ready for collection. The buyer arranges everything from there, including loading and export clearance.",
+      "delivery": "At the seller's premises (or another named place), goods not loaded onto any vehicle.",
+      "riskPasses": "When the goods are placed at the buyer's disposal at the named place.",
+      "exportClearance": "buyer", "mainCarriage": "buyer", "insurance": "none", "importClearance": "buyer",
+      "riskAt": 4, "costsAt": 4,
+      "typicalUse": "Buyers with their own logistics and a reliable way to handle export formalities in the seller's country.",
+      "watchOut": "Export clearance is the buyer's job, which is often hard to do from abroad. Many traders prefer FCA for that reason."
+    },
+    {
+      "code": "FCA", "name": "Free Carrier", "group": "F", "modes": "any",
+      "summary": "The seller hands the goods, cleared for export, to a carrier the buyer has chosen, at a named place.",
+      "delivery": "At the named place — loaded onto the buyer's vehicle if that place is the seller's premises, otherwise ready for unloading on the seller's vehicle.",
+      "riskPasses": "At that handover to the buyer's carrier.",
+      "exportClearance": "seller", "mainCarriage": "buyer", "insurance": "none", "importClearance": "buyer",
+      "riskAt": 25, "costsAt": 25,
+      "typicalUse": "Containerised and multimodal shipments where the seller hands over at a terminal or its own premises.",
+      "watchOut": "Name the place precisely, because it fixes who loads. The 2020 edition lets buyer and seller agree that the buyer instructs the carrier to issue an on-board bill of lading to the seller, which helps with letters of credit."
+    },
+    {
+      "code": "CPT", "name": "Carriage Paid To", "group": "C", "modes": "any",
+      "summary": "The seller arranges and pays for carriage to a named destination, but the risk passes to the buyer as soon as the goods are handed to the first carrier.",
+      "delivery": "Handed to the first carrier; the seller pays carriage to the named place of destination.",
+      "riskPasses": "When the goods are handed to the first carrier, far from the destination.",
+      "exportClearance": "seller", "mainCarriage": "seller", "insurance": "none", "importClearance": "buyer",
+      "riskAt": 25, "costsAt": 75,
+      "typicalUse": "Sellers who want to control the transport booking while the buyer insures the journey.",
+      "watchOut": "Cost and risk change hands at different places. The seller has no duty to insure, so the buyer should arrange cargo insurance."
+    },
+    {
+      "code": "CIP", "name": "Carriage and Insurance Paid To", "group": "C", "modes": "any",
+      "summary": "Like CPT, but the seller must also buy cargo insurance for the buyer's benefit.",
+      "delivery": "Handed to the first carrier; the seller pays carriage and insurance to the named place of destination.",
+      "riskPasses": "When the goods are handed to the first carrier.",
+      "exportClearance": "seller", "mainCarriage": "seller", "insurance": "seller", "importClearance": "buyer",
+      "riskAt": 25, "costsAt": 75,
+      "typicalUse": "Containerised and multimodal shipments where the buyer wants insurance arranged by the seller.",
+      "watchOut": "In the 2020 edition the minimum cover is the broad Institute Cargo Clauses (A) or equivalent, for at least 110% of the contract price. Check that this suits the goods."
+    },
+    {
+      "code": "DAP", "name": "Delivered at Place", "group": "D", "modes": "any",
+      "summary": "The seller brings the goods to the named place in the destination country and leaves them ready for unloading. The buyer unloads and clears import.",
+      "delivery": "On the arriving means of transport, ready for unloading, at the named place of destination.",
+      "riskPasses": "When the goods are placed at the buyer's disposal there, ready for unloading.",
+      "exportClearance": "seller", "mainCarriage": "seller", "insurance": "none", "importClearance": "buyer",
+      "riskAt": 75, "costsAt": 75,
+      "typicalUse": "Door-to-door style deliveries where the buyer handles its own import formalities.",
+      "watchOut": "The seller carries the risk for the whole journey but has no duty to insure. Agree who pays any unloading fees if the carrier charges them."
+    },
+    {
+      "code": "DPU", "name": "Delivered at Place Unloaded", "group": "D", "modes": "any",
+      "summary": "As DAP, but the seller also unloads the goods at the named place. It is the only rule that obliges the seller to unload.",
+      "delivery": "Unloaded from the arriving means of transport at the named place of destination.",
+      "riskPasses": "When the goods have been unloaded and placed at the buyer's disposal.",
+      "exportClearance": "seller", "mainCarriage": "seller", "insurance": "none", "importClearance": "buyer",
+      "riskAt": 75, "costsAt": 75,
+      "typicalUse": "Deliveries to a terminal or site where the seller can organise unloading.",
+      "watchOut": "Replaced the earlier DAT rule in the 2020 edition and allows any named place, not only a terminal. Make sure the seller can actually unload there."
+    },
+    {
+      "code": "DDP", "name": "Delivered Duty Paid", "group": "D", "modes": "any",
+      "summary": "The seller does almost everything: carriage, import clearance, and payment of import duties and taxes. The buyer only unloads.",
+      "delivery": "Ready for unloading at the named place, cleared for import.",
+      "riskPasses": "When the goods are placed at the buyer's disposal at the named place, cleared for import.",
+      "exportClearance": "seller", "mainCarriage": "seller", "insurance": "none", "importClearance": "seller",
+      "riskAt": 75, "costsAt": 95,
+      "typicalUse": "Sellers who are willing and able to deal with import formalities in the buyer's country.",
+      "watchOut": "The seller takes on import duties, taxes and formalities in a foreign country, which can need local registration and may be impractical. Check import rules before offering it."
+    },
+    {
+      "code": "FAS", "name": "Free Alongside Ship", "group": "F", "modes": "sea",
+      "summary": "The seller delivers the goods next to the buyer's ship at the named port of shipment, cleared for export.",
+      "delivery": "Alongside the vessel (for example on the quay or a barge) at the named port of shipment.",
+      "riskPasses": "When the goods are placed alongside the ship.",
+      "exportClearance": "seller", "mainCarriage": "buyer", "insurance": "none", "importClearance": "buyer",
+      "riskAt": 25, "costsAt": 25,
+      "typicalUse": "Bulk and heavy cargo that is loaded directly from the quay.",
+      "watchOut": "For sea and inland waterway transport only. Not suited to containers, which are normally handed over at a terminal before the ship is alongside."
+    },
+    {
+      "code": "FOB", "name": "Free On Board", "group": "F", "modes": "sea",
+      "summary": "The seller loads the goods on board the buyer's ship at the named port of shipment, cleared for export.",
+      "delivery": "On board the vessel nominated by the buyer at the named port of shipment.",
+      "riskPasses": "When the goods are on board the vessel.",
+      "exportClearance": "seller", "mainCarriage": "buyer", "insurance": "none", "importClearance": "buyer",
+      "riskAt": 25, "costsAt": 25,
+      "typicalUse": "Bulk and break-bulk cargo loaded onto a ship.",
+      "watchOut": "For sea and inland waterway transport only. For containers the ICC points to FCA instead, because the seller hands containers over before loading and so cannot control the on-board moment."
+    },
+    {
+      "code": "CFR", "name": "Cost and Freight", "group": "C", "modes": "sea",
+      "summary": "The seller pays the freight to the named port of destination, but the risk passes to the buyer once the goods are on board at the port of shipment.",
+      "delivery": "On board the vessel at the port of shipment; the seller pays freight to the named port of destination.",
+      "riskPasses": "When the goods are on board the vessel at origin.",
+      "exportClearance": "seller", "mainCarriage": "seller", "insurance": "none", "importClearance": "buyer",
+      "riskAt": 25, "costsAt": 75,
+      "typicalUse": "Bulk and break-bulk cargo where the seller books the ship.",
+      "watchOut": "For sea and inland waterway transport only, and not for containers. The seller does not have to insure, so the buyer should."
+    },
+    {
+      "code": "CIF", "name": "Cost, Insurance and Freight", "group": "C", "modes": "sea",
+      "summary": "Like CFR, but the seller must also buy minimum cargo insurance for the buyer's benefit.",
+      "delivery": "On board the vessel at the port of shipment; the seller pays freight and insurance to the named port of destination.",
+      "riskPasses": "When the goods are on board the vessel at origin.",
+      "exportClearance": "seller", "mainCarriage": "seller", "insurance": "seller", "importClearance": "buyer",
+      "riskAt": 25, "costsAt": 75,
+      "typicalUse": "Bulk commodities sold on documents while still at sea.",
+      "watchOut": "The minimum insurance is the narrower Institute Cargo Clauses (C), for at least 110% of the contract price. Buyers wanting wider cover should ask for more in the contract. Not for containers."
+    }
+  ],
+  "sourceIds": ["icc"]
+}

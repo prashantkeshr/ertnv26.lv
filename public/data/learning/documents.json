@@ -1,0 +1,124 @@
+{
+  "status": "needs-review",
+  "draftedOn": "2026-11-18",
+  "intro": "A shipment travels with a bundle of documents, and many of them are built from one another: the invoice feeds the packing list, the customs declaration and the bank's payment check. This centre explains the documents most international sales use, who normally prepares or issues each one, and which others it depends on, so you can see what to prepare first.",
+  "limits": "This is a general guide in eport's own words. Which documents are actually required, their format, language, number of copies and whether electronic versions are accepted depend on the countries, the product, the transport mode and any trade agreement or bank terms. It does not provide templates or legal advice. Confirm requirements with the customs administrations concerned, your freight forwarder or customs broker, and your bank.",
+  "categories": [
+    { "id": "commercial", "title": "Commercial", "summary": "Prepared by the seller to describe the sale." },
+    { "id": "transport", "title": "Transport", "summary": "Issued by the carrier for the journey." },
+    { "id": "customs", "title": "Customs", "summary": "Declarations made to customs on the way out and in." },
+    { "id": "certificate", "title": "Certificates", "summary": "Statements by an authorised body about the goods." },
+    { "id": "finance", "title": "Finance and insurance", "summary": "Payment and cargo-risk instruments." }
+  ],
+  "documents": [
+    {
+      "id": "proforma-invoice", "name": "Proforma invoice", "category": "commercial",
+      "summary": "A preliminary invoice the seller sends before the sale is final, showing what the goods and terms would be.",
+      "purpose": "Lets the buyer check the offer, arrange payment or apply for an import permit or foreign-exchange approval where one is needed. It is not a demand for payment.",
+      "preparedBy": "Seller", "issuedBy": "Seller",
+      "whenNeeded": "Often requested before a first order, or by a buyer's bank or import authority.",
+      "dependsOn": [],
+      "watchOut": "Keep it consistent with the final commercial invoice; differences invite questions at customs or at the bank."
+    },
+    {
+      "id": "commercial-invoice", "name": "Commercial invoice", "category": "commercial",
+      "summary": "The seller's bill for the goods, naming the parties and describing what is sold, in what quantity, at what price and on what delivery terms.",
+      "purpose": "Customs uses it to check the value and description of the goods; the buyer uses it to pay; banks check other documents against it.",
+      "preparedBy": "Seller", "issuedBy": "Seller",
+      "whenNeeded": "Almost every international sale of goods.",
+      "dependsOn": [],
+      "watchOut": "Product descriptions, values, currency and the delivery term must match the contract and the other documents. Some countries set extra content or language rules for invoices."
+    },
+    {
+      "id": "packing-list", "name": "Packing list", "category": "commercial",
+      "summary": "A list of what is in each package: contents, quantities, weights, dimensions and markings.",
+      "purpose": "Helps the carrier, customs and the buyer identify and check the shipment, and supports any inspection.",
+      "preparedBy": "Seller", "issuedBy": "Seller",
+      "whenNeeded": "Most shipments, and often explicitly required by customs or a bank.",
+      "dependsOn": ["commercial-invoice"],
+      "watchOut": "Quantities and weights must agree with the invoice and the transport document."
+    },
+    {
+      "id": "bill-of-lading", "name": "Bill of lading (sea)", "category": "transport",
+      "summary": "The shipping line's document for goods carried by sea. It is a receipt for the goods, evidence of the contract of carriage and, in its negotiable form, a document of title that controls who can take delivery.",
+      "purpose": "Lets the buyer claim the goods at destination and is a key document in many payment arrangements.",
+      "preparedBy": "Shipper or forwarder (from shipping instructions)", "issuedBy": "Carrier or its agent",
+      "whenNeeded": "Sea freight, unless a sea waybill is used instead.",
+      "dependsOn": ["commercial-invoice", "packing-list"],
+      "watchOut": "Whether the bill is negotiable (to order) or straight changes who can collect the goods. Errors are costly to amend after sailing."
+    },
+    {
+      "id": "sea-waybill", "name": "Sea waybill", "category": "transport",
+      "summary": "A non-negotiable receipt and contract of carriage for sea freight. It is not a document of title.",
+      "purpose": "Faster release at destination to the named consignee, without needing an original document.",
+      "preparedBy": "Shipper or forwarder", "issuedBy": "Carrier or its agent",
+      "whenNeeded": "Trade between parties who trust each other, or where payment is not tied to control of the goods.",
+      "dependsOn": ["commercial-invoice", "packing-list"],
+      "watchOut": "Because it gives no control of the goods through possession of a paper, it suits open-account trade better than documentary credits."
+    },
+    {
+      "id": "air-waybill", "name": "Air waybill", "category": "transport",
+      "summary": "The air carrier's receipt and contract for goods flown, a non-negotiable document identified by an 11-digit number.",
+      "purpose": "Tracks the consignment and names the consignee who will receive it.",
+      "preparedBy": "Shipper or forwarder", "issuedBy": "Airline or its agent",
+      "whenNeeded": "Air freight.",
+      "dependsOn": ["commercial-invoice", "packing-list"],
+      "watchOut": "It is not a document of title; it does not by itself control who can take the goods."
+    },
+    {
+      "id": "export-declaration", "name": "Export declaration", "category": "customs",
+      "summary": "The exporter's declaration to customs that goods are leaving the country, describing and valuing them.",
+      "purpose": "Lets customs control exports, apply any export rules or taxes, and record the shipment for statistics.",
+      "preparedBy": "Exporter or customs broker", "issuedBy": "Filed with customs of the exporting country",
+      "whenNeeded": "Most commercial exports; thresholds and exemptions vary by country.",
+      "dependsOn": ["commercial-invoice", "packing-list"],
+      "watchOut": "Some products also need an export licence or permit before the declaration can be accepted."
+    },
+    {
+      "id": "import-declaration", "name": "Import declaration (customs entry)", "category": "customs",
+      "summary": "The importer's declaration to customs of the goods arriving, with their classification, value and origin, on which duties and taxes are worked out.",
+      "purpose": "Customs assesses duty and import taxes and releases the goods.",
+      "preparedBy": "Importer or customs broker", "issuedBy": "Filed with customs of the importing country",
+      "whenNeeded": "Most commercial imports; simplified procedures can apply to low-value consignments.",
+      "dependsOn": ["commercial-invoice", "packing-list", "bill-of-lading", "air-waybill", "certificate-of-origin"],
+      "watchOut": "Which transport document applies depends on the mode of transport. The certificate of origin is needed only where origin matters, for example to claim a preferential duty."
+    },
+    {
+      "id": "certificate-of-origin", "name": "Certificate or proof of origin", "category": "certificate",
+      "summary": "A statement of the country where the goods were made or substantially processed.",
+      "purpose": "Some importing countries ask for it, and it is usually how a buyer claims a reduced duty under a trade agreement. The agreement defines the accepted form — a certificate from an authorised body or, in some agreements, a declaration by the exporter.",
+      "preparedBy": "Exporter (application)", "issuedBy": "Authorised body such as a chamber of commerce or government agency, where a certificate is used",
+      "whenNeeded": "When the destination or the claimed preference requires proof of origin.",
+      "dependsOn": ["commercial-invoice"],
+      "watchOut": "Rules of origin decide whether goods qualify; having a certificate does not by itself prove they do. Check the specific agreement."
+    },
+    {
+      "id": "phytosanitary-certificate", "name": "Phytosanitary certificate", "category": "certificate",
+      "summary": "A certificate from the exporting country's national plant protection organisation that plants or plant products meet the importing country's plant-health requirements.",
+      "purpose": "Helps stop pests spreading through trade in plants, fruit, vegetables, seeds, timber and some other products.",
+      "preparedBy": "Exporter (application and inspection request)", "issuedBy": "National plant protection organisation of the exporting country",
+      "whenNeeded": "When the importing country requires it for the product.",
+      "dependsOn": [],
+      "watchOut": "Requirements are set by the importing country and vary by product and origin. Wooden packaging can also have its own treatment and marking rules."
+    },
+    {
+      "id": "insurance-certificate", "name": "Insurance certificate or policy", "category": "finance",
+      "summary": "Evidence that the cargo is insured against loss or damage in transit, naming the insured party, the goods, the voyage and the amount covered.",
+      "purpose": "Required under some delivery terms and by many banks; it is the buyer's or seller's protection for cargo risk.",
+      "preparedBy": "Insured party or forwarder (declaration of the shipment)", "issuedBy": "Insurer or its broker",
+      "whenNeeded": "When the contract obliges the seller to insure (for example CIP or CIF), or either party chooses to insure.",
+      "dependsOn": ["commercial-invoice"],
+      "watchOut": "Cover is usually set by reference to the invoice value plus a margin. The cover level in the contract or credit must match what is bought."
+    },
+    {
+      "id": "letter-of-credit", "name": "Letter of credit", "category": "finance",
+      "summary": "A bank's undertaking, issued at the buyer's request, to pay the seller if the seller presents documents that comply exactly with its terms.",
+      "purpose": "Gives the seller a bank's promise of payment against documents instead of relying on the buyer alone.",
+      "preparedBy": "Buyer (application to its bank)", "issuedBy": "Buyer's bank (the issuing bank)",
+      "whenNeeded": "When the parties agree to documentary-credit payment.",
+      "dependsOn": [],
+      "watchOut": "The bank checks the documents, not the goods. Every document it lists — invoice, transport document, certificates — must match the credit's terms exactly, so most other documents are prepared with it in hand."
+    }
+  ],
+  "sourceIds": ["icc", "wco", "ippc"]
+}

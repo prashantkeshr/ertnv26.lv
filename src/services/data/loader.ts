@@ -27,6 +27,11 @@ import {
   TradePartnersFile,
   TradePartnersIndex,
   VideosFile,
+  GlobalGuide,
+  IncotermsFile,
+  DocumentsFile,
+  GlossaryFile,
+  CountryPortals,
 } from '@/types/schemas';
 
 export const DATASETS = {
@@ -44,6 +49,11 @@ export const DATASETS = {
   featured: { path: 'countries/featured.json', schema: FeaturedCountries },
   guides: { path: 'countries/guides.json', schema: z.array(CountryGuide) },
   videos: { path: 'videos/index.json', schema: VideosFile },
+  'global-guide': { path: 'guides/global.json', schema: GlobalGuide },
+  portals: { path: 'countries/portals.json', schema: CountryPortals },
+  incoterms: { path: 'learning/incoterms.json', schema: IncotermsFile },
+  documents: { path: 'learning/documents.json', schema: DocumentsFile },
+  glossary: { path: 'learning/glossary.json', schema: GlossaryFile },
   'trade-regions': { path: 'trade/regions.json', schema: RegionTradeFile },
   'trade-index': { path: 'trade/partners/index.json', schema: TradePartnersIndex },
   'indicator-index': { path: 'trade/indicators/index.json', schema: IndicatorIndex },

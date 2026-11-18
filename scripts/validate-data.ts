@@ -9,7 +9,7 @@
  *   - catalog paths exist, unpublished datasets have no file claim
  */
 import { z } from 'zod';
-import { CountryGuide, FeaturedCountries, GraphFile, IndicatorFile, IndicatorIndex, LinkStatus, Manifest, NewsFile, SearchIndexFile, TradePartnersFile, TradePartnersIndex, VideosFile } from '../src/types/schemas';
+import { CountryGuide, CountryPortals, DocumentsFile, GlobalGuide, GlossaryFile, IncotermsFile, FeaturedCountries, GraphFile, IndicatorFile, IndicatorIndex, LinkStatus, Manifest, NewsFile, SearchIndexFile, TradePartnersFile, TradePartnersIndex, VideosFile } from '../src/types/schemas';
 import { makeRef } from '../src/utils/entities';
 import { dataExists, loadSourceData, parseDataset, today } from './lib';
 
@@ -190,6 +190,47 @@ try {
     // An unreviewed overview must never claim to be verified.
     if (g.status === 'officially-verified') fail(`guide ${g.countryCode}: marked officially-verified without an editorial-review record`);
   }
+  const global = parseDataset('guides/global.json', GlobalGuide);
+  checkUnique('global guide stages', global.stages.map((st) => st.id));
+  const orgIds = new Set(data.organizations.map((o) => o.id));
+  for (const sid of global.sourceIds) if (!sourceIds.has(sid)) fail(`global guide: unknown sourceId "${sid}"`);
+  for (const st of global.stages) for (const oid of st.orgIds) if (!orgIds.has(oid)) fail(`global guide stage ${st.id}: unknown organization "${oid}"`);
+  if (global.status === 'officially-verified') fail('global guide: marked officially-verified without an editorial-review record');
+  const portals = parseDataset('countries/portals.json', CountryPortals);
+  for (const code of Object.keys(portals.countries)) if (!countryIds.has(code)) fail(`portals: unknown country ${code}`);
+  const inco = parseDataset('learning/incoterms.json', IncotermsFile);
+  checkUnique('incoterms', inco.rules.map((r) => r.code));
+  for (const sid of inco.sourceIds) if (!sourceIds.has(sid)) fail(`incoterms: unknown sourceId "${sid}"`);
+  for (const r of inco.rules) {
+    // Facts that hold for every Incoterms 2020 rule; a data edit that breaks one is a mistake, not an opinion.
+    if (r.group === 'E' && r.exportClearance !== 'buyer') fail(`incoterms ${r.code}: only the E rule leaves export clearance to the buyer`);
+    if (r.group !== 'E' && r.exportClearance !== 'seller') fail(`incoterms ${r.code}: seller clears export in every rule except EXW`);
+    if ((r.group === 'C' || r.group === 'D') !== (r.mainCarriage === 'seller')) fail(`incoterms ${r.code}: the seller pays main carriage in C and D rules only`);
+    if ((r.importClearance === 'seller') !== (r.code === 'DDP')) fail(`incoterms ${r.code}: only DDP puts import clearance on the seller`);
+    if ((r.insurance === 'seller') !== (r.code === 'CIP' || r.code === 'CIF')) fail(`incoterms ${r.code}: only CIP and CIF oblige the seller to insure`);
+    if ((r.modes === 'sea') !== ['FAS', 'FOB', 'CFR', 'CIF'].includes(r.code)) fail(`incoterms ${r.code}: only FAS, FOB, CFR and CIF are sea-only`);
+  }
+  const docs = parseDataset('learning/documents.json', DocumentsFile);
+  const docIds = new Set(docs.documents.map((d) => d.id));
+  checkUnique('documents', docs.documents.map((d) => d.id));
+  for (const sid of docs.sourceIds) if (!sourceIds.has(sid)) fail(`documents: unknown sourceId "${sid}"`);
+  const catIds = new Set(docs.categories.map((c) => c.id));
+  for (const d of docs.documents) {
+    if (!catIds.has(d.category)) fail(`document ${d.id}: category "${d.category}" is not declared`);
+    for (const dep of d.dependsOn) if (!docIds.has(dep)) fail(`document ${d.id}: depends on unknown document "${dep}"`);
+  }
+  // A document cannot (even indirectly) depend on itself.
+  const byDoc = new Map(docs.documents.map((d) => [d.id, d.dependsOn]));
+  const visit = (id: string, trail: string[]): void => {
+    if (trail.includes(id)) return void fail(`documents: dependency cycle ${[...trail, id].join(' → ')}`);
+    for (const dep of byDoc.get(id) ?? []) visit(dep, [...trail, id]);
+  };
+  for (const id of byDoc.keys()) visit(id, []);
+  const gloss = parseDataset('learning/glossary.json', GlossaryFile);
+  const termIds = new Set(gloss.terms.map((t) => t.id));
+  checkUnique('glossary terms', gloss.terms.map((t) => t.id));
+  for (const sid of gloss.sourceIds) if (!sourceIds.has(sid)) fail(`glossary: unknown sourceId "${sid}"`);
+  for (const t of gloss.terms) for (const ref of t.seeAlso) if (!termIds.has(ref)) fail(`glossary ${t.id}: seeAlso unknown term "${ref}"`);
   const featured = parseDataset('countries/featured.json', FeaturedCountries);
   for (const list of Object.values(featured.regions)) for (const c of list) if (!countryIds.has(c.code)) fail(`featured: unknown country ${c.code}`);
 } catch (e) {

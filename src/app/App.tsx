@@ -14,6 +14,9 @@ const DirectoryListPage = lazy(() => import('@/features/directory/DirectoryListP
 const EntityPage = lazy(() => import('@/features/directory/EntityPage'));
 const SearchPage = lazy(() => import('@/features/search/SearchPage'));
 const DataReliabilityPage = lazy(() => import('@/features/reliability/DataReliabilityPage'));
+const DocumentsPage = lazy(() => import('@/features/academy/DocumentsPage'));
+const GlossaryPage = lazy(() => import('@/features/academy/GlossaryPage'));
+const IncotermsPage = lazy(() => import('@/features/academy/IncotermsPage'));
 const RegionPage = lazy(() => import('@/features/regions/RegionPage'));
 const TradeExplorerPage = lazy(() => import('@/features/trade/TradeExplorerPage'));
 const VideosPage = lazy(() => import('@/features/videos/VideosPage'));
@@ -40,6 +43,9 @@ export const routes: RouteObject[] = [
       { path: '/trade', element: <TradeExplorerPage /> },
       { path: '/trade/:a/:b', element: <TradeExplorerPage /> },
       { path: '/academy/videos', element: <VideosPage /> },
+      { path: '/academy/incoterms', element: <IncotermsPage /> },
+      { path: '/academy/documents', element: <DocumentsPage /> },
+      { path: '/academy/glossary', element: <GlossaryPage /> },
       { path: '/intelligence/news', element: <NewsPage /> },
       { path: '/contact', element: <ContactPage /> },
       { path: '/methodology', element: <InfoPage page="methodology" /> },

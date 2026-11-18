@@ -23,10 +23,12 @@ Phase 0 (foundation) and Phase 1 (platform shell) are complete and tested. Later
 | Mega menus: Countries by region (flags, largest economies), Resources (news, videos, guides) | Done |
 | Official explainer videos (13, from the WTO, WCO, ITC, IMO and ICC channels, click-to-play) | Done |
 | Global trade: partners and sectors for 152 reporting countries (WITS snapshot, 2023), Trade Explorer for any country pair, five region overview pages | Done — goods only, as reported by each country |
+| Worldwide export/import framework on every country page (10 stages, questions to answer, verified WTO/WITS country pages) | Done — framework only; marked needs review |
+| Learning centre: Incoterms® 2020 (11 rules), trade documents with relationships, glossary (34 terms) | Done — eport's own wording, marked needs review |
 | Trade Knowledge Graph ("Connected records") | Foundation — countries, authorities, organizations |
 | Data Reliability Centre | Done |
 | Static route shells, sitemap, robots, CNAME, deploy workflows | Done |
-| Academy, documents, Trade Navigator, generators, Trade Desk, ports, maritime, directories of businesses | Not built yet (Phases 2–5) — listed as "In development" |
+| Export/Import Academy pathways, document generator, Trade Navigator, generators, Trade Desk, ports, maritime, directories of businesses | Not built yet (Phases 2–5) — listed as "In development" |
 | UN Comtrade, AIS tracking, carrier tracking | **Coming Soon — requires a secure integration layer** |
 
 ## Commands

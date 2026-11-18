@@ -473,6 +473,117 @@ export const CountryGuide = z.object({
 });
 export type CountryGuide = z.infer<typeof CountryGuide>;
 
+/* ---------- worldwide process guide (country-agnostic framework) and verified country portals ---------- */
+
+export const GlobalGuideStage = z.object({
+  id: z.string().regex(/^[a-z0-9-]+$/),
+  title: z.string(),
+  summary: z.string(),
+  appliesTo: z.enum(['export', 'import', 'both']),
+  /** Questions to answer for the country you are trading with — never answers, because rules differ by country. */
+  lookFor: z.array(z.string()).min(2),
+  /** The kind of body that usually handles this stage, described generically. */
+  whoTypically: z.string(),
+  /** International organizations (directory ids) whose published material explains the stage. */
+  orgIds: z.array(z.string()),
+});
+export type GlobalGuideStage = z.infer<typeof GlobalGuideStage>;
+
+export const GlobalGuide = z.object({
+  status: VerificationStatus,
+  draftedOn: IsoDate,
+  intro: z.string(),
+  limits: z.string(),
+  stages: z.array(GlobalGuideStage).min(5),
+  sourceIds: z.array(z.string()).min(1),
+});
+export type GlobalGuide = z.infer<typeof GlobalGuide>;
+
+/** Official pages that were reachable for a country when the build last checked (links are built from codes). */
+export const CountryPortals = z.object({
+  checkedOn: IsoDate,
+  /** ISO2 → which portal links answered HTTP 200. A missing country has none verified. */
+  countries: z.record(Iso2, z.object({ wits: z.boolean(), wtoProfile: z.boolean() })),
+});
+export type CountryPortals = z.infer<typeof CountryPortals>;
+
+/* ---------- learning centre: Incoterms (eport's own summaries; the official text is the ICC's) ---------- */
+
+export const Responsibility = z.enum(['seller', 'buyer', 'none']);
+export const IncotermRule = z.object({
+  code: z.string().regex(/^[A-Z]{3}$/),
+  name: z.string(),
+  group: z.enum(['E', 'F', 'C', 'D']),
+  /** "any" = any mode of transport; "sea" = sea and inland waterway only. */
+  modes: z.enum(['any', 'sea']),
+  summary: z.string(),
+  delivery: z.string(),
+  riskPasses: z.string(),
+  exportClearance: z.enum(['seller', 'buyer']),
+  mainCarriage: z.enum(['seller', 'buyer']),
+  /** "seller" = the rule obliges the seller to insure; "none" = no obligation on either side. */
+  insurance: z.enum(['seller', 'none']),
+  importClearance: z.enum(['seller', 'buyer']),
+  /** Position (0–100) along the journey from seller to buyer where risk passes / where the seller stops paying. */
+  riskAt: z.number().min(0).max(100),
+  costsAt: z.number().min(0).max(100),
+  typicalUse: z.string(),
+  watchOut: z.string(),
+});
+export type IncotermRule = z.infer<typeof IncotermRule>;
+
+export const IncotermsFile = z.object({
+  status: VerificationStatus,
+  draftedOn: IsoDate,
+  edition: z.string(),
+  intro: z.string(),
+  limits: z.string(),
+  officialUrl: z.string().url(),
+  groups: z.array(z.object({ id: z.enum(['E', 'F', 'C', 'D']), title: z.string(), summary: z.string() })).length(4),
+  rules: z.array(IncotermRule).length(11),
+  sourceIds: z.array(z.string()).min(1),
+});
+export type IncotermsFile = z.infer<typeof IncotermsFile>;
+
+/* ---------- learning centre: trade documents and glossary ---------- */
+
+const Slug = z.string().regex(/^[a-z0-9-]+$/);
+
+export const LearningDocument = z.object({
+  id: Slug,
+  name: z.string(),
+  category: z.enum(['commercial', 'transport', 'customs', 'certificate', 'finance']),
+  summary: z.string(),
+  purpose: z.string(),
+  preparedBy: z.string(),
+  issuedBy: z.string(),
+  whenNeeded: z.string(),
+  /** Documents this one is built from or draws its details from (never a cycle). */
+  dependsOn: z.array(Slug),
+  watchOut: z.string(),
+});
+export type LearningDocument = z.infer<typeof LearningDocument>;
+
+export const DocumentsFile = z.object({
+  status: VerificationStatus,
+  draftedOn: IsoDate,
+  intro: z.string(),
+  limits: z.string(),
+  categories: z.array(z.object({ id: LearningDocument.shape.category, title: z.string(), summary: z.string() })).min(1),
+  documents: z.array(LearningDocument).min(3),
+  sourceIds: z.array(z.string()).min(1),
+});
+export type DocumentsFile = z.infer<typeof DocumentsFile>;
+
+export const GlossaryFile = z.object({
+  status: VerificationStatus,
+  draftedOn: IsoDate,
+  limits: z.string(),
+  terms: z.array(z.object({ id: Slug, term: z.string(), definition: z.string(), seeAlso: z.array(Slug) })).min(10),
+  sourceIds: z.array(z.string()).min(1),
+});
+export type GlossaryFile = z.infer<typeof GlossaryFile>;
+
 /* ---------- catalog, manifest and derived indexes ---------- */
 
 export const DatasetCoverage = z.enum(['verified', 'partial', 'seed', 'unavailable']);

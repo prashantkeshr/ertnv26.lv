@@ -70,3 +70,7 @@ Headlines from the WTO, ITC, European Commission, ICC and UN News are fetched by
 ## Third-party logos
 
 Logos in `public/images/logos/` are fetched once, by hand, from each organization's own website and recorded in `organizations/index.json` with their source URL and retrieval date. They are static files: no request to the organization is made when a visitor loads eport.
+
+## Verified country pages (build-time)
+
+`scripts/fetch-portals.ts` (`npm run data:portals`) records which World Bank WITS and WTO trade-profile pages exist for each country, so the site only links to pages that were confirmed. Both sites answer HTTP 200 with a generic page for an unknown code, so status alone is not accepted: a WTO profile must be served as a PDF and a WITS profile must be a full-size page. A page that cannot be confirmed is omitted, never assumed.

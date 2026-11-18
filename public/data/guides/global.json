@@ -1,0 +1,139 @@
+{
+  "status": "needs-review",
+  "draftedOn": "2026-11-18",
+  "intro": "Every country runs its own customs and trade system, but the journey of a shipment follows a similar shape almost everywhere. This is eport's own plain-language framework of those stages. It tells you what to find out, and which kind of body usually handles it — the answers for a particular country come from that country's own authorities.",
+  "limits": "This is a general framework, not a list of legal requirements for any country. Rules, forms, thresholds, fees and who is responsible differ widely, change often, and depend on the product, the route and the value. It has not been reviewed line by line against official sources. Always confirm each stage with the customs administration and trade authorities of both the exporting and the importing country, and with your freight forwarder or a licensed customs broker.",
+  "stages": [
+    {
+      "id": "classify",
+      "title": "Identify and classify your goods",
+      "summary": "Almost every later step depends on the product's classification. Most countries use the international Harmonized System (HS), whose first six digits are shared worldwide; countries add their own extra digits for national duties and controls. The same product can be treated differently depending on how it is classified, so a precise description matters.",
+      "appliesTo": "both",
+      "lookFor": [
+        "What is the 6-digit HS heading for the product, and what is the full national tariff line in the destination country?",
+        "Does the destination country publish a classification ruling or an advance ruling service?",
+        "Which technical details (material, use, composition, processing) decide the classification?"
+      ],
+      "whoTypically": "The national customs administration, which publishes the tariff and its classification notes.",
+      "orgIds": ["wco"]
+    },
+    {
+      "id": "may-it-move",
+      "title": "Check whether the goods may be traded at all",
+      "summary": "Some goods are free to trade, some need a licence or permit, and some are restricted or banned — for safety, security, health, the environment or because of sanctions and export controls. Rules can apply on the way out of the exporting country and again on the way into the importing country.",
+      "appliesTo": "both",
+      "lookFor": [
+        "Is the item prohibited, restricted or subject to a licence, quota or export-control regime in either country?",
+        "Do sanctions or other measures apply to the destination, the buyer or the route?",
+        "Is the item covered by an international convention (for example on endangered species, hazardous waste or chemicals)?"
+      ],
+      "whoTypically": "A trade or commerce ministry, an export-control agency, and environment or security agencies, alongside customs.",
+      "orgIds": ["wto", "wco"]
+    },
+    {
+      "id": "product-rules",
+      "title": "Meet the product rules of the destination market",
+      "summary": "Importing countries set technical requirements: safety and quality standards, labelling, testing and certification, and health rules for food, animals and plants. These are often the rules that decide whether a shipment is cleared, and they can differ even between neighbouring markets.",
+      "appliesTo": "both",
+      "lookFor": [
+        "Which technical regulations, standards or conformity marks apply to this product in the destination?",
+        "Are plant, animal or food-safety certificates needed, and who issues them in the exporting country?",
+        "What labelling, language and packaging rules apply?"
+      ],
+      "whoTypically": "National standards bodies, food-safety and health authorities, and plant and animal health services.",
+      "orgIds": ["iso", "ippc", "fao"]
+    },
+    {
+      "id": "register",
+      "title": "Register your business to trade",
+      "summary": "Many countries expect traders to be registered with the customs and tax authorities before they declare goods, and some require a specific trader identification number or licence. Registration can take time, so it is worth checking early.",
+      "appliesTo": "both",
+      "lookFor": [
+        "Does the exporting or importing country require a trader registration, identification number or licence?",
+        "Which tax registrations (such as VAT or GST) are linked to importing or exporting?",
+        "Can a customs broker or agent act for you, and what authorisation do they need?"
+      ],
+      "whoTypically": "The customs administration and the tax authority, sometimes through a single national trade portal.",
+      "orgIds": ["wco"]
+    },
+    {
+      "id": "commercial-terms",
+      "title": "Agree the commercial terms",
+      "summary": "The sales contract fixes the price, the delivery point, who arranges and pays for transport and insurance, and when risk passes from seller to buyer. Many traders use the ICC's Incoterms rules for this, so each side knows exactly who does what.",
+      "appliesTo": "both",
+      "lookFor": [
+        "Which delivery term (for example an Incoterms rule) applies, and where exactly does responsibility change hands?",
+        "Who clears the goods through customs in each country, and who pays duties and taxes?",
+        "Which currency, payment method and payment deadline have been agreed?"
+      ],
+      "whoTypically": "The buyer and seller, usually with advice from a freight forwarder and their bank.",
+      "orgIds": ["icc"]
+    },
+    {
+      "id": "transport",
+      "title": "Arrange transport, packing and insurance",
+      "summary": "Choose the mode (sea, air, road, rail or a combination), a carrier or forwarder, and pack and mark the goods for the journey. Dangerous goods, temperature-controlled cargo and very large items have extra rules. Cargo insurance is separate from the carrier's limited liability.",
+      "appliesTo": "both",
+      "lookFor": [
+        "Which mode and route suit the goods, the timeline and the cost?",
+        "Do dangerous-goods, temperature or packaging-treatment rules apply (for example for wooden packaging)?",
+        "What cargo insurance is advisable, and what does the carrier's liability actually cover?"
+      ],
+      "whoTypically": "Freight forwarders, carriers, port and terminal operators, and insurers. Maritime safety rules come from the flag state and port authorities.",
+      "orgIds": ["imo", "ippc"]
+    },
+    {
+      "id": "documents",
+      "title": "Prepare the shipping and customs documents",
+      "summary": "A shipment is normally accompanied by a commercial invoice, a packing list and a transport document. Depending on the goods and the route you may also need a certificate of origin, health or quality certificates, permits or licences. Details must match across every document.",
+      "appliesTo": "both",
+      "lookFor": [
+        "Which documents does each country require for this product, and are originals or electronic copies accepted?",
+        "Does a preferential trade agreement require a particular proof of origin?",
+        "Are there deadlines for submitting documents before the goods arrive or depart?"
+      ],
+      "whoTypically": "The seller and buyer prepare commercial documents; chambers of commerce, certifying bodies and government agencies issue certificates and permits.",
+      "orgIds": ["icc", "wco"]
+    },
+    {
+      "id": "customs",
+      "title": "Declare the goods and clear customs",
+      "summary": "Goods are declared to customs when leaving the exporting country and again when entering the importing one, usually electronically. Customs checks the declaration against the documents, may inspect the goods, and releases them when everything is in order. Value, origin and classification are the three main inputs.",
+      "appliesTo": "both",
+      "lookFor": [
+        "Who files the declaration, through which system, and by when?",
+        "How does the destination country value goods for customs purposes?",
+        "What happens if the goods are selected for inspection, and who bears the cost and delay?"
+      ],
+      "whoTypically": "The customs administration, often with a licensed customs broker acting for the trader.",
+      "orgIds": ["wco", "wto"]
+    },
+    {
+      "id": "duties-taxes",
+      "title": "Understand duties, taxes and fees",
+      "summary": "Importing usually triggers customs duty, based on the product's classification, value and origin, and often a consumption tax such as VAT or GST, plus fees. Trade agreements can reduce or remove duty for goods that qualify. Exports are often free of duty but can carry tax rules of their own.",
+      "appliesTo": "both",
+      "lookFor": [
+        "What duty rate applies to this tariff line, and is a preferential rate available under a trade agreement?",
+        "Which taxes and fees are charged at import, and who is liable for them?",
+        "Are there anti-dumping, safeguard or other trade-remedy measures on this product?"
+      ],
+      "whoTypically": "The customs administration and the tax authority; the trade ministry for trade remedies.",
+      "orgIds": ["wto", "itc"]
+    },
+    {
+      "id": "payment-records",
+      "title": "Get paid, and keep your records",
+      "summary": "Payment can be by advance, open account, collection or a letter of credit; each balances risk differently between buyer and seller. Authorities can audit trade records after clearance, so invoices, declarations and proof of payment should be kept for the period the countries require.",
+      "appliesTo": "both",
+      "lookFor": [
+        "Which payment method fits the relationship and the risk, and what do the bank's terms require?",
+        "Are there foreign-exchange or repatriation rules on export proceeds or import payments?",
+        "How long must trade records be kept, and in what form?"
+      ],
+      "whoTypically": "Banks and the central bank or exchange-control authority for payments; customs and tax authorities for record-keeping.",
+      "orgIds": ["icc", "world-bank"]
+    }
+  ],
+  "sourceIds": ["wco", "wto", "icc", "itc", "ippc"]
+}
