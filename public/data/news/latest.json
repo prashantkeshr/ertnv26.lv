@@ -1,6 +1,6 @@
 {
-  "retrievedOn": "2026-11-17",
-  "retrievedAt": "2026-11-17T04:45:33.365Z",
+  "retrievedOn": "2026-11-18",
+  "retrievedAt": "2026-11-18T13:15:59.250Z",
   "feeds": [
     {
       "sourceId": "wto-news",
@@ -14,7 +14,7 @@
       "publisherName": "International Trade Centre",
       "feedUrl": "https://www.intracen.org/rss.xml",
       "ok": true,
-      "items": 5
+      "items": 9
     },
     {
       "sourceId": "ec-trade-news",
@@ -40,62 +40,123 @@
   ],
   "items": [
     {
-      "id": "5e32cf0975c8",
-      "headline": "Kazakhstan Presents Climate Report at COP31, Prepares Exporters for EU Carbon Rules",
+      "id": "8b972cb31cab",
+      "headline": "Caribbean round-up: Antigua and Barbuda, Barbados, Caribbean, Guyana, and Jamaica",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-17",
-      "url": "https://www.intracen.org/node/439784",
+      "publishedOn": "2026-11-18",
+      "url": "https://www.intracen.org/node/439868",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "7bc315d7c760",
+      "headline": "Gambia Showcases Cultural Heritage at Maiden SIRA Craft Fair in Senegal",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-18",
+      "url": "https://www.intracen.org/node/439870",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "fb9d0e211369",
+      "headline": "Kazakhstan's exporters are being prepared to operate under CBAM",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-18",
+      "url": "https://www.intracen.org/node/439871",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "a1a41a7db392",
+      "headline": "Mufulira entrepreneurs urged to leverage on the district’s location",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-18",
+      "url": "https://www.intracen.org/node/439874",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "9d06f62c31c0",
+      "headline": "North Africa Considers New Grain Council to Pool Data, Align Standards",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-18",
+      "url": "https://www.intracen.org/node/439872",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "3bb9ff1ab06f",
+      "headline": "PACNEWS THREE, 17 NOVEMBER 2026",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-18",
+      "url": "https://www.intracen.org/node/439875",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "fc709bc928bf",
+      "headline": "Sierra Leone startup founders receive investment readiness guidance at T.I.E2 meetup",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-18",
+      "url": "https://www.intracen.org/node/439876",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "10b205ad6671",
+      "headline": "South African clothing manufacturers compete with imports",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-18",
+      "url": "https://www.intracen.org/node/439877",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "3d809e66c5a0",
+      "headline": "Tighter EU Green Marketing Rules Put Eswatini's European Tourism Access on the Line",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-18",
+      "url": "https://www.intracen.org/node/439873",
       "categories": [
         "sustainability"
       ]
     },
     {
-      "id": "e8bc434ad056",
-      "headline": "Less than 5% of the coffee plant ends up in the cup, a missed opportunity for farmers and businesses",
-      "summary": "",
-      "publisherName": "International Trade Centre",
-      "sourceId": "itc-news",
+      "id": "5751c62cd50d",
+      "headline": "New trade-restrictive measures surge but WTO members step up trade facilitation efforts",
+      "summary": "The pace of newly-introduced tariffs and other non-facilitating measures rose sharply in the first half of 2026, while the stockpile of such measures reached a record level, according to the WTO Director-General's latest annual overview…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
       "publishedOn": "2026-11-17",
-      "url": "https://www.intracen.org/node/439789",
+      "url": "https://www.wto.org/english/news_e/news26_e/tmwto_17nov26_552_e.htm",
       "categories": [
-        "international-trade"
-      ]
-    },
-    {
-      "id": "47a6e3bfc447",
-      "headline": "T&T businesses eager to expand trade with Africa",
-      "summary": "",
-      "publisherName": "International Trade Centre",
-      "sourceId": "itc-news",
-      "publishedOn": "2026-11-17",
-      "url": "https://www.intracen.org/node/439788",
-      "categories": [
-        "international-trade"
-      ]
-    },
-    {
-      "id": "de6639cb0142",
-      "headline": "TTMA celebrates Ramdeen after 20 years of leadership",
-      "summary": "",
-      "publisherName": "International Trade Centre",
-      "sourceId": "itc-news",
-      "publishedOn": "2026-11-17",
-      "url": "https://www.intracen.org/node/439785",
-      "categories": [
-        "international-trade"
-      ]
-    },
-    {
-      "id": "61de43d5546d",
-      "headline": "Venezuela welcomes T&T to join US$19.6B reconstruction programme",
-      "summary": "",
-      "publisherName": "International Trade Centre",
-      "sourceId": "itc-news",
-      "publishedOn": "2026-11-17",
-      "url": "https://www.intracen.org/node/439790",
-      "categories": [
+        "tariffs",
         "international-trade"
       ]
     },
@@ -164,6 +225,18 @@
       ]
     },
     {
+      "id": "3f49e9b9742a",
+      "headline": "Members review LDC support, discuss public health and small business IP assistance",
+      "summary": "At a meeting of the Council for Trade-Related Aspects of Intellectual Property Rights (TRIPS) on 12-13 November, members reviewed special provisions for least developed countries (LDCs) and shared experiences on how governments can…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-12",
+      "url": "https://www.wto.org/english/news_e/news26_e/trip_12nov26_553_e.htm",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
       "id": "e7698668d3c6",
       "headline": "South Africa notifies launch of safeguard investigation into certain non-wired float glass products",
       "summary": "On 11 November 2026, South Africa notified the WTO’s Committee on Safeguards regarding the initiation on 3 November 2026 of a safeguard investigation into imports of certain non-wired float glass products.",
@@ -173,6 +246,18 @@
       "url": "https://www.wto.org/english/news_e/news26_e/safe_zaf_11nov26_546_e.htm",
       "categories": [
         "tariffs",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "ad1317630703",
+      "headline": "Director-General praises work of Technical Barriers to Trade Committee at 100th meeting",
+      "summary": "At its meeting on 10-13 November, the Technical Barriers to Trade (TBT) Committee explored emerging regulatory topics, such as additive manufacturing and interoperable data standards, discussed 79 trade concerns and adopted guidelines to…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-10",
+      "url": "https://www.wto.org/english/news_e/news26_e/tbt_10nov26_554_e.htm",
+      "categories": [
         "international-trade"
       ]
     },
@@ -303,32 +388,6 @@
       ]
     },
     {
-      "id": "77b409378df9",
-      "headline": "Trade Policy Review: Viet Nam",
-      "summary": "The third review of the trade policies and practices of Viet Nam takes place on 4 and 6 November 2026. The basis for the review is a report by the WTO Secretariat and a report by the Government of Viet Nam.",
-      "publisherName": "World Trade Organization",
-      "sourceId": "wto-news",
-      "publishedOn": "2026-11-04",
-      "url": "https://www.wto.org/english/tratop_e/tpr_e/tpr_vnm_04nov26_e.htm",
-      "categories": [
-        "policy",
-        "international-trade"
-      ]
-    },
-    {
-      "id": "d3c3fcbc5bd7",
-      "headline": "EU launches safeguard investigation on certain new hybrid vehicles",
-      "summary": "On 30 October 2026, the European Union notified the WTO’s Committee on Safeguards that it had initiated, on the same day (30 October 2026), a safeguard investigation on imports of certain new hybrid vehicles.",
-      "publisherName": "World Trade Organization",
-      "sourceId": "wto-news",
-      "publishedOn": "2026-11-02",
-      "url": "https://www.wto.org/english/news_e/news26_e/safe_eec_02nov26_536_e.htm",
-      "categories": [
-        "tariffs",
-        "international-trade"
-      ]
-    },
-    {
       "id": "705dbd7a97d3",
       "headline": "ICC launches selection process for next ICC Court President",
       "summary": "The International Chamber of Commerce (ICC) has launched the process to select the next President of the ICC International Court of Arbitration, for the 2027–2030 term. The post ICC launches selection process for next ICC Court President…",
@@ -338,18 +397,6 @@
       "url": "https://iccwbo.org/news-publications/news/icc-launches-selection-process-for-next-icc-court-president/",
       "categories": [
         "international-trade"
-      ]
-    },
-    {
-      "id": "0e672582424e",
-      "headline": "Working Party chair visits Uzbekistan as WTO accession negotiations enter critical phase",
-      "summary": "A WTO delegation led by Ambassador Sung-yo Choi of the Republic of Korea, chair of the Working Party on the Accession of Uzbekistan, visited Tashkent, Uzbekistan, from 1 to 3 November to support Uzbekistan's preparations for WTO accession…",
-      "publisherName": "World Trade Organization",
-      "sourceId": "wto-news",
-      "publishedOn": "2026-11-01",
-      "url": "https://www.wto.org/english/news_e/news26_e/acc_01nov26_545_e.htm",
-      "categories": [
-        "agreements"
       ]
     },
     {
