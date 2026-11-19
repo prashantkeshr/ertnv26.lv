@@ -1,6 +1,6 @@
 {
-  "retrievedOn": "2026-11-18",
-  "retrievedAt": "2026-11-18T13:15:59.250Z",
+  "retrievedOn": "2026-11-19",
+  "retrievedAt": "2026-11-19T13:38:22.441Z",
   "feeds": [
     {
       "sourceId": "wto-news",
@@ -13,8 +13,9 @@
       "sourceId": "itc-news",
       "publisherName": "International Trade Centre",
       "feedUrl": "https://www.intracen.org/rss.xml",
-      "ok": true,
-      "items": 9
+      "ok": false,
+      "items": 9,
+      "note": "Feed unavailable on 2026-11-19: HTTP 404. Showing the previous items."
     },
     {
       "sourceId": "ec-trade-news",
@@ -148,6 +149,19 @@
       ]
     },
     {
+      "id": "1753e6dbd4d2",
+      "headline": "Trade Policy Review: Peru",
+      "summary": "The sixth review of the trade policies and practices of Peru takes place on 18 and 20 November 2026. The basis for the review is a report by the WTO Secretariat and a report by the Government of Peru.",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-18",
+      "url": "https://www.wto.org/english/tratop_e/tpr_e/tpr_per_18nov26_e.htm",
+      "categories": [
+        "policy",
+        "international-trade"
+      ]
+    },
+    {
       "id": "5751c62cd50d",
       "headline": "New trade-restrictive measures surge but WTO members step up trade facilitation efforts",
       "summary": "The pace of newly-introduced tariffs and other non-facilitating measures rose sharply in the first half of 2026, while the stockpile of such measures reached a record level, according to the WTO Director-General's latest annual overview…",
@@ -157,6 +171,31 @@
       "url": "https://www.wto.org/english/news_e/news26_e/tmwto_17nov26_552_e.htm",
       "categories": [
         "tariffs",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "69ca397fc60b",
+      "headline": "DDG Nordquist: Global trade is adapting, not retreating",
+      "summary": "Global trade has demonstrated remarkable resilience despite geopolitical tensions, supply chain disruptions and trade restrictions, with businesses adapting through diversification and new trading partnerships, Deputy Director-General DJ…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-16",
+      "url": "https://www.wto.org/english/news_e/news26_e/ddgjn_16nov26_555_e.htm",
+      "categories": [
+        "supply-chains",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "d4b65f4f5b33",
+      "headline": "Goods Council agrees to modernize notification reporting, reviews trade concerns",
+      "summary": "The WTO's Council for Trade in Goods (CTG) adopted a decision to improve annual reporting on notifications and the WTO Notifications Portal. It also reviewed an updated Secretariat report indicating that 35% of the 241 trade concerns…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-16",
+      "url": "https://www.wto.org/english/news_e/news26_e/good_16nov26_556_e.htm",
+      "categories": [
         "international-trade"
       ]
     },
@@ -312,19 +351,6 @@
       ]
     },
     {
-      "id": "0aa7dad0065a",
-      "headline": "EU launches safeguard investigation on certain PET resin chemicals",
-      "summary": "On 6 November 2026, the European Union notified the WTO’s Committee on Safeguards that it had initiated, on the same day (6 November 2026), a safeguard investigation on imports of certain polyethylene terephthalate resin chemicals.",
-      "publisherName": "World Trade Organization",
-      "sourceId": "wto-news",
-      "publishedOn": "2026-11-06",
-      "url": "https://www.wto.org/english/news_e/news26_e/safe_eec_06nov26_542_e.htm",
-      "categories": [
-        "tariffs",
-        "international-trade"
-      ]
-    },
-    {
       "id": "043544525036",
       "headline": "ICC wins international innovation award for ATA digitalisation",
       "summary": "ICC’s digital ATA Carnet system (eATA) has won the Global Innovation Management Institute (GIMI) international innovation award for advancing digital trade facilitation as the global ATA Carnet system moves closer to full digitalisation…",
@@ -334,18 +360,6 @@
       "url": "https://iccwbo.org/news-publications/news/icc-wins-international-innovation-award-for-ata-digitalisation/",
       "categories": [
         "technology",
-        "international-trade"
-      ]
-    },
-    {
-      "id": "9ed10eb28db3",
-      "headline": "Director-General: Leverage trade and partnerships to build a resilient ocean economy",
-      "summary": "The multilateral trading system provides important tools for the development of a healthy and prosperous ocean economy, Director-General Ngozi Okonjo-Iweala said in her keynote speech at an event on Trade, Biodiversity and the Ocean…",
-      "publisherName": "World Trade Organization",
-      "sourceId": "wto-news",
-      "publishedOn": "2026-11-05",
-      "url": "https://www.wto.org/english/news_e/news26_e/envir_05nov26_541_e.htm",
-      "categories": [
         "international-trade"
       ]
     },
@@ -372,18 +386,6 @@
       "url": "https://iccwbo.org/news-publications/report/icc-global-trade-intelligence-report-2026/",
       "categories": [
         "trade-finance",
-        "international-trade"
-      ]
-    },
-    {
-      "id": "be1ce15a7919",
-      "headline": "Members review progress in resolving SPS trade concerns at WTO",
-      "summary": "The WTO's Committee on Sanitary and Phytosanitary (SPS) Measures met on 4-6 November, receiving an update on the resolution of past SPS-related trade concerns raised by members, reviewing a list of new and previously raised trade…",
-      "publisherName": "World Trade Organization",
-      "sourceId": "wto-news",
-      "publishedOn": "2026-11-04",
-      "url": "https://www.wto.org/english/news_e/news26_e/sps_04nov26_548_e.htm",
-      "categories": [
         "international-trade"
       ]
     },
