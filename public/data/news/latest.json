@@ -1,6 +1,6 @@
 {
-  "retrievedOn": "2026-11-19",
-  "retrievedAt": "2026-11-19T13:38:22.441Z",
+  "retrievedOn": "2026-11-20",
+  "retrievedAt": "2026-11-20T13:18:48.882Z",
   "feeds": [
     {
       "sourceId": "wto-news",
@@ -13,9 +13,8 @@
       "sourceId": "itc-news",
       "publisherName": "International Trade Centre",
       "feedUrl": "https://www.intracen.org/rss.xml",
-      "ok": false,
-      "items": 9,
-      "note": "Feed unavailable on 2026-11-19: HTTP 404. Showing the previous items."
+      "ok": true,
+      "items": 9
     },
     {
       "sourceId": "ec-trade-news",
@@ -41,111 +40,148 @@
   ],
   "items": [
     {
-      "id": "8b972cb31cab",
-      "headline": "Caribbean round-up: Antigua and Barbuda, Barbados, Caribbean, Guyana, and Jamaica",
+      "id": "2e8214106ddf",
+      "headline": "Chart of The Day: Chips are frying oil",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-18",
-      "url": "https://www.intracen.org/node/439868",
+      "publishedOn": "2026-11-20",
+      "url": "https://www.intracen.org/node/439954",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "7bc315d7c760",
-      "headline": "Gambia Showcases Cultural Heritage at Maiden SIRA Craft Fair in Senegal",
+      "id": "a6525554b314",
+      "headline": "Dasheen and plantain alley cropping trial yields 3,744 pounds at Maroon Hill",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-18",
-      "url": "https://www.intracen.org/node/439870",
+      "publishedOn": "2026-11-20",
+      "url": "https://www.intracen.org/node/439950",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "fb9d0e211369",
-      "headline": "Kazakhstan's exporters are being prepared to operate under CBAM",
+      "id": "f67cca63d21f",
+      "headline": "Gambia calls for stronger support to local businesses",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-18",
-      "url": "https://www.intracen.org/node/439871",
+      "publishedOn": "2026-11-20",
+      "url": "https://www.intracen.org/node/439958",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "a1a41a7db392",
-      "headline": "Mufulira entrepreneurs urged to leverage on the district’s location",
+      "id": "1e1211fb22b1",
+      "headline": "Industry Minister Urges Closer Links Between Finance and Enterprise Development at Global SME Ministerial Meeting",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-18",
-      "url": "https://www.intracen.org/node/439874",
+      "publishedOn": "2026-11-20",
+      "url": "https://www.intracen.org/node/439951",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "9d06f62c31c0",
-      "headline": "North Africa Considers New Grain Council to Pool Data, Align Standards",
+      "id": "72b29df35484",
+      "headline": "Keproba, EATTA partner to boost value-added Kenyan tea exports",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-18",
-      "url": "https://www.intracen.org/node/439872",
+      "publishedOn": "2026-11-20",
+      "url": "https://www.intracen.org/node/439957",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "3bb9ff1ab06f",
-      "headline": "PACNEWS THREE, 17 NOVEMBER 2026",
+      "id": "2640922e9778",
+      "headline": "Sahel states tighten peanut export curbs to boost local processing",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-18",
-      "url": "https://www.intracen.org/node/439875",
+      "publishedOn": "2026-11-20",
+      "url": "https://www.intracen.org/node/439956",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "fc709bc928bf",
-      "headline": "Sierra Leone startup founders receive investment readiness guidance at T.I.E2 meetup",
+      "id": "3568e1f795ff",
+      "headline": "Syria targets Iraq, Gulf markets with citrus surplus",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-18",
-      "url": "https://www.intracen.org/node/439876",
+      "publishedOn": "2026-11-20",
+      "url": "https://www.intracen.org/node/439952",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "10b205ad6671",
-      "headline": "South African clothing manufacturers compete with imports",
+      "id": "8cbd30b6826e",
+      "headline": "The Flower Girl",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-18",
-      "url": "https://www.intracen.org/node/439877",
+      "publishedOn": "2026-11-20",
+      "url": "https://www.intracen.org/node/439953",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "3d809e66c5a0",
-      "headline": "Tighter EU Green Marketing Rules Put Eswatini's European Tourism Access on the Line",
+      "id": "6e113cff5854",
+      "headline": "Untitled",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-18",
-      "url": "https://www.intracen.org/node/439873",
+      "publishedOn": "2026-11-20",
+      "url": "https://www.intracen.org/node/439955",
       "categories": [
-        "sustainability"
+        "international-trade"
+      ]
+    },
+    {
+      "id": "76d6c315811e",
+      "headline": "Applications open for WIPO-WTO Executive Programme on Intellectual Property Issues",
+      "summary": "The Secretariat of the World Intellectual Property Organization (WIPO) and the Secretariat of the World Trade Organization (WTO) are now accepting applications for the WIPO-WTO Executive Programme on Intellectual Property Issues for…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-19",
+      "url": "https://www.wto.org/english/news_e/news26_e/trip_19nov26_557_e.htm",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "c4e984283734",
+      "headline": "Panama submits request to join Expansion of the Information Technology Agreement",
+      "summary": "Panama has submitted a request to join the 2015 Expansion of the Information Technology Agreement (ITA II), the Chair of the Committee of Participants on the Expansion of Trade in Information Technology Products, Mr Shih-Chun Weng of…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-19",
+      "url": "https://www.wto.org/english/news_e/news26_e/ita_19nov26_560_e.htm",
+      "categories": [
+        "agreements",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "50cb47f7648c",
+      "headline": "Spotlight on trade fundamentals at annual WTO student event",
+      "summary": "Over 200 students joined policymakers, executives and thought leaders on 18 November at the WTO to discuss trade fundamentals at the WTO's annual student-only event on trade, titled WTO 101: Trade Rules!. Now in its third year, the event…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-19",
+      "url": "https://www.wto.org/english/news_e/news26_e/stud_19nov26_558_e.htm",
+      "categories": [
+        "international-trade"
       ]
     },
     {
@@ -289,31 +325,6 @@
       ]
     },
     {
-      "id": "ad1317630703",
-      "headline": "Director-General praises work of Technical Barriers to Trade Committee at 100th meeting",
-      "summary": "At its meeting on 10-13 November, the Technical Barriers to Trade (TBT) Committee explored emerging regulatory topics, such as additive manufacturing and interoperable data standards, discussed 79 trade concerns and adopted guidelines to…",
-      "publisherName": "World Trade Organization",
-      "sourceId": "wto-news",
-      "publishedOn": "2026-11-10",
-      "url": "https://www.wto.org/english/news_e/news26_e/tbt_10nov26_554_e.htm",
-      "categories": [
-        "international-trade"
-      ]
-    },
-    {
-      "id": "c08bc27701d5",
-      "headline": "Ethiopia's accession maintains momentum as WTO members review progress",
-      "summary": "At its eighth meeting on 9 and 10 November, the Working Party on Ethiopia's Accession to the WTO took stock of the latest progress in bilateral market access negotiations and reforms of Ethiopia's foreign trade regime. Leading a…",
-      "publisherName": "World Trade Organization",
-      "sourceId": "wto-news",
-      "publishedOn": "2026-11-10",
-      "url": "https://www.wto.org/english/news_e/news26_e/acc_10nov26_550_e.htm",
-      "categories": [
-        "agreements",
-        "international-trade"
-      ]
-    },
-    {
       "id": "820a05d552db",
       "headline": "ICC network mobilised to drive COP31 ambition on electrification",
       "summary": "The International Chamber of Commerce has issued the following statement in support of the COP31 “35 by 35” Global Electrification Pledge ahead of today’s Electrification Ministerial. The post ICC network mobilised to drive COP31 ambition…",
@@ -336,18 +347,6 @@
       "categories": [
         "supply-chains",
         "sustainability"
-      ]
-    },
-    {
-      "id": "397d159570a2",
-      "headline": "Germany contributes EUR 500,000 to strengthen developing economies' trade capacity",
-      "summary": "Germany is contributing EUR 500,000 (approximately CHF 460,000) to the WTO's Global Trust Fund (GTF) to help developing economies and least developed countries (LDCs) enhance their participation in the multilateral trading system. Carmen…",
-      "publisherName": "World Trade Organization",
-      "sourceId": "wto-news",
-      "publishedOn": "2026-11-09",
-      "url": "https://www.wto.org/english/news_e/news26_e/tech_09nov26_543_e.htm",
-      "categories": [
-        "international-trade"
       ]
     },
     {
