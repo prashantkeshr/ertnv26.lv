@@ -1,6 +1,6 @@
 {
-  "retrievedOn": "2026-11-20",
-  "retrievedAt": "2026-11-20T13:18:48.882Z",
+  "retrievedOn": "2026-11-21",
+  "retrievedAt": "2026-11-21T12:51:23.135Z",
   "feeds": [
     {
       "sourceId": "wto-news",
@@ -14,14 +14,14 @@
       "publisherName": "International Trade Centre",
       "feedUrl": "https://www.intracen.org/rss.xml",
       "ok": true,
-      "items": 9
+      "items": 8
     },
     {
       "sourceId": "ec-trade-news",
       "publisherName": "European Commission",
       "feedUrl": "https://ec.europa.eu/commission/presscorner/api/rss?language=en&topic=trade",
       "ok": true,
-      "items": 0
+      "items": 1
     },
     {
       "sourceId": "icc-news",
@@ -40,109 +40,122 @@
   ],
   "items": [
     {
-      "id": "2e8214106ddf",
-      "headline": "Chart of The Day: Chips are frying oil",
+      "id": "7b4ddbf151a0",
+      "headline": "Banks that want export growth need to catch trade at the source",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-20",
-      "url": "https://www.intracen.org/node/439954",
+      "publishedOn": "2026-11-21",
+      "url": "https://www.intracen.org/node/439978",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "a6525554b314",
-      "headline": "Dasheen and plantain alley cropping trial yields 3,744 pounds at Maroon Hill",
+      "id": "6e1507c29e7b",
+      "headline": "Gambia Marks Global Entrepreneurship Week With Calls For Stronger Business Support",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-20",
-      "url": "https://www.intracen.org/node/439950",
+      "publishedOn": "2026-11-21",
+      "url": "https://www.intracen.org/node/439979",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "f67cca63d21f",
-      "headline": "Gambia calls for stronger support to local businesses",
-      "summary": "",
-      "publisherName": "International Trade Centre",
-      "sourceId": "itc-news",
-      "publishedOn": "2026-11-20",
-      "url": "https://www.intracen.org/node/439958",
-      "categories": [
-        "international-trade"
-      ]
-    },
-    {
-      "id": "1e1211fb22b1",
+      "id": "523e8d497890",
       "headline": "Industry Minister Urges Closer Links Between Finance and Enterprise Development at Global SME Ministerial Meeting",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-20",
-      "url": "https://www.intracen.org/node/439951",
+      "publishedOn": "2026-11-21",
+      "url": "https://www.intracen.org/node/439976",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "72b29df35484",
-      "headline": "Keproba, EATTA partner to boost value-added Kenyan tea exports",
+      "id": "6ed8ff81f00f",
+      "headline": "Industry Minister Urges Closer Links Between Finance and Enterprise Development at Global SME Ministerial Meeting – វិមាន៧មករា",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-20",
-      "url": "https://www.intracen.org/node/439957",
+      "publishedOn": "2026-11-21",
+      "url": "https://www.intracen.org/node/439981",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "2640922e9778",
-      "headline": "Sahel states tighten peanut export curbs to boost local processing",
+      "id": "04e496ec8821",
+      "headline": "KEPROBA, EATTA sign strategic partnership to strengthen global competitiveness of Kenyan tea",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-20",
-      "url": "https://www.intracen.org/node/439956",
+      "publishedOn": "2026-11-21",
+      "url": "https://www.intracen.org/node/439977",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "3568e1f795ff",
-      "headline": "Syria targets Iraq, Gulf markets with citrus surplus",
+      "id": "9781d9e85816",
+      "headline": "Labour's EU ‘reset' is even worse than we feared",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-20",
-      "url": "https://www.intracen.org/node/439952",
+      "publishedOn": "2026-11-21",
+      "url": "https://www.intracen.org/node/439983",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "8cbd30b6826e",
-      "headline": "The Flower Girl",
+      "id": "3b5655e70e40",
+      "headline": "Map of connectivity: 'Made in Europe' or 'Made with Türkiye?'",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-20",
-      "url": "https://www.intracen.org/node/439953",
+      "publishedOn": "2026-11-21",
+      "url": "https://www.intracen.org/node/439985",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "6e113cff5854",
-      "headline": "Untitled",
+      "id": "5b0cfdb2ebff",
+      "headline": "Vietnamese businesses expand the cashew value chain in the German and European markets.",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
+      "publishedOn": "2026-11-21",
+      "url": "https://www.intracen.org/node/439984",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "bd34800ade00",
+      "headline": "EU and Indonesia sign ambitious trade and investment agreements",
+      "summary": "The European Union and Indonesia today signed their Comprehensive Economic Partnership Agreement (CEPA), and Investment Protection Agreement (IPA).",
+      "publisherName": "European Commission",
+      "sourceId": "ec-trade-news",
       "publishedOn": "2026-11-20",
-      "url": "https://www.intracen.org/node/439955",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2532",
+      "categories": [
+        "agreements",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "cdc1be190c04",
+      "headline": "ICC calls on COP31 ministers to take charge at critical juncture",
+      "summary": "With the COP31 discussions at a critical juncture, the International Chamber of Commerce has issued the following statement. The post ICC calls on COP31 ministers to take charge at critical juncture appeared first on ICC - International…",
+      "publisherName": "International Chamber of Commerce",
+      "sourceId": "icc-news",
+      "publishedOn": "2026-11-20",
+      "url": "https://iccwbo.org/news-publications/news/icc-calls-on-cop31-ministers-to-take-charge-at-critical-juncture/",
       "categories": [
         "international-trade"
       ]
@@ -398,19 +411,6 @@
       "url": "https://iccwbo.org/news-publications/news/icc-launches-selection-process-for-next-icc-court-president/",
       "categories": [
         "international-trade"
-      ]
-    },
-    {
-      "id": "960a421704db",
-      "headline": "Electronic Bill of Lading adoption grows as focus shifts to interoperability",
-      "summary": "Joint statement on the results of the 2026 global survey on electronic Bills of Lading (eBL) by the FIT Alliance, co-founded by ICC, BIMCO, DCSA, FIATA and Swift. Conducted in partnership with Shanghai Maritime University and the Digital…",
-      "publisherName": "International Chamber of Commerce",
-      "sourceId": "icc-news",
-      "publishedOn": "2026-10-21",
-      "url": "https://iccwbo.org/news-publications/news/electronic-bill-of-lading-adoption-grows-as-focus-shifts-to-interoperability/",
-      "categories": [
-        "maritime-shipping",
-        "technology"
       ]
     },
     {
