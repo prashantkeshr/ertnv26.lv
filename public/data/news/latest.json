@@ -1,6 +1,6 @@
 {
-  "retrievedOn": "2026-11-22",
-  "retrievedAt": "2026-11-22T12:44:17.057Z",
+  "retrievedOn": "2026-11-23",
+  "retrievedAt": "2026-11-23T15:03:58.740Z",
   "feeds": [
     {
       "sourceId": "wto-news",
@@ -39,6 +39,32 @@
     }
   ],
   "items": [
+    {
+      "id": "38cda618235a",
+      "headline": "Trade-facilitating measures help offset rise in new G20 trade restrictions",
+      "summary": "The number of tariff increases and other non-facilitating trade measures introduced by G20 economies rose sharply in the first half of 2026, and the stockpile of such measures reached a record level, according to the WTO's latest report…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-23",
+      "url": "https://www.wto.org/english/news_e/news26_e/tmg20_23nov26_559_e.htm",
+      "categories": [
+        "tariffs",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "8c26048ad408",
+      "headline": "Commission opens formal investigation into possible anticompetitive conduct by Coca-Cola Europacific Partners in the non-alcoholic drinks sector",
+      "summary": "The European Commission has opened a formal antitrust investigation to assess whether Coca-Cola Europacific Partners (‘CCEP') has breached EU competition rules by (i) hindering the cross-border trade of carbonated soft drinks and sports…",
+      "publisherName": "European Commission",
+      "sourceId": "ec-trade-news",
+      "publishedOn": "2026-11-22",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2530",
+      "categories": [
+        "customs",
+        "international-trade"
+      ]
+    },
     {
       "id": "7b4ddbf151a0",
       "headline": "Banks that want export growth need to catch trade at the source",
@@ -120,19 +146,6 @@
       "publishedOn": "2026-11-21",
       "url": "https://www.intracen.org/node/439984",
       "categories": [
-        "international-trade"
-      ]
-    },
-    {
-      "id": "bd34800ade00",
-      "headline": "EU and Indonesia sign ambitious trade and investment agreements",
-      "summary": "The European Union and Indonesia today signed their Comprehensive Economic Partnership Agreement (CEPA), and Investment Protection Agreement (IPA).",
-      "publisherName": "European Commission",
-      "sourceId": "ec-trade-news",
-      "publishedOn": "2026-11-20",
-      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2532",
-      "categories": [
-        "agreements",
         "international-trade"
       ]
     },
@@ -309,19 +322,6 @@
       "publishedOn": "2026-11-12",
       "url": "https://www.wto.org/english/news_e/news26_e/trip_12nov26_553_e.htm",
       "categories": [
-        "international-trade"
-      ]
-    },
-    {
-      "id": "e7698668d3c6",
-      "headline": "South Africa notifies launch of safeguard investigation into certain non-wired float glass products",
-      "summary": "On 11 November 2026, South Africa notified the WTO’s Committee on Safeguards regarding the initiation on 3 November 2026 of a safeguard investigation into imports of certain non-wired float glass products.",
-      "publisherName": "World Trade Organization",
-      "sourceId": "wto-news",
-      "publishedOn": "2026-11-11",
-      "url": "https://www.wto.org/english/news_e/news26_e/safe_zaf_11nov26_546_e.htm",
-      "categories": [
-        "tariffs",
         "international-trade"
       ]
     },
