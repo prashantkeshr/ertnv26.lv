@@ -1,6 +1,6 @@
 {
-  "retrievedOn": "2026-11-24",
-  "retrievedAt": "2026-11-24T15:02:31.904Z",
+  "retrievedOn": "2026-11-25",
+  "retrievedAt": "2026-11-25T14:41:43.348Z",
   "feeds": [
     {
       "sourceId": "wto-news",
@@ -14,7 +14,7 @@
       "publisherName": "International Trade Centre",
       "feedUrl": "https://www.intracen.org/rss.xml",
       "ok": true,
-      "items": 6
+      "items": 4
     },
     {
       "sourceId": "ec-trade-news",
@@ -40,13 +40,62 @@
   ],
   "items": [
     {
-      "id": "c3510406d183",
-      "headline": "A livelihood built to last",
+      "id": "520718b936a1",
+      "headline": "Better Cotton Initiative unveils keynote lineup ahead of first-ever flagship conference in Africa",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-24",
-      "url": "https://www.intracen.org/node/440034",
+      "publishedOn": "2026-11-25",
+      "url": "https://www.intracen.org/node/440059",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "ac397091e8f9",
+      "headline": "ICC convenes Asia-Pacific leaders to turn trade commitments into delivery",
+      "summary": "ICC is advancing practical trade solutions across the Asia-Pacific, bringing together business leaders, chambers of commerce and international organisations. Focus is on implementing digital trade commitments across borders, strengthening…",
+      "publisherName": "International Chamber of Commerce",
+      "sourceId": "icc-news",
+      "publishedOn": "2026-11-25",
+      "url": "https://iccwbo.org/news-publications/news/icc-convenes-asia-pacific-leaders-to-turn-trade-commitments-into-delivery/",
+      "categories": [
+        "technology",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "7fce118e88d4",
+      "headline": "Swiss aluminium flat rolled product exports to Germany rebound in Q3 after 22% volume decline in Q2",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-25",
+      "url": "https://www.intracen.org/node/440057",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "b3e7b8da76ee",
+      "headline": "Untitled",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-25",
+      "url": "https://www.intracen.org/node/440060",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "4268d689103b",
+      "headline": "Untitled",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-25",
+      "url": "https://www.intracen.org/node/440054",
       "categories": [
         "international-trade"
       ]
@@ -64,65 +113,16 @@
       ]
     },
     {
-      "id": "5a284e64ff70",
-      "headline": "Cop31 draft climate text dissected: what it says and what it means",
-      "summary": "",
-      "publisherName": "International Trade Centre",
-      "sourceId": "itc-news",
+      "id": "bd8d8a1901fd",
+      "headline": "Commission proposes Quantum Act and new Sovereign Tech Equity Fund to strengthen Europe's industrial capacity and security",
+      "summary": "The European Commission today proposed the Quantum Act, a new framework to help turn Europe's quantum research into products and services, strengthen supply chains and prepare Europe's digital systems for post-quantum cryptography. The…",
+      "publisherName": "European Commission",
+      "sourceId": "ec-trade-news",
       "publishedOn": "2026-11-24",
-      "url": "https://www.intracen.org/node/440035",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2567",
       "categories": [
-        "sustainability"
-      ]
-    },
-    {
-      "id": "beeed169a645",
-      "headline": "Industry Minister Advocates for Enhanced Finance-Enterprise Synergy at Global SME Meeting Recent News Polular Stories Our Pages",
-      "summary": "",
-      "publisherName": "International Trade Centre",
-      "sourceId": "itc-news",
-      "publishedOn": "2026-11-24",
-      "url": "https://www.intracen.org/node/440037",
-      "categories": [
-        "international-trade"
-      ]
-    },
-    {
-      "id": "0de350bb4f74",
-      "headline": "Kazakhstan Handles 84% of China-Central Asia Freight as Regional Trade Nearly Triples",
-      "summary": "",
-      "publisherName": "International Trade Centre",
-      "sourceId": "itc-news",
-      "publishedOn": "2026-11-24",
-      "url": "https://www.intracen.org/node/440032",
-      "categories": [
-        "maritime-shipping",
-        "international-trade"
-      ]
-    },
-    {
-      "id": "ba4c327d26b4",
-      "headline": "Kenya signs five-year tea partnership to boost value addition, export markets",
-      "summary": "",
-      "publisherName": "International Trade Centre",
-      "sourceId": "itc-news",
-      "publishedOn": "2026-11-24",
-      "url": "https://www.intracen.org/node/440033",
-      "categories": [
-        "international-trade"
-      ]
-    },
-    {
-      "id": "d19c957d59ba",
-      "headline": "Uzbekistan–China trade reaches $17.5bn in 2025 as Central Asia expands transport links — EDB",
-      "summary": "",
-      "publisherName": "International Trade Centre",
-      "sourceId": "itc-news",
-      "publishedOn": "2026-11-24",
-      "url": "https://www.intracen.org/node/440036",
-      "categories": [
-        "logistics",
-        "international-trade"
+        "supply-chains",
+        "technology"
       ]
     },
     {
@@ -134,19 +134,6 @@
       "publishedOn": "2026-11-23",
       "url": "https://www.wto.org/english/news_e/news26_e/fsec_23nov26_562_e.htm",
       "categories": [
-        "international-trade"
-      ]
-    },
-    {
-      "id": "f2662d3b5baf",
-      "headline": "Commission imposes provisional import quotas on hybrid passenger vehicles",
-      "summary": "The European Commission today published provisional safeguard measures setting import quotas for certain hybrid vehicles. These restrictions are needed to protect EU industry against a sharp recent increase in imports of such vehicles…",
-      "publisherName": "European Commission",
-      "sourceId": "ec-trade-news",
-      "publishedOn": "2026-11-23",
-      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2564",
-      "categories": [
-        "tariffs",
         "international-trade"
       ]
     },
@@ -186,6 +173,19 @@
       "url": "https://iccwbo.org/news-publications/news/icc-calls-on-cop31-ministers-to-take-charge-at-critical-juncture/",
       "categories": [
         "international-trade"
+      ]
+    },
+    {
+      "id": "3c30c501c73e",
+      "headline": "Members review customs valuation notifications, launch new work on preshipment inspection",
+      "summary": "WTO members reviewed compliance with notification obligations under the Customs Valuation Agreement at a meeting on 20 November, at which the Chair highlighted progress in new submissions, while noting persistent gaps. Members also agreed…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-20",
+      "url": "https://www.wto.org/english/news_e/news26_e/val_20nov26_564_e.htm",
+      "categories": [
+        "customs",
+        "agreements"
       ]
     },
     {
@@ -248,19 +248,6 @@
       "url": "https://www.wto.org/english/news_e/news26_e/tmwto_17nov26_552_e.htm",
       "categories": [
         "tariffs",
-        "international-trade"
-      ]
-    },
-    {
-      "id": "69ca397fc60b",
-      "headline": "DDG Nordquist: Global trade is adapting, not retreating",
-      "summary": "Global trade has demonstrated remarkable resilience despite geopolitical tensions, supply chain disruptions and trade restrictions, with businesses adapting through diversification and new trading partnerships, Deputy Director-General DJ…",
-      "publisherName": "World Trade Organization",
-      "sourceId": "wto-news",
-      "publishedOn": "2026-11-16",
-      "url": "https://www.wto.org/english/news_e/news26_e/ddgjn_16nov26_555_e.htm",
-      "categories": [
-        "supply-chains",
         "international-trade"
       ]
     },
@@ -377,18 +364,6 @@
       "url": "https://iccwbo.org/news-publications/report/icc-global-trade-intelligence-report-2026/",
       "categories": [
         "trade-finance",
-        "international-trade"
-      ]
-    },
-    {
-      "id": "705dbd7a97d3",
-      "headline": "ICC launches selection process for next ICC Court President",
-      "summary": "The International Chamber of Commerce (ICC) has launched the process to select the next President of the ICC International Court of Arbitration, for the 2027–2030 term. The post ICC launches selection process for next ICC Court President…",
-      "publisherName": "International Chamber of Commerce",
-      "sourceId": "icc-news",
-      "publishedOn": "2026-11-02",
-      "url": "https://iccwbo.org/news-publications/news/icc-launches-selection-process-for-next-icc-court-president/",
-      "categories": [
         "international-trade"
       ]
     },
