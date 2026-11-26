@@ -1,6 +1,6 @@
 {
-  "retrievedOn": "2026-11-25",
-  "retrievedAt": "2026-11-25T14:41:43.348Z",
+  "retrievedOn": "2026-11-26",
+  "retrievedAt": "2026-11-26T14:06:30.065Z",
   "feeds": [
     {
       "sourceId": "wto-news",
@@ -14,7 +14,7 @@
       "publisherName": "International Trade Centre",
       "feedUrl": "https://www.intracen.org/rss.xml",
       "ok": true,
-      "items": 4
+      "items": 3
     },
     {
       "sourceId": "ec-trade-news",
@@ -40,13 +40,50 @@
   ],
   "items": [
     {
-      "id": "520718b936a1",
-      "headline": "Better Cotton Initiative unveils keynote lineup ahead of first-ever flagship conference in Africa",
+      "id": "d05dd471257a",
+      "headline": "Daily News 26/ 11/ 2026",
+      "summary": "European Commission Daily news Brussels, 26 Nov 2026 EU launches Supply Chain Early Warning Network with Trans-Pacific bloc The EU and the members of the Comprehensive and Progressive Agreement for Trans-Pacific P...",
+      "publisherName": "European Commission",
+      "sourceId": "ec-trade-news",
+      "publishedOn": "2026-11-26",
+      "url": "https://ec.europa.eu/commission/presscorner/detail/en/mex_26_2595",
+      "categories": [
+        "agreements",
+        "supply-chains"
+      ]
+    },
+    {
+      "id": "c85404eae035",
+      "headline": "UK-EU reset to ease Brexit friction, yet full alignment remains distant, says GlobalData",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-25",
-      "url": "https://www.intracen.org/node/440059",
+      "publishedOn": "2026-11-26",
+      "url": "https://www.intracen.org/node/440085",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "686a11d50d28",
+      "headline": "US exports to Iraq fall 39% in nine months",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-26",
+      "url": "https://www.intracen.org/node/440082",
+      "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "de815176114e",
+      "headline": "Young Gambian entrepreneurs boosted with business finance",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-26",
+      "url": "https://www.intracen.org/node/440083",
       "categories": [
         "international-trade"
       ]
@@ -65,42 +102,6 @@
       ]
     },
     {
-      "id": "7fce118e88d4",
-      "headline": "Swiss aluminium flat rolled product exports to Germany rebound in Q3 after 22% volume decline in Q2",
-      "summary": "",
-      "publisherName": "International Trade Centre",
-      "sourceId": "itc-news",
-      "publishedOn": "2026-11-25",
-      "url": "https://www.intracen.org/node/440057",
-      "categories": [
-        "international-trade"
-      ]
-    },
-    {
-      "id": "b3e7b8da76ee",
-      "headline": "Untitled",
-      "summary": "",
-      "publisherName": "International Trade Centre",
-      "sourceId": "itc-news",
-      "publishedOn": "2026-11-25",
-      "url": "https://www.intracen.org/node/440060",
-      "categories": [
-        "international-trade"
-      ]
-    },
-    {
-      "id": "4268d689103b",
-      "headline": "Untitled",
-      "summary": "",
-      "publisherName": "International Trade Centre",
-      "sourceId": "itc-news",
-      "publishedOn": "2026-11-25",
-      "url": "https://www.intracen.org/node/440054",
-      "categories": [
-        "international-trade"
-      ]
-    },
-    {
       "id": "d0675fde6beb",
       "headline": "Brazil requests dispute panel regarding additional duties imposed by the United States",
       "summary": "At a meeting of the Dispute Settlement Body (DSB) on 24 November, members considered a request from Brazil for the establishment of a dispute panel to review additional US duties on products originating in Brazil as a result of two…",
@@ -110,19 +111,6 @@
       "url": "https://www.wto.org/english/news_e/news26_e/dsb_24nov26_563_e.htm",
       "categories": [
         "international-trade"
-      ]
-    },
-    {
-      "id": "bd8d8a1901fd",
-      "headline": "Commission proposes Quantum Act and new Sovereign Tech Equity Fund to strengthen Europe's industrial capacity and security",
-      "summary": "The European Commission today proposed the Quantum Act, a new framework to help turn Europe's quantum research into products and services, strengthen supply chains and prepare Europe's digital systems for post-quantum cryptography. The…",
-      "publisherName": "European Commission",
-      "sourceId": "ec-trade-news",
-      "publishedOn": "2026-11-24",
-      "url": "https://ec.europa.eu/commission/presscorner/detail/en/ip_26_2567",
-      "categories": [
-        "supply-chains",
-        "technology"
       ]
     },
     {
@@ -147,6 +135,19 @@
       "url": "https://www.wto.org/english/news_e/news26_e/safe_eec_23nov26_561_e.htm",
       "categories": [
         "tariffs",
+        "international-trade"
+      ]
+    },
+    {
+      "id": "3bf6a9d72dfd",
+      "headline": "Members briefed on food export restrictions history, safeguard mechanism",
+      "summary": "The history of negotiations on export restrictions on food and a proposed special safeguard mechanism (SSM) for developing economies were the focus of meetings of the Committee on Agriculture's negotiations body on 23 November. This was…",
+      "publisherName": "World Trade Organization",
+      "sourceId": "wto-news",
+      "publishedOn": "2026-11-23",
+      "url": "https://www.wto.org/english/news_e/news26_e/agng_23nov26_565_e.htm",
+      "categories": [
+        "agreements",
         "international-trade"
       ]
     },
@@ -235,19 +236,6 @@
       "url": "https://www.wto.org/english/tratop_e/tpr_e/tpr_per_18nov26_e.htm",
       "categories": [
         "policy",
-        "international-trade"
-      ]
-    },
-    {
-      "id": "5751c62cd50d",
-      "headline": "New trade-restrictive measures surge but WTO members step up trade facilitation efforts",
-      "summary": "The pace of newly-introduced tariffs and other non-facilitating measures rose sharply in the first half of 2026, while the stockpile of such measures reached a record level, according to the WTO Director-General's latest annual overview…",
-      "publisherName": "World Trade Organization",
-      "sourceId": "wto-news",
-      "publishedOn": "2026-11-17",
-      "url": "https://www.wto.org/english/news_e/news26_e/tmwto_17nov26_552_e.htm",
-      "categories": [
-        "tariffs",
         "international-trade"
       ]
     },
