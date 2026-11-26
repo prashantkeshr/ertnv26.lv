@@ -24,9 +24,12 @@ jobs:
           node-version: 22
           cache: npm
       - run: npm ci
+      # The build pre-renders every page in a real browser.
+      - name: Install browser for pre-rendering
+        run: npx playwright install --with-deps chromium
       - name: Unit tests
         run: npm test
-      # "build" runs data build + validation, typecheck, vite build and static route generation.
+      # "build" runs typecheck, vite build, static page generation, pre-rendering and the SEO checks.
       - name: Build
         run: npm run build
       - uses: actions/configure-pages@v5
@@ -43,3 +46,20 @@ jobs:
     steps:
       - id: deployment
         uses: actions/deploy-pages@v4
+
+  verify:
+    needs: deploy
+    runs-on: ubuntu-latest
+    # Reports a problem on the live site without undoing the deploy.
+    continue-on-error: true
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: npm
+      - run: npm ci
+      - name: Check the live site (status, heading, canonical, robots for every sitemap URL)
+        run: |
+          sleep 60
+          npm run seo:live

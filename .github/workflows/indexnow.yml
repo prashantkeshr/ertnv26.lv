@@ -1,0 +1,27 @@
+name: Notify search engines (IndexNow)
+
+# After each successful deploy, tell IndexNow-supporting engines (Bing, Yandex, Seznam, ...) which
+# pages exist. Google does not use IndexNow; submit the sitemap in Search Console for Google.
+on:
+  workflow_run:
+    workflows: ['Deploy to GitHub Pages']
+    types: [completed]
+  workflow_dispatch:
+
+jobs:
+  ping:
+    if: ${{ github.event_name == 'workflow_dispatch' || github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    steps:
+      - name: Submit sitemap URLs
+        run: |
+          set -e
+          sleep 90   # let the new deployment propagate
+          curl -fsS https://eport.live/sitemap.xml -o sitemap.xml
+          node -e "
+            const fs = require('fs');
+            const urls = [...fs.readFileSync('sitemap.xml','utf8').matchAll(/<loc>([^<]+)<\/loc>/g)].map(m => m[1]);
+            fs.writeFileSync('body.json', JSON.stringify({ host: 'eport.live', key: '164bdb02f1b53bb947747b62a779d518', keyLocation: 'https://eport.live/164bdb02f1b53bb947747b62a779d518.txt', urlList: urls }));
+            console.log(urls.length + ' URLs');
+          "
+          curl -sS -o /dev/null -w "IndexNow responded %{http_code}\n" -X POST https://api.indexnow.org/indexnow -H 'Content-Type: application/json; charset=utf-8' --data @body.json

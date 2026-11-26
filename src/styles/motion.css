@@ -299,3 +299,29 @@ dialog * {
 @media (prefers-reduced-motion: reduce) {
   .sonar { animation: none !important; opacity: 0.6; }
 }
+
+/* ---------- pre-rendered snapshot (see src/main.tsx and scripts/prerender.ts) ---------- */
+/* While the snapshot is on screen the live app renders out of sight, then they swap. */
+#root.app-pending {
+  position: absolute;
+  inset-inline: 0;
+  top: 0;
+  height: 0;
+  overflow: hidden;
+  visibility: hidden;
+}
+[data-snapshot] {
+  pointer-events: none;
+  user-select: none;
+}
+[data-snapshot],
+[data-snapshot] * {
+  animation: none !important;
+  transition: none !important;
+}
+.motion [data-snapshot] .reveal,
+.motion [data-snapshot] .rise,
+.motion [data-snapshot] .page-in {
+  opacity: 1 !important;
+  transform: none !important;
+}

@@ -201,13 +201,14 @@ test.describe('interactive features', () => {
   test('country filter narrows the list and can be cleared', async ({ page }) => {
     await page.goto('/countries');
     await page.getByLabel(/Name, capital/).fill('kenya');
-    await expect(page.getByRole('link', { name: 'Kenya' })).toBeVisible();
+    // The A to Z list below the table also links every country, so look in the results table.
+    await expect(page.getByRole('table').getByRole('link', { name: 'Kenya' })).toBeVisible();
     await expect(page.getByRole('status').filter({ hasText: /of 25\d countries/ })).toContainText('1 of');
     await page.getByLabel(/Name, capital/).fill('qqqq');
     await expect(page.getByText('No country matches these filters')).toBeVisible();
     await page.getByRole('button', { name: 'Clear filters' }).click();
     // The unfiltered list is paginated (50 at a time), alphabetically from Afghanistan.
-    await expect(page.getByRole('link', { name: 'Afghanistan' })).toBeVisible();
+    await expect(page.getByRole('table').getByRole('link', { name: 'Afghanistan' })).toBeVisible();
     await expect(page.getByRole('status').filter({ hasText: /countries and territories/ })).toContainText('250 of 250');
     await expect(page.getByRole('button', { name: /Show 50 more/ })).toBeVisible();
   });
@@ -327,6 +328,54 @@ test.describe('learning centre', () => {
     // A territory the sources do not cover gets no invented link.
     await page.goto('/countries/BV');
     await expect(page.locator('#guide').getByText(/No country-specific official page could be confirmed/)).toBeVisible();
+  });
+});
+
+test.describe('search-engine visibility', () => {
+  test('a country page answers 200 and carries its content without running any script', async ({ request }) => {
+    const res = await request.get('/countries/DE/');
+    expect(res.status()).toBe(200);
+    const html = await res.text();
+    expect(html).toMatch(/<title>Germany trade profile/);
+    expect(html).toMatch(/<h1[^>]*>Germany/);
+    expect(html).toContain('<link rel="canonical" href="https://eport.live/countries/DE/"');
+    expect(html).toContain('property="og:image" content="https://eport.live/og/countries-DE.jpg"');
+    expect(html).toMatch(/"@type":"BreadcrumbList"/);
+    expect(html.replace(/<[^>]+>/g, ' ').length).toBeGreaterThan(5000);
+  });
+
+  test('a territory with no data is kept out of search', async ({ request }) => {
+    const thin = await (await request.get('/countries/BV/')).text();
+    expect(thin).toMatch(/<meta name="robots" content="noindex/);
+    expect(await (await request.get('/sitemap.xml')).text()).not.toContain('/countries/BV/');
+    // An unknown address answers 404 with a noindex page on GitHub Pages; that is checked on the live site by `npm run seo:live`.
+  });
+
+  test('the sitemap lists country pages with real dates and robots.txt points at it', async ({ request }) => {
+    const sitemap = await (await request.get('/sitemap.xml')).text();
+    expect((sitemap.match(/<url>/g) ?? []).length).toBeGreaterThan(200);
+    expect(sitemap).toContain('<loc>https://eport.live/countries/BR/</loc>');
+    expect(await (await request.get('/robots.txt')).text()).toContain('Sitemap: https://eport.live/sitemap.xml');
+    expect((await request.get('/llms.txt')).status()).toBe(200);
+  });
+
+  test('for a normal browser the pre-rendered copy hands over to the live app', async ({ browser }) => {
+    const context = await browser.newContext();
+    // Automated browsers skip the snapshot; pretend to be a person's browser so the hand-over runs.
+    await context.addInitScript(() => Object.defineProperty(navigator, 'webdriver', { get: () => false }));
+    const page = await context.newPage();
+    await page.goto('/countries/DE/');
+    await expect(page.locator('#snapshot')).toHaveCount(0, { timeout: 15_000 });
+    await expect(page.locator('#root')).not.toHaveClass(/app-pending/);
+    await expect(page.locator('main h1')).toHaveCount(1);
+    await expect(page.locator('main h1')).toContainText('Germany');
+    await context.close();
+  });
+
+  test('every country is reachable as a plain link from the A to Z list', async ({ page }) => {
+    await page.goto('/countries');
+    await expect(page.getByRole('heading', { name: /All 250 countries and territories, A to Z/ })).toBeVisible();
+    await expect(page.locator('section[aria-labelledby="az-heading"] a[href^="/countries/"]')).toHaveCount(250);
   });
 });
 

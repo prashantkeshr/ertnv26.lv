@@ -166,6 +166,46 @@ export default function CountriesPage() {
           )}
         </div>
       </div>
+      {countries.data && <AlphabeticalIndex countries={countries.data} />}
     </>
+  );
+}
+
+/**
+ * Every country as a plain link, A to Z, regardless of filters or the "show more" button — so the
+ * whole set is reachable by people scanning the page and by crawlers that do not click.
+ */
+function AlphabeticalIndex({ countries }: { countries: Country[] }) {
+  const sorted = useMemo(() => [...countries].sort((a, b) => a.name.localeCompare(b.name, 'en')), [countries]);
+  const groups = useMemo(() => {
+    const out = new Map<string, Country[]>();
+    for (const c of sorted) out.set(c.name[0]!.toUpperCase(), [...(out.get(c.name[0]!.toUpperCase()) ?? []), c]);
+    return [...out.entries()];
+  }, [sorted]);
+  return (
+    <section aria-labelledby="az-heading" className="border-t border-line bg-soft">
+      <div className="container-page py-12">
+        <h2 id="az-heading" className="text-2xl font-bold">
+          All {countries.length} countries and territories, A to Z
+        </h2>
+        <p className="mt-2 max-w-3xl text-sm leading-relaxed text-muted">Open any entry for its map, trade partners, indicators and the worldwide export and import framework.</p>
+        <div className="mt-8 grid gap-x-8 gap-y-6 sm:grid-cols-2 lg:grid-cols-4">
+          {groups.map(([letter, list]) => (
+            <div key={letter}>
+              <h3 className="border-b border-line pb-1 font-display text-lg font-bold text-link">{letter}</h3>
+              <ul className="mt-2 space-y-1">
+                {list.map((c) => (
+                  <li key={c.cca2}>
+                    <Link to={`/countries/${c.cca2}`} className="block py-1 text-sm text-ink hover:text-link hover:underline">
+                      {c.name}
+                    </Link>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+    </section>
   );
 }

@@ -9,8 +9,18 @@ import { Logo } from './Header';
 
 const EXPLORE = [
   { to: '/countries', label: 'Country Explorer' },
+  { to: '/trade', label: 'Trade Explorer' },
+  { to: '/regions/asia', label: 'Trade in Asia' },
+  { to: '/regions/europe', label: 'Trade in Europe' },
+  { to: '/regions/africa', label: 'Trade in Africa' },
+  { to: '/regions/americas', label: 'Trade in the Americas' },
+  { to: '/regions/oceania', label: 'Trade in Oceania' },
+  { to: '/academy/incoterms', label: 'Incoterms® explained' },
+  { to: '/academy/documents', label: 'Trade documents' },
+  { to: '/academy/glossary', label: 'Trade glossary' },
   { to: '/directory/organizations', label: 'International organizations' },
   { to: '/directory/authorities', label: 'Official authorities' },
+  { to: '/intelligence/news', label: 'Trade news' },
   { to: '/search', label: 'Search' },
 ];
 const TRUST = [

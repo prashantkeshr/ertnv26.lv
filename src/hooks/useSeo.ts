@@ -47,7 +47,7 @@ export function useSeo({ title, description, path, breadcrumbs, noindex }: SeoIn
     setMeta('meta[property="og:title"]', 'content', full, meta('og:title', 'property'));
     setMeta('meta[property="og:description"]', 'content', description, meta('og:description', 'property'));
     setMeta('meta[property="og:url"]', 'content', url, meta('og:url', 'property'));
-    setMeta('meta[name="robots"]', 'content', noindex ? 'noindex' : 'index,follow', meta('robots'));
+    setMeta('meta[name="robots"]', 'content', noindex ? 'noindex,follow' : 'index,follow,max-image-preview:large', meta('robots'));
     setMeta('link[rel="canonical"]', 'href', url, () => {
       const el = document.createElement('link');
       el.setAttribute('rel', 'canonical');

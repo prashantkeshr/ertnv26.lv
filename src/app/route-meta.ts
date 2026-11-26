@@ -14,6 +14,13 @@ export const SITE = {
     'eport is an independent platform for international trade information, export-import education, maritime intelligence and trade documentation.',
 } as const;
 
+/**
+ * Ownership-verification tokens for search consoles. Leave empty until the site owner has created
+ * the accounts; generate-static writes a <meta> tag for each non-empty value (alternatively verify
+ * by DNS record or by placing the provider's HTML file in public/).
+ */
+export const SEO_VERIFICATION = { google: '', bing: '' } as const;
+
 export interface RouteMeta {
   path: string;
   title: string;

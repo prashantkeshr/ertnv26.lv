@@ -10,7 +10,9 @@ import { EmptyState, ErrorState, LoadingBlock } from '@/components/feedback/stat
 import { SectionNav, type NavSection } from '@/components/navigation/SectionNav';
 import { AuthorityCard } from '@/features/directory/AuthorityCard';
 import { VideoShelf } from '@/features/videos/VideoShelf';
-import { useDataset } from '@/hooks/useAsync';
+import { countryDescription, countryTitle } from '@/app/seo-text';
+import { useAsync, useDataset } from '@/hooks/useAsync';
+import { loadPartners } from '@/services/data/loader';
 import { useSeo } from '@/hooks/useSeo';
 import type { Country, CountryCoverage } from '@/types/schemas';
 import { makeRef } from '@/utils/entities';
@@ -101,14 +103,30 @@ export default function CountryPage() {
   const path = `/countries/${country?.cca2 ?? code}`;
   const crumbs = [{ label: 'Countries', path: '/countries' }, { label: country?.name ?? code }];
 
+  const tradeIndex = useDataset('trade-index');
+  const indicatorIndex = useDataset('indicator-index');
+  const partnerFile = useAsync(`seo-partners:${country?.cca3 ?? ''}`, async () => (country && tradeIndex.data?.reporters.includes(country.cca3) ? loadPartners(country.cca3) : null));
+  const nameOf = new Map((countries.data ?? []).map((c) => [c.cca3, c.name]));
+  const seoText = country
+    ? {
+        title: countryTitle(country.name),
+        description: countryDescription({
+          name: country.name,
+          cca2: country.cca2,
+          cca3: country.cca3,
+          topExportMarkets: (partnerFile.data?.exports ?? []).slice(0, 3).map(([iso3]) => nameOf.get(iso3) ?? ''),
+          topExportSectors: (partnerFile.data?.sectors.exports ?? []).map(([id]) => id),
+        }),
+      }
+    : { title: 'Country profile', description: 'Country trade profile on eport.' };
+
   useSeo({
-    title: country ? `${country.name} — trade profile, indicators and authorities` : 'Country profile',
-    description: country
-      ? `${country.name} (${country.cca2}, ${country.cca3}): map, ISO identifiers, World Bank trade indicators, public holidays, reference exchange rate and linked trade authorities.`
-      : 'Country trade profile on eport.',
+    title: seoText.title,
+    description: seoText.description,
     path,
     breadcrumbs: seoCrumbs(crumbs, path),
-    noindex: !country,
+    // A territory with neither a trade report nor indicators is a reference record only, so it is kept out of search results.
+    noindex: !country || Boolean(country && tradeIndex.data && indicatorIndex.data && !tradeIndex.data.reporters.includes(country.cca3) && !indicatorIndex.data.areas.includes(country.cca3)),
   });
 
   const error = countries.error ?? coverage.error;

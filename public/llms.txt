@@ -1,0 +1,23 @@
+# eport
+
+> eport (eport.live) is an independent information platform for international trade: country profiles, worldwide goods-trade partners and sectors, a country-to-country Trade Explorer, Incoterms and trade-document guides, and a directory of the international organizations and authorities behind trade rules. It is a subsidiary of Dhurta.org, managed by Dhurta Group. It is not a government, customs, port or regulatory service.
+
+Every figure shows its source, year and unit. Trade statistics are goods only, for 2023, as reported by each country (World Bank WITS); economic indicators come from the World Bank. Editorial guides are marked "needs review" and are general frameworks, not legal requirements. Please cite the page you use and its stated source.
+
+## Explore
+
+- [Countries A to Z](https://eport.live/countries/): all 250 countries and territories, each with trade partners, indicators and an import–export framework
+- [Trade Explorer](https://eport.live/trade/): goods trade between any two countries, in both directions, with each side's own report
+- [Trade by region](https://eport.live/regions/asia/): Africa, Americas, Asia, Europe and Oceania overviews (also /regions/europe/, /regions/africa/, /regions/americas/, /regions/oceania/)
+- [Incoterms 2020 explained](https://eport.live/academy/incoterms/): the eleven rules in plain language, who pays and where risk passes
+- [Trade documents](https://eport.live/academy/documents/): common shipping and customs documents and which depend on which
+- [Trade glossary](https://eport.live/academy/glossary/): customs, shipping and trade-finance terms
+- [International organizations](https://eport.live/directory/organizations/): WTO, WCO, IMO, ICC, ITC, UNCTAD, World Bank, ISO, IPPC, FAO
+- [Official authorities](https://eport.live/directory/authorities/): trade authorities with links to their official websites
+- [Trade news](https://eport.live/intelligence/news/): headlines from official publishers, each linking to the original
+
+## Trust and method
+
+- [Sources and methodology](https://eport.live/methodology/)
+- [Data Reliability Centre](https://eport.live/data-reliability/): which datasets are verified, partial, seeded or unavailable
+- [About eport](https://eport.live/about/) · [Contact](https://eport.live/contact/): support@dhurta.org
