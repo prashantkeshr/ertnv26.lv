@@ -1,6 +1,6 @@
 {
-  "retrievedOn": "2026-11-27",
-  "retrievedAt": "2026-11-27T14:04:17.035Z",
+  "retrievedOn": "2026-11-28",
+  "retrievedAt": "2026-11-28T13:21:46.861Z",
   "feeds": [
     {
       "sourceId": "wto-news",
@@ -14,7 +14,7 @@
       "publisherName": "International Trade Centre",
       "feedUrl": "https://www.intracen.org/rss.xml",
       "ok": true,
-      "items": 5
+      "items": 7
     },
     {
       "sourceId": "ec-trade-news",
@@ -40,62 +40,87 @@
   ],
   "items": [
     {
-      "id": "59b87afed3f5",
-      "headline": "East Africa’s Creative Renaissance: Films, Festivals And Cultural Experiences To Discover",
+      "id": "b8a228c3bde5",
+      "headline": "An AI apprenticeship programme seeks to empower international agency staff amid job cuts",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-27",
-      "url": "https://www.intracen.org/node/440100",
+      "publishedOn": "2026-11-28",
+      "url": "https://www.intracen.org/node/440225",
+      "categories": [
+        "technology"
+      ]
+    },
+    {
+      "id": "11f8f0b6fd62",
+      "headline": "CII wins global award for outstanding leadership in MSME development",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-28",
+      "url": "https://www.intracen.org/node/440232",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "8d21bb10011c",
-      "headline": "EU Statement at UNIDO's 54th session of the Industrial Development Board on UNIDO's cooperation with Africa, 25 November 2026",
+      "id": "152e0a01ac75",
+      "headline": "November 25: “Orange Evening” at the UN in Geneva for Women – News from Embassies",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-27",
-      "url": "https://www.intracen.org/node/440098",
+      "publishedOn": "2026-11-28",
+      "url": "https://www.intracen.org/node/440228",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "d01c6c5798a0",
-      "headline": "Global Import and Export Data Tracking Tools: TradeMap and UN Comtrade",
+      "id": "6fe2b131d185",
+      "headline": "OPINION I Why attendance matters",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-27",
-      "url": "https://www.intracen.org/node/440097",
+      "publishedOn": "2026-11-28",
+      "url": "https://www.intracen.org/node/440227",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "bfece888c03f",
-      "headline": "Modal title",
+      "id": "a32168338f48",
+      "headline": "Report: The Evolving Role of Chinese Imports in Sri Lanka's Economy",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-27",
-      "url": "https://www.intracen.org/node/440102",
+      "publishedOn": "2026-11-28",
+      "url": "https://www.intracen.org/node/440231",
       "categories": [
         "international-trade"
       ]
     },
     {
-      "id": "71b94d77a433",
-      "headline": "Untitled",
+      "id": "51fae4440ac1",
+      "headline": "Ugandan female creatives called to embrace criticism, build networks to succeed",
       "summary": "",
       "publisherName": "International Trade Centre",
       "sourceId": "itc-news",
-      "publishedOn": "2026-11-27",
-      "url": "https://www.intracen.org/node/440106",
+      "publishedOn": "2026-11-28",
+      "url": "https://www.intracen.org/node/440229",
       "categories": [
+        "international-trade"
+      ]
+    },
+    {
+      "id": "bfe2a930155d",
+      "headline": "美國財經媒體CNBC報導，德意志銀行分析國際貿易中心（International Trade Centre）數據指出，AI熱潮帶動半導體全球出口總值首度超越石油與天然氣。",
+      "summary": "",
+      "publisherName": "International Trade Centre",
+      "sourceId": "itc-news",
+      "publishedOn": "2026-11-28",
+      "url": "https://www.intracen.org/node/440226",
+      "categories": [
+        "technology",
         "international-trade"
       ]
     },
